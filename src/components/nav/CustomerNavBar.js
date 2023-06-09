@@ -6,9 +6,9 @@ export const CustomerNavBar = () => {
 
     return (
         <ul className="navbar">
-            {/* <li className="navbar__locations">
-                <Link className="navbar__link" to="/locations">Locations</Link>
-            </li> */}
+            <li className="navbar__locations">
+                <Link className="navbar__link" to="/profile">Profile</Link>
+            </li>
 
             <li className="navbar__item navbar__logout">
                 <Link className="navbar__link" to="" onClick={() => {
