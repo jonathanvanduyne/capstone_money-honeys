@@ -1,4 +1,4 @@
-.h1, h1 {
+/* .h1, h1 {
     font-size: 2.5rem;
 }
 
@@ -59,4 +59,76 @@ fieldset {
     position: relative;
     bottom: -2rem;
 }
+ */
 
+.container--login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.form--login {
+    width: 300px;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.form--login h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form--login h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form--login fieldset {
+    margin-bottom: 20px;
+}
+
+.form--login label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form--login input[type="email"] {
+    width: 100%;
+    /* Adjusted width */
+    max-width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /* Added box-sizing property */
+}
+
+.form--login button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.link--register {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.link--register a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.link--register a:hover {
+    text-decoration: underline;
+}

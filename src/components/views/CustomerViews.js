@@ -1,6 +1,7 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { LandingPageGreeting } from "../LandingPage/LandingPage.js"
-import { CustomerProfile } from "../Profile.js/CustomerProfile.js"
+import { Profile } from "../Profile.js/Profile.js"
+
 
 export const CustomerViews = () => {
 	return (
@@ -15,7 +16,7 @@ export const CustomerViews = () => {
 				</>
 			} />
 
-			<Route path="profile" element={<CustomerProfile />} />
+			<Route path="profile" element={<Profile />} />
 
 		</Routes>
 	)
