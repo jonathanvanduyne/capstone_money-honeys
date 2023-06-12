@@ -1,8 +1,9 @@
-// export const LandingPageGreeting = () => {
+import { getCurrentUser } from "../../APIManager.js"
 
-//     const localmoneyHoneyUser = localStorage.getItem("moneyHoneys_user")
-//     const moneyHoneyUserObject = JSON.parse(localmoneyHoneyUser)
+export const LandingPageGreeting = () => {
 
-//     const currentUser = 
-//     return "hello"
-// }
+    const currentUser = getCurrentUser()
+    const greeting = currentUser.firstName
+    
+    return <>Hi {greeting}!</>
+}

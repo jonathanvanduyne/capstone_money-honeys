@@ -1,14 +1,14 @@
+import { getCurrentUser } from "../../APIManager.js"
 import { AdvisorViews } from "./AdvisorViews.js"
 import { CustomerViews } from "./CustomerViews.js"
 
 
 export const ApplicationViews = () => {
 
-	const localmoneyHoneyUser = localStorage.getItem("moneyHoneys_user")
-	const moneyHoneyUserObject = JSON.parse(localmoneyHoneyUser)
+	const currentUser = getCurrentUser()
 
 
-	if (moneyHoneyUserObject.staff) {
+	if (currentUser.staff) {
 		return <AdvisorViews />
 	}
 	else {
