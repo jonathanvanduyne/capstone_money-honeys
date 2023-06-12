@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { getCurrentCustomerInfo } from "../../APIManager.js";
+import { useNavigate } from "react-router-dom";
 
 export const CustomerProfile = () => {
     const [currentUser, setCurrentUser] = useState(null);
+    const navigate = useNavigate()
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     useEffect(() => {
         getCurrentCustomerInfo()
@@ -11,6 +15,8 @@ export const CustomerProfile = () => {
             });
     }, []);
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     return (
         <>
             <div>
@@ -20,7 +26,7 @@ export const CustomerProfile = () => {
                 <p>Phone Number: {currentUser?.phoneNumber}</p>
                 <p>Date of Birth: {currentUser?.dateOfBirth}</p>
                 <p>Beneficiary: {currentUser?.beneficiary}</p>
-                <button>Update Profile</button>
+                <button onClick={() => navigate("UpdateCustomerProfile")}>Update Profile</button>
             </div>
         </>
     )

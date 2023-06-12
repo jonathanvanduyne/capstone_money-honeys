@@ -1,6 +1,7 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { LandingPageGreeting } from "../LandingPage/LandingPage.js"
 import { Profile } from "../Profile.js/Profile.js"
+import { UpdateAdvisorProfile } from "../Profile.js/AdvisorUpdateProfile.js"
 
 export const AdvisorViews = () => {
 	return (
@@ -16,6 +17,8 @@ export const AdvisorViews = () => {
 			} />
 
 			<Route path="profile" element={<Profile />} />
+			
+			<Route path="profile/UpdateAdvisorProfile" element={<UpdateAdvisorProfile />} />
 
 			
 
