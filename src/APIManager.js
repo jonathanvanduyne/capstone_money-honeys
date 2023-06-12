@@ -14,7 +14,7 @@ export const getAllAdvisors = async () => {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Customers
 export const getAllCustomers = async () => {
-    const response = await fetch("http://localhost:8088/customers");
+    const response = await fetch("http://localhost:8088/customers?_expand=user");
     const customers = await response.json();
     return customers;
 };
@@ -35,9 +35,9 @@ export const getAllProductsTypes = async () => {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Policies
 export const getAllPolicies = async () => {
-    const response = await fetch("http://localhost:8088/policies");
+    const response = await fetch("http://localhost:8088/policies?_expand=customer&_expand=advisor&_expand=product");
     const policies = await response.json();
-    return policies;
+    return policies
 };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //CurrentUser
@@ -69,4 +69,23 @@ export const getCurrentCustomerInfo = async () => {
         (customer) => customer?.user?.id === moneyHoneyUserObject.id
     );
     return currentCustomer;
+};
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Delete Button for Advisors' Policy Page
+export const AdvisorDeleteButton = ({ policyId }) => {
+
+    const handleClick = () => {
+        fetch(`http://localhost:8088/policies/${policyId}`, {
+            method: "DELETE"
+        })
+            .then(() => {
+                getAllPolicies();
+            });
+    };
+
+    return (
+        <button onClick={handleClick} className="policy__delete">
+            Delete
+        </button>
+    );
 };
