@@ -35,7 +35,7 @@ export const AdvisorPolicies = () => {
 
     useEffect(() => {
         if (currentAdvisor) {
-            const currentPolicies = allPolicies.filter(policy => policy.advisor.userId === currentAdvisor.userId);
+            const currentPolicies = allPolicies.filter(policy => policy?.advisor?.userId === currentAdvisor?.userId);
             setCurrentAdvisorPolicies(currentPolicies);
         }
 
@@ -46,25 +46,25 @@ export const AdvisorPolicies = () => {
 
     return (
         <>
-            <h2>List of Policies</h2>
+            <h2>{currentAdvisor?.user?.firstName} {currentAdvisor?.user?.lastName}'s Policies</h2>
 
             <article className="policies">
                 {currentAdvisorPolicies.length > 0
                     ? (currentAdvisorPolicies.map((policy) => (
-                        <section className="policy" key={`Id--${policy.id}`}>
+                        <section className="policy" key={`Policy Id--${policy.id}`}>
                             <header>
                                 <p>ID: {policy.id}</p>
-                                <p>Customer:
-                                    {`${customers.find(customer => customer.id === policy.customerId)?.user?.firstName} 
-                                ${customers.find(customer => customer.id === policy.customerId)?.user?.lastName}`}
+                                <p>Customer: 
+                                    {` ${customers.find(customer => customer.id === policy.customerId)?.user?.firstName}
+                                    ${customers.find(customer => customer.id === policy.customerId)?.user?.lastName}`}
                                 </p>
                             </header>
                             <p>Product ID: {policy.product.id}</p>
                             <p>Start Date: {policy.startDate}</p>
                             <p>Term: {policy.term}</p>
                             <footer>
-                            <AdvisorDeleteButton policyId={policy.id} />
-                        </footer>
+                                <AdvisorDeleteButton policyId={policy.id} />
+                            </footer>
                         </section>
                     )))
                     :

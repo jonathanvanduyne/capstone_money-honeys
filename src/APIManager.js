@@ -7,7 +7,7 @@ export const getAllUsers = async () => {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Advisors
 export const getAllAdvisors = async () => {
-    const response = await fetch("http://localhost:8088/advisors");
+    const response = await fetch("http://localhost:8088/advisors?_expand=user");
     const advisors = await response.json();
     return advisors;
 };
@@ -89,3 +89,4 @@ export const AdvisorDeleteButton = ({ policyId }) => {
         </button>
     );
 };
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
