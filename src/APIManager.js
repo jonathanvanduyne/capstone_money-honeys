@@ -90,3 +90,9 @@ export const AdvisorDeleteButton = ({ policyId }) => {
     );
 };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//get Single Advisor for customer
+export const getSingleAdvisor = async (advisorId) => {
+    const response = await fetch(`http://localhost:8088/advisors?_expand=user&userId={advisorId}`);
+    const advisor = await response.json();
+    return advisor;
+};

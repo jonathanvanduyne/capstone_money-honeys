@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { getAllPolicies, getAllAdvisors, getCurrentCustomerInfo } from "../../APIManager.js";
-import "./Policy.css"
+import "./Policy.css";
+import { CustomerPolicy } from "./CustomerPolicy.js";
 
-export const CustomerPolicies = () => {
+export const CustomerPolicyList = () => {
     const [allPolicies, setAllPolicies] = useState([]);
     const [advisors, setAllAdvisors] = useState([]);
     const [currentCustomerPolicies, setCurrentCustomerPolicies] = useState([]);
-    const [currentCustomer, setCurrentCustomer] = useState([])
+    const [currentCustomer, setCurrentCustomer] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -23,14 +24,12 @@ export const CustomerPolicies = () => {
         fetchData();
     }, []);
 
-
     useEffect(() => {
         if (currentCustomer) {
-            const currentPolicies = allPolicies.filter(policy => policy.customer?.userId === currentCustomer.userId);
+            const currentPolicies = allPolicies.filter(policy => policy?.customer?.userId === currentCustomer?.userId);
             setCurrentCustomerPolicies(currentPolicies);
         }
     }, [allPolicies, currentCustomer]);
-    
 
     return (
         <>
@@ -38,22 +37,17 @@ export const CustomerPolicies = () => {
 
             <article className="policies">
                 {currentCustomerPolicies.map((policy) => (
-                    <section className="policy" key={`Id--${policy.id}`}>
-                        <header>
-                            <p>ID: {policy.id}</p>
-                            <p>
-                                Advisor:{" "}
-                                {`${advisors.find(advisor => advisor.id === policy.advisorId)?.user?.firstName}`}
-                                {" "}
-                                {`${advisors.find(advisor => advisor.id === policy.advisorId)?.user?.lastName}`}
-                            </p>
-                        </header>
-                        <p>Product ID: {policy.product.id}</p>
-                        <p>Start Date: {policy.startDate}</p>
-                        <p>Term: {policy.term}</p>
-                    </section>
+                    <CustomerPolicy key={`customerPolicy--${policy.id}`}
+                        policyNumber={policy.id}
+                        productId={policy?.product?.id}
+                        startDate={policy?.startDate}
+                        term={policy?.term}
+                        advisorId={policy?.advisorId}
+                        advisorFirstName={advisors.find((advisor) => advisor.id === policy.advisorId)?.user?.firstName}
+                        advisorLastName={advisors.find((advisor) => advisor.id === policy.advisorId)?.user?.lastName}
+                    />
                 ))}
             </article>
         </>
-    )
-}
+    );
+};

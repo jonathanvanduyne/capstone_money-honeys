@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getCurrentCustomerInfo } from "../../APIManager.js";
 import { useNavigate } from "react-router-dom";
+import "./Profile.css"
 
 export const CustomerProfile = () => {
     const [currentUser, setCurrentUser] = useState(null);
@@ -16,10 +17,10 @@ export const CustomerProfile = () => {
     }, []);
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     return (
         <>
-            <div>
+            <div className="customer-profile">
                 <p>Name: {currentUser?.user?.firstName} {currentUser?.user?.lastName}</p>
                 <p>Email: {currentUser?.user?.email}</p>
                 <p>Address: {currentUser?.address}</p>
@@ -29,5 +30,4 @@ export const CustomerProfile = () => {
                 <button onClick={() => navigate("UpdateCustomerProfile")}>Update Profile</button>
             </div>
         </>
-    )
-}
+    )}
