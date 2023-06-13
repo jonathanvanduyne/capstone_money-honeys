@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./Policy.css"
+import "./CustomerPolicy.css"
 
 export const CustomerPolicy = ({ policyNumber, productId, startDate, term, advisors, advisorId, advisorFirstName, advisorLastName }) => {
     return (

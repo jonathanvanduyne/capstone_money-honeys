@@ -3,7 +3,7 @@ import { LandingPageGreeting } from "../LandingPage/LandingPage.js"
 import { Profile } from "../Profile.js/Profile.js"
 import { UpdateCustomerProfile } from "../Profile.js/CustomerUpdateProfile.js"
 import { CustomerPolicyList } from "../CustomerPolicies/CustomerPoliciesList.js"
-import { AdvisorDetail } from "../CustomerPolicies/CustomerAdvisorDetail.js"
+import { CustomerAdvisorDetail } from "../CustomerPolicies/CustomerAdvisorDetail.js"
 
 
 export const CustomerViews = () => {
@@ -25,7 +25,7 @@ export const CustomerViews = () => {
 
 			<Route path="policies" element={<CustomerPolicyList />} />
 
-			<Route path=":advisorId" element={<AdvisorDetail />} />
+			<Route path=":advisorId" element={<CustomerAdvisorDetail />} />
 
 		</Routes>
 	)

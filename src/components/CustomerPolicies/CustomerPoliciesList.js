@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllPolicies, getAllAdvisors, getCurrentCustomerInfo } from "../../APIManager.js";
-import "./Policy.css";
+import "./CustomerPolicy.css";
 import { CustomerPolicy } from "./CustomerPolicy.js";
 
 export const CustomerPolicyList = () => {

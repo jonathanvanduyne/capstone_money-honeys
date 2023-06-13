@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import "./Policy.css"
-import { AdvisorDeleteButton, getAllCustomers, getAllPolicies, getCurrentAdvisorInfo } from "../../APIManager.js";
+import "./AdvisorPolicy.css"
+import { getAllCustomers, getAllPolicies, getCurrentAdvisorInfo } from "../../APIManager.js";
+import { AdvisorPolicy } from "./AdvisorPolicy.js";
 
-export const AdvisorPolicies = () => {
+export const AdvisorPolicyList = () => {
     const [allPolicies, setAllPolicies] = useState([]);
     const [currentAdvisor, setCurrentAdvisor] = useState(null);
     const [customers, setCustomers] = useState([])
@@ -49,29 +50,23 @@ export const AdvisorPolicies = () => {
             <h2>{currentAdvisor?.user?.firstName} {currentAdvisor?.user?.lastName}'s Policies</h2>
 
             <article className="policies">
-                {currentAdvisorPolicies.length > 0
-                    ? (currentAdvisorPolicies.map((policy) => (
-                        <section className="policy" key={`Policy Id--${policy.id}`}>
-                            <header>
-                                <p>ID: {policy.id}</p>
-                                <p>Customer: 
-                                    {` ${customers.find(customer => customer.id === policy.customerId)?.user?.firstName}
-                                    ${customers.find(customer => customer.id === policy.customerId)?.user?.lastName}`}
-                                </p>
-                            </header>
-                            <p>Product ID: {policy.product.id}</p>
-                            <p>Start Date: {policy.startDate}</p>
-                            <p>Term: {policy.term}</p>
-                            <footer>
-                                <AdvisorDeleteButton policyId={policy.id} />
-                            </footer>
-                        </section>
-                    )))
-                    :
-                    (
-                        <p>No policies found for the current advisor.</p>
-                    )}
+                {currentAdvisorPolicies.length > 0 ? (
+                    currentAdvisorPolicies.map((policy) => (
+                        <AdvisorPolicy
+                            key={`customerPolicy--${policy.id}`}
+                            policyNumber={policy.id}
+                            productId={policy?.product?.id}
+                            startDate={policy?.startDate}
+                            term={policy?.term}
+                            customerId={policy.customerId}
+                            customerFirstName={customers.find(customer => customer.id === policy.customerId)?.user?.firstName}
+                            customerLastName={customers.find(customer => customer.id === policy.customerId)?.user?.lastName}
+                        />
+                    ))
+                ) : (
+                    <p>No policies found for the current advisor.</p>
+                )}
             </article>
         </>
     );
-}
+}      
