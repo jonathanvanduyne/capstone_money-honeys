@@ -10,7 +10,8 @@ export const AdvisorPolicy = ({ policyNumber, productId, startDate, term, custom
                 <p>
                     Customer:{" "}
                     <Link to={`/${customerId}`}>
-                        {`${customerFirstName} ${customerLastName}`}
+                        {`${customerFirstName}
+                        ${customerLastName}`}
                     </Link>
                 </p>
             </header>

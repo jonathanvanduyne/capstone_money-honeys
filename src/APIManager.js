@@ -19,16 +19,23 @@ export const getAllCustomers = async () => {
     return customers;
 };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Billing Frequency
+export const getAllBillingFrequencies = async () => {
+    const response = await fetch("http://localhost:8088/billingFrequency");
+    const billingFrequency = await response.json();
+    return billingFrequency;
+};
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Products
 export const getAllProducts = async () => {
-    const response = await fetch("http://localhost:8088/products");
+    const response = await fetch("http://localhost:8088/products?_expand=productType&_expand=billingFrequency");
     const products = await response.json();
     return products;
 };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //ProductTypes
 export const getAllProductsTypes = async () => {
-    const response = await fetch("http://localhost:8088/productsTypes");
+    const response = await fetch("http://localhost:8088/productTypes");
     const productTypes = await response.json();
     return productTypes;
 };
@@ -90,9 +97,3 @@ export const AdvisorDeleteButton = ({ policyId }) => {
     );
 };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//get Single Advisor for customer
-export const getSingleAdvisor = async (advisorId) => {
-    const response = await fetch(`http://localhost:8088/advisors?_expand=user&userId={advisorId}`);
-    const advisor = await response.json();
-    return advisor;
-};

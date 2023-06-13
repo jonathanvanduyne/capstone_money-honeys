@@ -25,7 +25,6 @@ body {
     animation: fade-in 1s ease-in-out;
     color: black#fff;
     font-size: 48px;
-    text-transform: uppercase;
     filter: grayscale(100%);
     transition: filter 0.5s ease-in-out;
   }

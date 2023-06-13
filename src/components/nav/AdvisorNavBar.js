@@ -12,6 +12,9 @@ export const AdvisorNavBar = () => {
             <li className="navbar__locations">
                 <Link className="navbar__link" to="/policies">Policies</Link>
             </li>
+            <li className="navbar__locations">
+                <Link className="navbar__link" to="/productList">Product List</Link>
+            </li>
 
             <li className="navbar__item navbar__logout">
                 <Link className="navbar__link" to="" onClick={() => {

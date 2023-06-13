@@ -7,7 +7,7 @@ export const CustomerAdvisorDetail = () => {
 
     useEffect(
         () => {
-            fetch(`http://localhost:8088/advisors?_expand=user&userId=${advisorId}`)
+            fetch(`http://localhost:8088/advisors?_expand=user&id=${advisorId}`)
                 .then(response => response.json())
                 .then((data) => {
                     const singleAdvisor = data[0]
@@ -20,7 +20,7 @@ export const CustomerAdvisorDetail = () => {
     return <section className="advisor">
         <header className="advisor__header"><h3>{advisor?.user?.firstName}{" "}{advisor?.user?.lastName}</h3></header>
         <div>Email: {advisor?.user?.email} </div>
-        <div>Phone Number: {advisor?.OfficeAddress} </div>
+        <div>Phone Number: {advisor?.officePhone} </div>
         <div>Address: {advisor?.officeAddress} </div>
     </section>
 }

@@ -4,6 +4,8 @@ import { Profile } from "../Profile.js/Profile.js"
 import { UpdateAdvisorProfile } from "../Profile.js/AdvisorUpdateProfile.js"
 import { AdvisorPolicyList} from "../AdvisorPolicies/AdvisorPoliciesList.js"
 import { AdvisorCustomerDetail} from "../AdvisorPolicies/AdvisorCustomerDetail.js"
+import { ProductList } from "../Products/ProductList.js"
+import { AddNewProduct } from "../Products/AddNewProduct.js"
 
 
 export const AdvisorViews = () => {
@@ -25,7 +27,11 @@ export const AdvisorViews = () => {
 			
 			<Route path="/policies" element={<AdvisorPolicyList />} />
 			
-			<Route path=":customerId" element={<AdvisorCustomerDetail/>} />
+			<Route path=":customerId" element={<AdvisorCustomerDetail />} />
+			
+			<Route path="/productList" element={<ProductList />} />
+			
+			<Route path="/AddNewProduct" element={<AddNewProduct />} />
 
 			
 
