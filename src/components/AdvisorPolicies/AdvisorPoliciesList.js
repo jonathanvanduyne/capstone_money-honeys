@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getAllCustomers, getAllPolicies, getCurrentAdvisorInfo, AdvisorDeleteButton } from "../../APIManager.js";
 import "./Policy.css"
+import { AdvisorDeleteButton, getAllCustomers, getAllPolicies, getCurrentAdvisorInfo } from "../../APIManager.js";
 
 export const AdvisorPolicies = () => {
     const [allPolicies, setAllPolicies] = useState([]);

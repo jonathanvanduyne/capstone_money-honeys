@@ -2,7 +2,7 @@ import { Outlet, Route, Routes } from "react-router-dom"
 import { LandingPageGreeting } from "../LandingPage/LandingPage.js"
 import { Profile } from "../Profile.js/Profile.js"
 import { UpdateCustomerProfile } from "../Profile.js/CustomerUpdateProfile.js"
-import { CustomerPolicies } from "../Policies/CustomerPolicies.js"
+import { CustomerPolicies } from "../CustomerPolicies/CustomerPoliciesList.js"
 
 
 export const CustomerViews = () => {

@@ -2,7 +2,8 @@ import { Outlet, Route, Routes } from "react-router-dom"
 import { LandingPageGreeting } from "../LandingPage/LandingPage.js"
 import { Profile } from "../Profile.js/Profile.js"
 import { UpdateAdvisorProfile } from "../Profile.js/AdvisorUpdateProfile.js"
-import { AdvisorPolicies } from "../Policies/AdvisorPolicies.js"
+import { AdvisorPolicies } from "../AdvisorPolicies/AdvisorPoliciesList.js"
+
 
 export const AdvisorViews = () => {
 	return (
