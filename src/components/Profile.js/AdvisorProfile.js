@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { getCurrentAdvisorInfo } from "../../APIManager.js";
 import { useNavigate } from "react-router-dom";
+import "./Profile.css"
 
 export const AdvisorProfile = () => {
     const [currentUser, setCurrentUser] = useState(null);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     useEffect(() => {
         getCurrentAdvisorInfo()
@@ -15,7 +16,7 @@ export const AdvisorProfile = () => {
 
     return (
         <>
-            <div>
+            <div className="customer-profile">
                 <p>Name: {currentUser?.user?.firstName} {currentUser?.user?.lastName}</p>
                 <p>Email: {currentUser?.user?.email}</p>
                 <p>Office Address: {currentUser?.officeAddress}</p>
