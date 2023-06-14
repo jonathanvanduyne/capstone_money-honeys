@@ -34,9 +34,9 @@ export const Login = () => {
         <main className="container--login">
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>💰🍯Money Honeys🍯💰</h1>
-                    <h2>Connecting with a financial advisor has never been so sweet</h2>
-                    <h2>Please sign in</h2>
+                    <h1>💰Money Honey🍯</h1>
+                    <h2>Connecting With a Financial Advisor Has Never Been So Sweet</h2>
+                    <h2>Please Sign In</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
                         <input type="email"

@@ -13,8 +13,8 @@ export const AdvisorViews = () => {
 		<Routes>
 			<Route path="/" element={
 				<>
-					<h1>💰🍯Money Honey🍯💰</h1>
-					<h2>Connecting with a financial advisor has never been so sweet</h2>
+					<h1>💰Money Honey🍯</h1>
+					<h2>Connecting With a Financial Advisor Has Never Been So Sweet</h2>
 
 					<LandingPageGreeting />
 					<Outlet />

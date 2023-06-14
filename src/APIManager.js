@@ -78,22 +78,5 @@ export const getCurrentCustomerInfo = async () => {
     return currentCustomer;
 };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Delete Button for Advisors' Policy Page
-export const AdvisorDeleteButton = ({ policyId }) => {
 
-    const handleClick = () => {
-        fetch(`http://localhost:8088/policies/${policyId}`, {
-            method: "DELETE"
-        })
-            .then(() => {
-                getAllPolicies();
-            });
-    };
-
-    return (
-        <button onClick={handleClick} className="policy__delete">
-            Delete
-        </button>
-    );
-};
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

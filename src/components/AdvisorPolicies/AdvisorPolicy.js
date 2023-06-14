@@ -18,9 +18,6 @@ export const AdvisorPolicy = ({ policyNumber, productId, startDate, term, custom
             <p>Product ID: {productId}</p>
             <p>Start Date: {startDate}</p>
             <p>Term: {term}</p>
-            <footer>
-                <AdvisorDeleteButton policyId={policyNumber} />
-            </footer>
         </section>
     );
 };
