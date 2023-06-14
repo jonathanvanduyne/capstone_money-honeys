@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCurrentCustomerInfo } from "../../APIManager.js";
+import { useNavigate } from "react-router-dom";
 
 export const UpdateCustomerProfile = () => {
     const [profile, updateProfile] = useState({
@@ -10,6 +11,7 @@ export const UpdateCustomerProfile = () => {
     });
 
     const [feedback, setFeedback] = useState("");
+    const navigate = useNavigate()
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -32,7 +34,7 @@ export const UpdateCustomerProfile = () => {
 
     const handleSaveButtonClick = async (event) => {
         event.preventDefault();
-
+    
         await fetch(`http://localhost:8088/customers/${profile.id}`, {
             method: "PUT",
             headers: {
@@ -42,9 +44,16 @@ export const UpdateCustomerProfile = () => {
         })
             .then((response) => response.json())
             .then(() => {
-                setFeedback("Employee profile successfully saved");
+                setFeedback("Employee profile successfully saved - Rerouting to Profile");
+            })
+            .then(() => {
+                setTimeout(() => {
+                    setFeedback(""); // Clear the feedback message after 3 seconds
+                    navigate("/profile"); // Navigate to "/profile" after 3 seconds
+                }, 3000);
             });
     };
+    
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

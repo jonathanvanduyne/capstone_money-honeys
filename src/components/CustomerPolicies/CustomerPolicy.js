@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./CustomerPolicy.css"
 
-export const CustomerPolicy = ({ policyNumber, productId, startDate, term, advisorId, advisorFirstName, advisorLastName }) => {
+export const CustomerPolicy = ({ policyNumber, productId, startDate, term, advisorId, advisorFirstName, advisorLastName, productName }) => {
     return (
         <>
             <article>
@@ -18,6 +18,7 @@ export const CustomerPolicy = ({ policyNumber, productId, startDate, term, advis
                         </p>
                     </header>
                     <p>Product ID: {productId}</p>
+                    <p>Product Name: {productName}</p>
                     <p>Start Date: {startDate}</p>
                     <p>Term: {term}</p>
                 </section>

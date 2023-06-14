@@ -32,7 +32,8 @@ export const AdvisorPolicyList = () => {
         fetchCustomerInfo();
     }, []);
 
-    //
+
+    ///////////////////////////////////////////////////////
 
     useEffect(() => {
         if (currentAdvisor) {
@@ -42,7 +43,29 @@ export const AdvisorPolicyList = () => {
 
     }, [allPolicies, currentAdvisor]);
 
+    ///////////////////////////////////////////////////////
 
+    useEffect(() => {
+        const fetchData = async () => {
+            const policies = await getAllPolicies();
+            setAllPolicies(policies);
+        };
+
+        const fetchAdvisorInfo = async () => {
+            const advisor = await getCurrentAdvisorInfo();
+            setCurrentAdvisor(advisor);
+        };
+
+        const fetchCustomerInfo = async () => {
+            const customerlist = await getAllCustomers();
+            setCustomers(customerlist);
+        };
+
+        fetchData();
+        fetchAdvisorInfo();
+        fetchCustomerInfo();
+    }, [currentAdvisorPolicies]);
+    
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     return (
