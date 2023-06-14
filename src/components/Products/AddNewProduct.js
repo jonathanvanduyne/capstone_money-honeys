@@ -5,9 +5,9 @@ import "./Products.css"
 
 export const AddNewProduct = () => {
     const [product, update] = useState({
-        typeId: "",
+        productTypeId: "",
         price: 0,
-        billingFrequency: "",
+        billingFrequencyId: "",
     });
     const [productTypes, setProductTypes] = useState([]);
     const [billingFrequencies, setBillingFrequencies] = useState([]);
@@ -15,6 +15,7 @@ export const AddNewProduct = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+
         const fetchData = async () => {
             const types = await getAllProductsTypes();
             setProductTypes(types);
@@ -26,13 +27,14 @@ export const AddNewProduct = () => {
         fetchData();
     }, []);
 
+
     const handleSaveButtonClick = (event) => {
         event.preventDefault();
 
         const productToSendToAPI = {
-            typeId: product.typeId,
+            productTypeId: product.productTypeId,
             price: product.price,
-            billingFrequency: product.billingFrequency,
+            billingFrequencyId: product.billingFrequencyId,
         };
 
         return fetch("http://localhost:8088/products", {
@@ -43,7 +45,7 @@ export const AddNewProduct = () => {
             body: JSON.stringify(productToSendToAPI),
         })
             .then((response) => response.json())
-            .then(() => navigate("/products"));
+            .then(() => navigate("/productList"));
     };
 
     return (
@@ -58,7 +60,7 @@ export const AddNewProduct = () => {
                         value={product.typeId}
                         onChange={(evt) => {
                             const copy = { ...product };
-                            copy.typeId = evt.target.value;
+                            copy.productTypeId = parseFloat(evt.target.value);
                             update(copy);
                         }}
                     >
@@ -84,7 +86,7 @@ export const AddNewProduct = () => {
                         value={product.price}
                         onChange={(evt) => {
                             const copy = { ...product };
-                            copy.price = evt.target.value;
+                            copy.price = parseFloat(evt.target.value);
                             update(copy);
                         }}
                     />
@@ -99,7 +101,7 @@ export const AddNewProduct = () => {
                         value={product.billingFrequency}
                         onChange={(evt) => {
                             const copy = { ...product };
-                            copy.billingFrequency = evt.target.value;
+                            copy.billingFrequencyId = parseFloat(evt.target.value);
                             update(copy);
                         }}
                     >

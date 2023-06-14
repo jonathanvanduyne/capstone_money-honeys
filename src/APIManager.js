@@ -21,7 +21,7 @@ export const getAllCustomers = async () => {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Billing Frequency
 export const getAllBillingFrequencies = async () => {
-    const response = await fetch("http://localhost:8088/billingFrequency");
+    const response = await fetch("http://localhost:8088/billingFrequencies");
     const billingFrequency = await response.json();
     return billingFrequency;
 };
