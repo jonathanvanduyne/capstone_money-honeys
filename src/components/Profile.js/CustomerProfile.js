@@ -52,17 +52,25 @@ export const CustomerProfile = () => {
         fetchBeneficiaryData();
     };
 
+    const handleBeneficiaryEdit = (beneficiaryId) => {
+        navigate(`/profile/editBeneficiary/${beneficiaryId}`)
+    }
 
+const AddNewBeneficiaryButtonClick = () => {
+    navigate("/addNewBeneficiary")
+}
     return (
         <>
             <div className="customer-profile">
                 <h3>Profile</h3>
+                <section className="profile">
                 <p>Name: {currentUser?.user?.firstName} {currentUser?.user?.lastName}</p>
                 <p>Email: {currentUser?.user?.email}</p>
                 <p>Address: {currentUser?.address}</p>
                 <p>Phone Number: {currentUser?.phoneNumber}</p>
                 <p>Date of Birth: {currentUser?.dateOfBirth}</p>
                 <button onClick={() => navigate("UpdateCustomerProfile")}>Update Profile</button>
+                </section>
             </div>
             <div className="customer-profile">
                 <h3>Beneficiaries</h3>
@@ -75,8 +83,10 @@ export const CustomerProfile = () => {
                         <p>Relationship: {beneficiary?.beneficiary?.relationship}</p>
                         <p>Type: {getBeneficiaryTypeName(beneficiary)}</p>
                         <button onClick={() => handleBeneficiaryDelete(beneficiary.id)}>Delete</button>
+                        <button onClick={() => handleBeneficiaryEdit(beneficiary.id)}>Edit</button>
                     </section>
                 ))}
+            <button className="addBeneficiary-button" onClick={AddNewBeneficiaryButtonClick}>Add New Beneficiary</button>
             </div>
         </>
     );

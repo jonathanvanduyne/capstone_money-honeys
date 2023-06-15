@@ -1,7 +1,7 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { LandingPageGreeting } from "../LandingPage/LandingPage.js"
 import { Profile } from "../Profile.js/Profile.js"
-import { UpdateAdvisorProfile } from "../Profile.js/AdvisorUpdateProfile.js"
+import { UpdateAdvisorProfile } from "../Profile.js/AdvisorEditProfile.js"
 import { AdvisorPolicyList} from "../AdvisorPolicies/AdvisorPoliciesList.js"
 import { AdvisorCustomerDetail} from "../AdvisorPolicies/AdvisorCustomerDetail.js"
 import { ProductList } from "../Products/ProductList.js"
