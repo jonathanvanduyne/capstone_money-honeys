@@ -15,20 +15,20 @@ export const CustomerProfile = () => {
         setCurrentUser(currentCustomer);
     }
 
+    const fetchBeneficiaryData = async () => {
+        const customerBeneficiaries = await getCurrentCustomerBeneficiaries();
+        setBeneficiaries(customerBeneficiaries);
+
+
+        const beneficiaryTypes = await getAllBeneficiaryTypes();
+        setBeneficiaryTypes(beneficiaryTypes);
+
+        const beneficiaryBridges = await getBeneficiaryBridges();
+        setBeneficiaryBridges(beneficiaryBridges);
+
+    };
+
     useEffect(() => {
-
-        const fetchBeneficiaryData = async () => {
-            const customerBeneficiaries = await getCurrentCustomerBeneficiaries();
-            setBeneficiaries(customerBeneficiaries);
-
-
-            const beneficiaryTypes = await getAllBeneficiaryTypes();
-            setBeneficiaryTypes(beneficiaryTypes);
-
-            const beneficiaryBridges = await getBeneficiaryBridges();
-            setBeneficiaryBridges(beneficiaryBridges);
-
-        };
 
         fetchCustomer()
         fetchBeneficiaryData();
@@ -49,7 +49,7 @@ export const CustomerProfile = () => {
         await fetch(`http://localhost:8088/beneficiaryBridges/${bridgeTable.id}`, {
             method: "DELETE"
         });
-        fetchCustomer(); // Re-fetch policies after deletion
+        fetchBeneficiaryData();
     };
 
 
