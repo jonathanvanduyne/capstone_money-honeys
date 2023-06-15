@@ -58,8 +58,10 @@ export const getCurrentUser = () => {
 export const getCurrentAdvisorInfo = async () => {
     const response = await fetch("http://localhost:8088/advisors?_expand=user");
     const advisors = await response.json();
+
     const localmoneyHoneyUser = localStorage.getItem("moneyHoneys_user");
     const moneyHoneyUserObject = JSON.parse(localmoneyHoneyUser);
+
     const currentAdvisor = advisors.find(
         (advisor) => advisor?.user?.id === moneyHoneyUserObject.id
     );
@@ -70,13 +72,56 @@ export const getCurrentAdvisorInfo = async () => {
 export const getCurrentCustomerInfo = async () => {
     const response = await fetch("http://localhost:8088/customers?_expand=user");
     const customers = await response.json();
+
     const localmoneyHoneyUser = localStorage.getItem("moneyHoneys_user");
     const moneyHoneyUserObject = JSON.parse(localmoneyHoneyUser);
+
     const currentCustomer = customers.find(
         (customer) => customer?.user?.id === moneyHoneyUserObject.id
     );
     return currentCustomer;
 };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Beneficiary List
+export const getAllBeneficiaries = async () => {
+    const response = await fetch("http://localhost:8088/beneficiaries");
+    const beneficiaries = await response.json();
+    return beneficiaries
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Customer Beneficiares
+export const getCurrentCustomerBeneficiaries = async () => {
+    const beneficiaryResponse = await fetch("http://localhost:8088/beneficiaryBridges?_expand=customer&_expand=beneficiary");
+    const beneficiaries = await beneficiaryResponse.json();
 
+    const customersResponse = await fetch("http://localhost:8088/customers?_expand=user");
+    const customers = await customersResponse.json();
+
+    const localmoneyHoneyUser = localStorage.getItem("moneyHoneys_user");
+    const moneyHoneyUserObject = JSON.parse(localmoneyHoneyUser);
+
+    const currentCustomer = customers.find(
+        (customer) => customer?.user?.id === moneyHoneyUserObject.id
+    );
+
+    const CustomerBeneficiaries = beneficiaries.filter((beneficiary) => beneficiary?.customerId === currentCustomer.id)
+
+    return CustomerBeneficiaries
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//BeneficiaryType
+export const getAllBeneficiaryTypes = async () => {
+    const beneficiaryTypesResponse = await fetch("http://localhost:8088/beneficiaryTypes");
+    const beneficiariesTypes = await beneficiaryTypesResponse.json();
+
+    return beneficiariesTypes
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//BeneficiaryBridge
+export const getBeneficiaryBridges = async () => {
+    const beneficiaryBridgesResponse = await fetch("http://localhost:8088/beneficiaryBridges");
+    const beneficiariesBridges = await beneficiaryBridgesResponse.json();
+
+    return beneficiariesBridges
+}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

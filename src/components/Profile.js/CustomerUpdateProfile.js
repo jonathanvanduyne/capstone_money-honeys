@@ -6,7 +6,6 @@ export const UpdateCustomerProfile = () => {
     const [profile, updateProfile] = useState({
         address: "",
         phoneNumber: "",
-        beneficiary: "",
         userId: 0
     });
 
@@ -94,21 +93,7 @@ export const UpdateCustomerProfile = () => {
                         />
                     </div>
                 </fieldset>
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="Beneficiary">Beneficiary:</label>
-                        <input
-                            type="tel"
-                            className="form-control"
-                            value={profile?.beneficiary}
-                            onChange={(evt) => {
-                                const copy = { ...profile };
-                                copy.beneficiary = evt.target.value;
-                                updateProfile(copy);
-                            }}
-                        />
-                    </div>
-                </fieldset>
+                
                 <button onClick={handleSaveButtonClick} className="btn btn-primary">
                     Save Profile
                 </button>
