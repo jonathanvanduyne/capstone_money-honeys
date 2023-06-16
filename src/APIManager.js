@@ -134,3 +134,12 @@ export const getBeneficiaryForEdit = async ({ beneficiaryId }) => {
     const answer = beneficiary.beneficiary
     return answer;
 };
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Edit Beneficiaries by CustomerID
+export const getBeneficiaryBridgesByCustomerId = async (customerId) => {
+    const beneficiaryResponse = await fetch(
+        `http://localhost:8088/beneficiaryBridges?customerId=${customerId}&_expand=customer&_expand=beneficiary`
+    );
+    const beneficiaryBridges = await beneficiaryResponse.json();
+    return beneficiaryBridges[0].beneficiary;
+};

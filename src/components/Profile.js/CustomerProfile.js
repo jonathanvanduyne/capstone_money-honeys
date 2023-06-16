@@ -8,6 +8,7 @@ export const CustomerProfile = () => {
     const [beneficiaries, setBeneficiaries] = useState([]);
     const [beneficiariesTypes, setBeneficiaryTypes] = useState([]);
     const [beneficiaryBridges, setBeneficiaryBridges] = useState([]);
+    const [showAddBeneficiaryButton, setShowAddBeneficiaryButton] = useState(true); // New state variable
     const navigate = useNavigate();
 
     const fetchCustomer = async () => {
@@ -19,17 +20,21 @@ export const CustomerProfile = () => {
         const customerBeneficiaries = await getCurrentCustomerBeneficiaries();
         setBeneficiaries(customerBeneficiaries);
 
-
         const beneficiaryTypes = await getAllBeneficiaryTypes();
         setBeneficiaryTypes(beneficiaryTypes);
 
         const beneficiaryBridges = await getBeneficiaryBridges();
         setBeneficiaryBridges(beneficiaryBridges);
 
+        // Check if there are already 2 beneficiaries and hide the button if true
+        if (customerBeneficiaries.length >= 2) {
+            setShowAddBeneficiaryButton(false);
+        } else {
+            setShowAddBeneficiaryButton(true);
+        }
     };
 
     useEffect(() => {
-
         fetchCustomer()
         fetchBeneficiaryData();
     }, []);
@@ -56,20 +61,21 @@ export const CustomerProfile = () => {
         navigate(`/profile/editBeneficiary/${beneficiaryId}`)
     }
 
-const AddNewBeneficiaryButtonClick = () => {
-    navigate("/addNewBeneficiary")
-}
+    const AddNewBeneficiaryButtonClick = () => {
+        navigate("/addNewBeneficiary");
+    }
+
     return (
         <>
             <div className="customer-profile">
                 <h3>Profile</h3>
                 <section className="profile">
-                <p>Name: {currentUser?.user?.firstName} {currentUser?.user?.lastName}</p>
-                <p>Email: {currentUser?.user?.email}</p>
-                <p>Address: {currentUser?.address}</p>
-                <p>Phone Number: {currentUser?.phoneNumber}</p>
-                <p>Date of Birth: {currentUser?.dateOfBirth}</p>
-                <button onClick={() => navigate("UpdateCustomerProfile")}>Update Profile</button>
+                    <p>Name: {currentUser?.user?.firstName} {currentUser?.user?.lastName}</p>
+                    <p>Email: {currentUser?.user?.email}</p>
+                    <p>Address: {currentUser?.address}</p>
+                    <p>Phone Number: {currentUser?.phoneNumber}</p>
+                    <p>Date of Birth: {currentUser?.dateOfBirth}</p>
+                    <button onClick={() => navigate("UpdateCustomerProfile")}>Update Profile</button>
                 </section>
             </div>
             <div className="customer-profile">
@@ -86,7 +92,9 @@ const AddNewBeneficiaryButtonClick = () => {
                         <button onClick={() => handleBeneficiaryEdit(beneficiary.id)}>Edit</button>
                     </section>
                 ))}
-            <button className="addBeneficiary-button" onClick={AddNewBeneficiaryButtonClick}>Add New Beneficiary</button>
+                {showAddBeneficiaryButton && (
+                    <button className="addBeneficiary-button" onClick={AddNewBeneficiaryButtonClick}>Add New Beneficiary</button>
+                )}
             </div>
         </>
     );
