@@ -24,3 +24,27 @@
 .customer-profile button:hover {
     background-color: #0056b3;
 }
+
+.customer-profile .beneficiary {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+}
+
+.customer-profile .beneficiary header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.customer-profile .beneficiary p {
+    margin-bottom: 5px;
+}
+
+.customer-profile .beneficiary .beneficiary-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}

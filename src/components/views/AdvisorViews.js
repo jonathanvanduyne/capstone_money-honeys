@@ -1,7 +1,7 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { LandingPageGreeting } from "../LandingPage/LandingPage.js"
 import { Profile } from "../Profile.js/Profile.js"
-import { UpdateAdvisorProfile } from "../Profile.js/AdvisorUpdateProfile.js"
+import { UpdateAdvisorProfile } from "../Profile.js/AdvisorEditProfile.js"
 import { AdvisorPolicyList} from "../AdvisorPolicies/AdvisorPoliciesList.js"
 import { AdvisorCustomerDetail} from "../AdvisorPolicies/AdvisorCustomerDetail.js"
 import { ProductList } from "../Products/ProductList.js"
@@ -13,8 +13,8 @@ export const AdvisorViews = () => {
 		<Routes>
 			<Route path="/" element={
 				<>
-					<h1>💰🍯Money Honeys🍯💰</h1>
-					<h2>Connecting with a financial advisor has never been so sweet</h2>
+					<h1>💰Money Honey🍯</h1>
+					<h2>Connecting With a Financial Advisor Has Never Been So Sweet</h2>
 
 					<LandingPageGreeting />
 					<Outlet />

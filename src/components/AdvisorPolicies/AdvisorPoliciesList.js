@@ -1,21 +1,22 @@
 import { useEffect, useState } from "react";
-import "./AdvisorPolicy.css"
+import "./AdvisorPolicy.css";
 import { getAllCustomers, getAllPolicies, getCurrentAdvisorInfo } from "../../APIManager.js";
 import { AdvisorPolicy } from "./AdvisorPolicy.js";
 
 export const AdvisorPolicyList = () => {
     const [allPolicies, setAllPolicies] = useState([]);
     const [currentAdvisor, setCurrentAdvisor] = useState(null);
-    const [customers, setCustomers] = useState([])
+    const [customers, setCustomers] = useState([]);
     const [currentAdvisorPolicies, setCurrentAdvisorPolicies] = useState([]);
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    const fetchData = async () => {
+        const policies = await getAllPolicies();
+        setAllPolicies(policies);
+    };
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     useEffect(() => {
-        const fetchData = async () => {
-            const policies = await getAllPolicies();
-            setAllPolicies(policies);
-        };
 
         const fetchAdvisorInfo = async () => {
             const advisor = await getCurrentAdvisorInfo();
@@ -23,8 +24,8 @@ export const AdvisorPolicyList = () => {
         };
 
         const fetchCustomerInfo = async () => {
-            const customerlist = await getAllCustomers();
-            setCustomers(customerlist);
+            const customerList = await getAllCustomers();
+            setCustomers(customerList);
         };
 
         fetchData();
@@ -32,18 +33,23 @@ export const AdvisorPolicyList = () => {
         fetchCustomerInfo();
     }, []);
 
-    //
-
     useEffect(() => {
-        if (currentAdvisor) {
+        if (currentAdvisor && allPolicies.length > 0) {
             const currentPolicies = allPolicies.filter(policy => policy?.advisor?.userId === currentAdvisor?.userId);
             setCurrentAdvisorPolicies(currentPolicies);
         }
+    }, [currentAdvisor, allPolicies]);
 
-    }, [allPolicies, currentAdvisor]);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    const handlePolicyDelete = async (policyId) => {
+        await fetch(`http://localhost:8088/policies/${policyId}`, {
+            method: "DELETE"
+        });
+        fetchData(); // Re-fetch policies after deletion
+    };
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     return (
         <>
@@ -52,16 +58,18 @@ export const AdvisorPolicyList = () => {
             <article className="policies">
                 {currentAdvisorPolicies.length > 0 ? (
                     currentAdvisorPolicies.map((policy) => (
-                        <AdvisorPolicy
-                            key={`customerPolicy--${policy.id}`}
-                            policyNumber={policy.id}
-                            productId={policy?.product?.id}
-                            startDate={policy?.startDate}
-                            term={policy?.term}
-                            customerId={policy.customerId}
-                            customerFirstName={customers.find(customer => customer.id === policy.customerId)?.user?.firstName}
-                            customerLastName={customers.find(customer => customer.id === policy.customerId)?.user?.lastName}
-                        />
+                        <div key={`customerPolicy--${policy.id}`}>
+                            <AdvisorPolicy
+                                policyNumber={policy.id}
+                                productId={policy?.product?.id}
+                                startDate={policy?.startDate}
+                                term={policy?.term}
+                                customerId={policy.customerId}
+                                customerFirstName={customers.find(customer => customer.id === policy.customerId)?.user?.firstName}
+                                customerLastName={customers.find(customer => customer.id === policy.customerId)?.user?.lastName}
+                            />
+                            <button onClick={() => handlePolicyDelete(policy.id)}>Delete</button>
+                        </div>
                     ))
                 ) : (
                     <p>No policies found for the current advisor.</p>
@@ -69,4 +77,4 @@ export const AdvisorPolicyList = () => {
             </article>
         </>
     );
-}      
+};

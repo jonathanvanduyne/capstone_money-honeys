@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { getCurrentCustomerInfo } from "../../APIManager.js";
+import { useNavigate } from "react-router-dom";
 
 export const UpdateCustomerProfile = () => {
     const [profile, updateProfile] = useState({
         address: "",
         phoneNumber: "",
-        beneficiary: "",
         userId: 0
     });
 
     const [feedback, setFeedback] = useState("");
+    const navigate = useNavigate()
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -32,7 +33,7 @@ export const UpdateCustomerProfile = () => {
 
     const handleSaveButtonClick = async (event) => {
         event.preventDefault();
-
+    
         await fetch(`http://localhost:8088/customers/${profile.id}`, {
             method: "PUT",
             headers: {
@@ -42,9 +43,16 @@ export const UpdateCustomerProfile = () => {
         })
             .then((response) => response.json())
             .then(() => {
-                setFeedback("Employee profile successfully saved");
+                setFeedback("Employee profile successfully saved - Rerouting to Profile");
+            })
+            .then(() => {
+                setTimeout(() => {
+                    setFeedback(""); // Clear the feedback message after 3 seconds
+                    navigate("/profile"); // Navigate to "/profile" after 3 seconds
+                }, 3000);
             });
     };
+    
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -85,21 +93,7 @@ export const UpdateCustomerProfile = () => {
                         />
                     </div>
                 </fieldset>
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="Beneficiary">Beneficiary:</label>
-                        <input
-                            type="tel"
-                            className="form-control"
-                            value={profile?.beneficiary}
-                            onChange={(evt) => {
-                                const copy = { ...profile };
-                                copy.beneficiary = evt.target.value;
-                                updateProfile(copy);
-                            }}
-                        />
-                    </div>
-                </fieldset>
+                
                 <button onClick={handleSaveButtonClick} className="btn btn-primary">
                     Save Profile
                 </button>

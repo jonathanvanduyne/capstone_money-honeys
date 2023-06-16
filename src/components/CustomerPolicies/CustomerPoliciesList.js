@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllPolicies, getAllAdvisors, getCurrentCustomerInfo } from "../../APIManager.js";
+import { getAllPolicies, getAllAdvisors, getCurrentCustomerInfo, getAllProducts } from "../../APIManager.js";
 import "./CustomerPolicy.css";
 import { CustomerPolicy } from "./CustomerPolicy.js";
 
@@ -8,6 +8,7 @@ export const CustomerPolicyList = () => {
     const [advisors, setAllAdvisors] = useState([]);
     const [currentCustomerPolicies, setCurrentCustomerPolicies] = useState([]);
     const [currentCustomer, setCurrentCustomer] = useState([]);
+    const [products, setCurrentProducts] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -19,6 +20,9 @@ export const CustomerPolicyList = () => {
 
             const currentCustomer = await getCurrentCustomerInfo();
             setCurrentCustomer(currentCustomer);
+
+            const products = await getAllProducts()
+            setCurrentProducts(products)
         };
 
         fetchData();
@@ -45,6 +49,7 @@ export const CustomerPolicyList = () => {
                         advisorId={policy?.advisorId}
                         advisorFirstName={advisors.find((advisor) => advisor.id === policy.advisorId)?.user?.firstName}
                         advisorLastName={advisors.find((advisor) => advisor.id === policy.advisorId)?.user?.lastName}
+                        productName={products.find((product) => product.id === policy.productId)?.productType.category}
                     />
                 ))}
             </article>

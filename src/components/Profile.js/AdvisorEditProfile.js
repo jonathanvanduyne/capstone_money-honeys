@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCurrentAdvisorInfo } from "../../APIManager.js";
+import { useNavigate } from "react-router-dom";
 
 export const UpdateAdvisorProfile = () => {
     const [profile, updateProfile] = useState({
@@ -9,7 +10,7 @@ export const UpdateAdvisorProfile = () => {
     });
 
     const [feedback, setFeedback] = useState("");
-
+const navigate = useNavigate()
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     useEffect(() => {
@@ -41,7 +42,13 @@ export const UpdateAdvisorProfile = () => {
         })
             .then((response) => response.json())
             .then(() => {
-                setFeedback("Employee profile successfully saved");
+                setFeedback("Employee profile successfully saved - Rerouting to Profile");
+            })
+            .then(() => {
+                setTimeout(() => {
+                    setFeedback(""); // Clear the feedback message after 3 seconds
+                    navigate("/profile"); // Navigate to "/profile" after 3 seconds
+                }, 3000);
             });
     };
 
