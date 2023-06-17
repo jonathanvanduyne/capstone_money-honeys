@@ -1,8 +1,7 @@
 /* Import the google web fonts you want to use */
 @import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
 
-/*Typography
---------------------------------------------------------------*/
+/* Typography */
 body,
 button,
 input,
@@ -15,11 +14,20 @@ textarea {
 }
 
 body {
-    padding: 0 3rem;
-    align-items: center;
+  padding: 0 3rem;
+  align-items: center;
+  background-image: url("https://images.unsplash.com/photo-1555211652-5c6222f971bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Patua One", serif;
   letter-spacing: 2px;
 }
@@ -31,4 +39,3 @@ p {
 .title--main {
   margin-block-end: 0;
 }
-

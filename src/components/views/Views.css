@@ -1,0 +1,166 @@
+/* Customer Views */
+/* Typography */
+.customer-title,
+.customer-subtitle,
+.customer-greeting {
+    font-size: 3rem;
+    margin: 2rem 0;
+}
+
+/* Hero section */
+.customer-hero {
+    margin-bottom: 2rem;
+}
+
+/* Sections */
+.customer-section {
+    margin-bottom: 2rem;
+}
+
+/* Containers */
+.customer-container {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Buttons */
+.customer-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.customer-button.is-primary {
+    background-color: #3273dc;
+    color: #ffffff;
+}
+
+.customer-button.is-primary:hover {
+    background-color: #2769c1;
+}
+
+/* Cards */
+.customer-card {
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.customer-card-content {
+    padding: 1.5rem;
+}
+
+/* Form */
+.customer-field {
+    margin-bottom: 1rem;
+}
+
+.customer-field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.customer-field input,
+.customer-field textarea,
+.customer-field select {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+/* Advisor Views */
+/* Typography */
+.advisor-title,
+.advisor-subtitle {
+    font-size: 3rem;
+    margin: 2rem 0;
+}
+
+/* Hero section */
+.advisor-hero {
+    margin-bottom: 2rem;
+}
+
+/* Sections */
+.advisor-section {
+    margin-bottom: 2rem;
+}
+
+/* Containers */
+.advisor-container {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Buttons */
+.advisor-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.advisor-button.is-primary {
+    background-color: #3273dc;
+    color: #ffffff;
+}
+
+.advisor-button.is-primary:hover {
+    background-color: #2769c1;
+}
+
+/* Cards */
+.advisor-card {
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.advisor-card-content {
+    padding: 1.5rem;
+}
+
+/* Form */
+.advisor-field {
+    margin-bottom: 1rem;
+}
+
+.advisor-field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.advisor-field input,
+.advisor-field textarea,
+.advisor-field select {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+/* Center container and content */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.center-content {
+    text-align: center;
+}
