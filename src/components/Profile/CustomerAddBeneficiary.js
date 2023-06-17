@@ -18,6 +18,8 @@ export const AddNewBeneficiary = () => {
     const [secondaryBeneficiary, setSecondaryBeneficiary] = useState(null);
     const navigate = useNavigate();
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     useEffect(() => {
         const fetchData = async () => {
             const types = await getAllBeneficiaryTypes();
@@ -40,6 +42,8 @@ export const AddNewBeneficiary = () => {
         fetchData();
     }, []);
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     const handleInitialSaveButtonClick = (event) => {
         event.preventDefault();
 
@@ -64,7 +68,6 @@ export const AddNewBeneficiary = () => {
                 const bridgeTablePostOperation = {
                     customerId: currentCustomer.id,
                     beneficiaryId: newBeneficiary.id,
-                    isPrimary: 1 // Set as primary beneficiary
                 };
 
                 return fetch("http://localhost:8088/beneficiaryBridges", {
@@ -77,6 +80,8 @@ export const AddNewBeneficiary = () => {
             })
             .then(() => navigate("/profile"));
     };
+
+    //
 
     const handleSecondarySaveButtonClick = (event) => {
         event.preventDefault();
@@ -102,7 +107,6 @@ export const AddNewBeneficiary = () => {
                 const bridgeTablePostOperation = {
                     customerId: currentCustomer.id,
                     beneficiaryId: newBeneficiary.id,
-                    isPrimary: 2 // Set as secondary beneficiary
                 };
 
                 return fetch("http://localhost:8088/beneficiaryBridges", {
@@ -116,6 +120,8 @@ export const AddNewBeneficiary = () => {
             .then(() => navigate("/profile"));
     };
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     return (
         <form className="beneficiary_Form">
             <h2 className="beneficiary_Form__title">Add New Beneficiary</h2>
