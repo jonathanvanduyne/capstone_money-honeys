@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "./AdvisorPolicy.css";
-import { AdvisorDeleteButton } from "../../APIManager.js";
 
 export const AdvisorPolicy = ({ policyNumber, productId, startDate, term, customerId, customerFirstName, customerLastName }) => {
     return (
@@ -17,7 +16,7 @@ export const AdvisorPolicy = ({ policyNumber, productId, startDate, term, custom
             </header>
             <p>Product ID: {productId}</p>
             <p>Start Date: {startDate}</p>
-            <p>Term: {term}</p>
+            <p>Duration: {term}</p>
         </section>
     );
 };

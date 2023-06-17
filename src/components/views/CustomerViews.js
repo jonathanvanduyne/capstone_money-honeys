@@ -1,11 +1,11 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { LandingPageGreeting } from "../LandingPage/LandingPage.js"
-import { Profile } from "../Profile.js/Profile.js"
-import { UpdateCustomerProfile } from "../Profile.js/CustomerEditProfile.js"
+import { Profile } from "../Profile/Profile.js"
+import { UpdateCustomerProfile } from "../Profile/CustomerEditProfile.js"
 import { CustomerPolicyList } from "../CustomerPolicies/CustomerPoliciesList.js"
 import { CustomerAdvisorDetail } from "../CustomerPolicies/CustomerAdvisorDetail.js"
-import { AddNewBeneficiary } from "../Profile.js/CustomerAddBeneficiary.js"
-import { CustomerEditBeneficiary} from "../Profile.js/CustomerEditBeneficiary.js"
+import { AddNewBeneficiary } from "../Profile/CustomerAddBeneficiary.js"
+import { CustomerEditBeneficiary} from "../Profile/CustomerEditBeneficiary.js"
 
 
 export const CustomerViews = () => {

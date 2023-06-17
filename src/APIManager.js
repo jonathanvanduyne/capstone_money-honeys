@@ -42,7 +42,7 @@ export const getAllProductsTypes = async () => {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Policies
 export const getAllPolicies = async () => {
-    const response = await fetch("http://localhost:8088/policies?_expand=customer&_expand=advisor&_expand=product");
+    const response = await fetch("http://localhost:8088/policies?_expand=customer&_expand=advisor&_expand=product&_expand=duration");
     const policies = await response.json();
     return policies
 };
@@ -143,3 +143,11 @@ export const getBeneficiaryBridgesByCustomerId = async (customerId) => {
     const beneficiaryBridges = await beneficiaryResponse.json();
     return beneficiaryBridges[0].beneficiary;
 };
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Get Duration List
+export const getAllDurations = async () => {
+    const durationsResponse = await fetch("http://localhost:8088/durations");
+    const durationsArray = await durationsResponse.json();
+
+    return durationsArray
+}

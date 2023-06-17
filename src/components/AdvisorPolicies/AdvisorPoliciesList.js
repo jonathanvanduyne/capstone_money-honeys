@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import "./AdvisorPolicy.css";
 import { getAllCustomers, getAllPolicies, getCurrentAdvisorInfo } from "../../APIManager.js";
 import { AdvisorPolicy } from "./AdvisorPolicy.js";
+import { useNavigate } from "react-router-dom";
 
 export const AdvisorPolicyList = () => {
     const [allPolicies, setAllPolicies] = useState([]);
     const [currentAdvisor, setCurrentAdvisor] = useState(null);
     const [customers, setCustomers] = useState([]);
     const [currentAdvisorPolicies, setCurrentAdvisorPolicies] = useState([]);
+    const navigate = useNavigate()
 
     const fetchData = async () => {
         const policies = await getAllPolicies();
@@ -49,11 +51,17 @@ export const AdvisorPolicyList = () => {
         fetchData(); // Re-fetch policies after deletion
     };
 
+    const handleNewPolicyButtonClick = () => {
+        navigate("/AddNewPolicy")
+    }
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     return (
         <>
             <h2>{currentAdvisor?.user?.firstName} {currentAdvisor?.user?.lastName}'s Policies</h2>
+
+            <button className="policy-button" onClick={handleNewPolicyButtonClick}>Add Client Policy</button>
 
             <article className="policies">
                 {currentAdvisorPolicies.length > 0 ? (
@@ -63,7 +71,7 @@ export const AdvisorPolicyList = () => {
                                 policyNumber={policy.id}
                                 productId={policy?.product?.id}
                                 startDate={policy?.startDate}
-                                term={policy?.term}
+                                term={policy?.duration?.span}
                                 customerId={policy.customerId}
                                 customerFirstName={customers.find(customer => customer.id === policy.customerId)?.user?.firstName}
                                 customerLastName={customers.find(customer => customer.id === policy.customerId)?.user?.lastName}

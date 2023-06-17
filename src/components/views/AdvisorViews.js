@@ -1,10 +1,11 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { LandingPageGreeting } from "../LandingPage/LandingPage.js"
-import { Profile } from "../Profile.js/Profile.js"
-import { UpdateAdvisorProfile } from "../Profile.js/AdvisorEditProfile.js"
+import { Profile } from "../Profile/Profile.js"
+import { UpdateAdvisorProfile } from "../Profile/AdvisorEditProfile.js"
 import { AdvisorPolicyList} from "../AdvisorPolicies/AdvisorPoliciesList.js"
 import { AdvisorCustomerDetail} from "../AdvisorPolicies/AdvisorCustomerDetail.js"
 import { ProductList } from "../Products/ProductList.js"
+import { AddNewPolicy } from "../AdvisorPolicies/AddNewPolicy.js"
 import { AddNewProduct } from "../Products/AddNewProduct.js"
 
 
@@ -29,7 +30,9 @@ export const AdvisorViews = () => {
 			
 			<Route path=":customerId" element={<AdvisorCustomerDetail />} />
 			
-			<Route path="/productList" element={<ProductList />} />
+			<Route path="/AddNewPolicy" element={<AddNewPolicy />} />
+			
+			<Route path="/products" element={<ProductList />} />
 			
 			<Route path="/AddNewProduct" element={<AddNewProduct />} />
 

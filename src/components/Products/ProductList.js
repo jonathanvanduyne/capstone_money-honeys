@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getAllProducts } from "../../APIManager.js";
 import "./Products.css"
+
 import { useNavigate } from "react-router-dom";
 
 export const ProductList = () => {
@@ -8,6 +9,7 @@ export const ProductList = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
+       
         const fetchData = async () => {
             const products = await getAllProducts();
             updateProducts(products);
