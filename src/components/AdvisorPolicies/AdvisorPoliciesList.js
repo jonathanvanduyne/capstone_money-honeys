@@ -9,17 +9,14 @@ export const AdvisorPolicyList = () => {
     const [currentAdvisor, setCurrentAdvisor] = useState(null);
     const [customers, setCustomers] = useState([]);
     const [currentAdvisorPolicies, setCurrentAdvisorPolicies] = useState([]);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const fetchData = async () => {
         const policies = await getAllPolicies();
         setAllPolicies(policies);
     };
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     useEffect(() => {
-
         const fetchAdvisorInfo = async () => {
             const advisor = await getCurrentAdvisorInfo();
             setCurrentAdvisor(advisor);
@@ -37,44 +34,46 @@ export const AdvisorPolicyList = () => {
 
     useEffect(() => {
         if (currentAdvisor && allPolicies.length > 0) {
-            const currentPolicies = allPolicies.filter(policy => policy?.advisor?.userId === currentAdvisor?.userId);
+            const currentPolicies = allPolicies.filter(
+                (policy) => policy?.advisor?.userId === currentAdvisor?.userId
+            );
             setCurrentAdvisorPolicies(currentPolicies);
         }
     }, [currentAdvisor, allPolicies]);
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     const handlePolicyDelete = async (policyId) => {
         await fetch(`http://localhost:8088/policies/${policyId}`, {
-            method: "DELETE"
+            method: "DELETE",
         });
         fetchData(); // Re-fetch policies after deletion
     };
 
     const handleNewPolicyButtonClick = () => {
-        navigate("/AddNewPolicy")
-    }
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        navigate("/AddNewPolicy");
+    };
 
     return (
-        <>
-            <h2>{currentAdvisor?.user?.firstName} {currentAdvisor?.user?.lastName}'s Policies</h2>
+        <div className="page-container">
+            <h2 className="advisor-name">
+                {currentAdvisor?.user?.firstName} {currentAdvisor?.user?.lastName}'s Policies
+            </h2>
 
-            <button className="policy-button" onClick={handleNewPolicyButtonClick}>Add Client Policy</button>
+            <button className="add-new-policy-button" onClick={handleNewPolicyButtonClick}>
+                Add Client Policy
+            </button>
 
-            <article className="policies">
+            <div className="policy-list-container">
                 {currentAdvisorPolicies.length > 0 ? (
                     currentAdvisorPolicies.map((policy) => (
-                        <div key={`customerPolicy--${policy.id}`}>
+                        <div className="policy-item" key={`customerPolicy--${policy.id}`}>
                             <AdvisorPolicy
                                 policyNumber={policy.id}
                                 productId={policy?.product?.id}
                                 startDate={policy?.startDate}
                                 term={policy?.duration?.span}
                                 customerId={policy.customerId}
-                                customerFirstName={customers.find(customer => customer.id === policy.customerId)?.user?.firstName}
-                                customerLastName={customers.find(customer => customer.id === policy.customerId)?.user?.lastName}
+                                customerFirstName={customers.find((customer) => customer.id === policy.customerId)?.user?.firstName}
+                                customerLastName={customers.find((customer) => customer.id === policy.customerId)?.user?.lastName}
                             />
                             <button onClick={() => handlePolicyDelete(policy.id)}>Delete</button>
                         </div>
@@ -82,7 +81,7 @@ export const AdvisorPolicyList = () => {
                 ) : (
                     <p>No policies found for the current advisor.</p>
                 )}
-            </article>
-        </>
+            </div>
+        </div>
     );
 };

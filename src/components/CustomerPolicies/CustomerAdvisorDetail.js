@@ -17,10 +17,14 @@ export const CustomerAdvisorDetail = () => {
         [advisorId]
     )
 
-    return <section className="advisor">
-        <header className="advisor__header"><h3>{advisor?.user?.firstName}{" "}{advisor?.user?.lastName}</h3></header>
-        <div>Email: {advisor?.user?.email} </div>
-        <div>Phone Number: {advisor?.officePhone} </div>
-        <div>Address: {advisor?.officeAddress} </div>
-    </section>
-}
+    return (
+        <section className="customer-advisor">
+            <header className="customer-advisor__header">
+                <h3>{advisor?.user?.firstName} {advisor?.user?.lastName}</h3>
+            </header>
+            <div>Email: {advisor?.user?.email}</div>
+            <div>Phone Number: {advisor?.officePhone}</div>
+            <div>Address: {advisor?.officeAddress}</div>
+        </section>
+    );
+};

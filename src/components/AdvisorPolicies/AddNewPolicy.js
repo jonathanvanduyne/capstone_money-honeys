@@ -65,14 +65,14 @@ export const AddNewPolicy = () => {
     };
 
     return (
-        <form className="policy_Form">
-            <h2 className="policy_Form__title">Add New Policy</h2>
+        <form className="add-new-policy-form">
+            <h2 className="add-new-policy-form-title">Add New Policy</h2>
 
             <fieldset>
-                <div className="form-group">
+                <div className="add-new-policy-form-group">
                     <label htmlFor="customer">Customer:</label>
                     <select
-                        className="form-group"
+                        className="add-new-policy-form-select"
                         value={policy.customerId}
                         onChange={(evt) => {
                             const copy = { ...policy };
@@ -83,7 +83,7 @@ export const AddNewPolicy = () => {
                         <option value="">Select a Customer</option>
                         {customers.map((customer) => (
                             <option key={customer.id} value={customer.id}>
-                                {customer?.user.firstName}{" "}{customer?.user?.lastName}
+                                {customer?.user.firstName} {customer?.user?.lastName}
                             </option>
                         ))}
                     </select>
@@ -91,10 +91,10 @@ export const AddNewPolicy = () => {
             </fieldset>
 
             <fieldset>
-                <div className="form-group">
+                <div className="add-new-policy-form-group">
                     <label htmlFor="product">Product:</label>
                     <select
-                        className="form-group"
+                        className="add-new-policy-form-select"
                         value={policy.productId}
                         onChange={(evt) => {
                             const copy = { ...policy };
@@ -113,29 +113,28 @@ export const AddNewPolicy = () => {
             </fieldset>
 
             <fieldset>
-                <div className="form-group">
+                <div className="add-new-policy-form-group">
                     <label htmlFor="startDate">Start Date:</label>
                     <input
                         required
                         type="date"
                         placeholder="Policy Start Date"
-                        className="form-group"
+                        className="add-new-policy-form-input"
                         value={policy.startDate}
                         onChange={(evt) => {
                             const copy = { ...policy };
                             copy.startDate = evt.target.value;
                             updatePolicy(copy);
-                        }}>
-                    </input>
+                        }}
+                    />
                 </div>
             </fieldset>
 
-
             <fieldset>
-                <div className="form-group">
+                <div className="add-new-policy-form-group">
                     <label htmlFor="Duration">Duration:</label>
                     <select
-                        className="form-group"
+                        className="add-new-policy-form-select"
                         value={policy.duration}
                         onChange={(evt) => {
                             const copy = { ...policy };
@@ -153,10 +152,9 @@ export const AddNewPolicy = () => {
                 </div>
             </fieldset>
 
-
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                className="btn btn-primary"
+                className="add-new-policy-form-button"
             >
                 Submit product
             </button>

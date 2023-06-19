@@ -1,49 +1,47 @@
-.policies {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .policy {
-    background-color: #f8f8f8;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid #e0e0e0;
-  }
-  
-  .policy:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .policy header {
-    margin-bottom: 10px;
-  }
-  
-  .policy p {
-    margin-bottom: 5px;
-  }
-  
-  .advisor {
-    background-color: #f8f8f8;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid #e0e0e0;
-  }
-  
-  .advisor__header {
-    margin-bottom: 10px;
-  }
-  
-  .advisor div {
-    margin-bottom: 5px;
-  }
-  
-  .advisor:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
+.page-container {
+  padding: 20px;
+  margin-bottom: 1200px;
+}
+
+.customer-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.customer-policies {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.customer-policy {
+  width: 20%;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, .05);
+  transition: background-color 0.3s;
+}
+
+.customer-policy:hover {
+  background-color: #fff;
+}
+
+.customer-policy header {
+  margin-bottom: 10px;
+}
+
+.customer-policy p {
+  margin-bottom: 5px;
+}
+
+.customer-policy a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.customer-policy a:hover {
+  text-decoration: none;
+}

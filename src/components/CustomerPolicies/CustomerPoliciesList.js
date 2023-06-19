@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllPolicies, getAllAdvisors, getCurrentCustomerInfo, getAllProducts } from "../../APIManager.js";
 import "./CustomerPolicy.css";
-import { CustomerPolicy } from "./CustomerPolicy.js";
+import { Link } from "react-router-dom";
 
 export const CustomerPolicyList = () => {
     const [allPolicies, setAllPolicies] = useState([]);
@@ -36,23 +36,30 @@ export const CustomerPolicyList = () => {
     }, [allPolicies, currentCustomer]);
 
     return (
-        <>
-            <h2>{currentCustomer?.user?.firstName} {currentCustomer?.user?.lastName} Policies</h2>
+        <section className="page-container">
+            <h2 className="customer-name">{currentCustomer?.user?.firstName} {currentCustomer?.user?.lastName} Policies</h2>
 
-            <article className="policies">
+            <article className="customer-policies">
                 {currentCustomerPolicies.map((policy) => (
-                    <CustomerPolicy key={`customerPolicy--${policy.id}`}
-                        policyNumber={policy.id}
-                        productId={policy?.product?.id}
-                        startDate={policy?.startDate}
-                        term={policy?.term}
-                        advisorId={policy?.advisorId}
-                        advisorFirstName={advisors.find((advisor) => advisor.id === policy.advisorId)?.user?.firstName}
-                        advisorLastName={advisors.find((advisor) => advisor.id === policy.advisorId)?.user?.lastName}
-                        productName={products.find((product) => product.id === policy.productId)?.productType.category}
-                    />
+                    <section className="customer-policy" key={`customerPolicy--${policy.id}`}>
+                        <header>
+                            <p>ID: {policy.id}</p>
+                            <p>
+                                Advisor:{" "}
+                                <Link to={`/${policy.advisorId}`}>
+                                    {advisors.find((advisor) => advisor.id === policy.advisorId)?.user?.firstName}
+                                    {" "}
+                                    {advisors.find((advisor) => advisor.id === policy.advisorId)?.user?.lastName}
+                                </Link>
+                            </p>
+                        </header>
+                        <p>Product ID: {policy.productId}</p>
+                        <p>Product Name: {products.find((product) => product.id === policy.productId)?.productType.category}</p>
+                        <p>Start Date: {policy.startDate}</p>
+                        <p>Term: {policy.duration?.span}</p>
+                    </section>
                 ))}
             </article>
-        </>
-    );
-};
+        </section>
+    )
+                }
