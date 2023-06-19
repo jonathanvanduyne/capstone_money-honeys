@@ -1,7 +1,4 @@
-.page-container {
-  padding: 20px;
-  margin-bottom: 1200px;
-}
+/* AdvisorDetail.css */
 
 .customer-name {
   font-size: 24px;
@@ -13,6 +10,7 @@
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .customer-policy {
@@ -44,4 +42,23 @@
 
 .customer-policy a:hover {
   text-decoration: none;
+}
+
+.customer-advisor {
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+  margin-bottom: 600px;
+}
+
+.customer-advisor:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.customer-advisor__header {
+  font-size: 24px;
+  font-weight: bold;
 }

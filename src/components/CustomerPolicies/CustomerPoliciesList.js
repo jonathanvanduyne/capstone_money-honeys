@@ -39,7 +39,7 @@ export const CustomerPolicyList = () => {
         <section className="page-container">
             <h2 className="customer-name">{currentCustomer?.user?.firstName} {currentCustomer?.user?.lastName} Policies</h2>
 
-            <article className="customer-policies">
+            <article className="policy-list-container">
                 {currentCustomerPolicies.map((policy) => (
                     <section className="customer-policy" key={`customerPolicy--${policy.id}`}>
                         <header>

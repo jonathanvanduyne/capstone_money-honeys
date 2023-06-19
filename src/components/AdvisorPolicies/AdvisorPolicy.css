@@ -1,7 +1,6 @@
 /* AdvisorPolicy.css */
-
 .page-container {
-  margin-top: 930px;
+  margin-top: 550px;
   padding: 20px;
 }
 
@@ -19,6 +18,8 @@
 .policy-list-container {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .policy-item {
@@ -75,3 +76,24 @@
 .policy-item a:hover {
   text-decoration: none;
 }
+
+.advisor-customer-detail {
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+  margin-bottom: 600px;
+}
+
+.advisor-customer-detail:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.advisor-customer-detail__header {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
