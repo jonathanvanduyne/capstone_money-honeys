@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { getCurrentAdvisorInfo } from "../../APIManager.js";
+import { getCurrentAdvisorInfo } from "../../../APIManager.js";
 import { useNavigate } from "react-router-dom";
+import "./AdvisorProfile.css"
 
 export const UpdateAdvisorProfile = () => {
     const [profile, updateProfile] = useState({

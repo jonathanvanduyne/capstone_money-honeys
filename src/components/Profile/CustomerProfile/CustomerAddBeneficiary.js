@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAllBeneficiaryTypes, getCurrentCustomerInfo, getBeneficiaryBridgesByCustomerId } from "../../APIManager.js";
+import { getAllBeneficiaryTypes, getCurrentCustomerInfo, getBeneficiaryBridgesByCustomerId } from "../../../APIManager.js";
+import "./CustomerProfile.css";
 
 export const AddNewBeneficiary = () => {
     const [beneficiary, updateBeneficiary] = useState({

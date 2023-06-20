@@ -9,7 +9,7 @@ export const ProductList = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-       
+
         const fetchData = async () => {
             const products = await getAllProducts();
             updateProducts(products);
@@ -24,20 +24,27 @@ export const ProductList = () => {
 
     return (
         <>
-            <h2>List of Products</h2>
+            <div className="product-container">
+                <h2 className="product-title">List of Products</h2>
 
-            <button className="product-button" onClick={handleButtonClick}>Add New Product</button>
+                <button className="add-new-product-button" onClick={handleButtonClick}>
+                    Add New Product
+                </button>
 
-            <article className="products">
-                {products.map((product) => (
-                    <section className="product" key={`product--${product.id}`}>
-                        <header>ID: {product?.id}</header>
-                        <p>Type: {product?.productType?.category}</p>
-                        <p>Price: {product?.price}</p>
-                        <p>Billing Frequency: {product?.billingFrequency?.frequency}</p>
-                    </section>
-                ))}
-            </article>
+                <div className="product-list">
+                    {products.map((product) => (
+                        <div className="product-item" key={`product--${product.id}`}>
+                            <div className="product-section">
+                                <header>ID: {product?.id}</header>
+                                <p>Type: {product?.productType?.category}</p>
+                                <p>Price: {product?.price}</p>
+                                <p>Billing Frequency: {product?.billingFrequency?.frequency}</p>
+                            </div>
+                            <button>Delete</button>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </>
     );
-};
+}

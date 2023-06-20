@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { getAllBeneficiaryTypes, getBeneficiaryBridges, getCurrentCustomerBeneficiaries, getCurrentCustomerInfo } from "../../APIManager.js";
+import { getAllBeneficiaryTypes, getBeneficiaryBridges, getCurrentCustomerBeneficiaries, getCurrentCustomerInfo } from "../../../APIManager.js";
 import { useNavigate } from "react-router-dom";
-import "./Profile.css";
+import "./CustomerProfile.css";
 
 export const CustomerProfile = () => {
     const [currentUser, setCurrentUser] = useState(null);
@@ -109,7 +109,7 @@ export const CustomerProfile = () => {
     };
 
     return (
-        <>
+        <div className="container">
             <div className="customer-profile">
                 <h3>Profile</h3>
                 <section className="profile">
@@ -118,30 +118,32 @@ export const CustomerProfile = () => {
                     <p>Address: {currentUser?.address}</p>
                     <p>Phone Number: {currentUser?.phoneNumber}</p>
                     <p>Date of Birth: {currentUser?.dateOfBirth}</p>
-                    <button onClick={() => navigate("UpdateCustomerProfile")}>Update Profile</button>
+                    <button className="update-profile" onClick={() => navigate("UpdateCustomerProfile")}>Update Profile</button>
                 </section>
             </div>
-            <div className="customer-profile">
-                <h3>Beneficiaries</h3>
-                {beneficiaries.map((beneficiary) => (
-                    <section className="beneficiary" key={`beneficiary--${beneficiary.id}`}>
-                        <p>Name: {beneficiary?.beneficiary?.name}</p>
-                        <p>Address: {beneficiary?.beneficiary?.address}</p>
-                        <p>Phone Number: {beneficiary?.beneficiary?.phoneNumber}</p>
-                        <p>Date of Birth: {beneficiary?.beneficiary?.dateOfBirth}</p>
-                        <p>Relationship: {beneficiary?.beneficiary?.relationship}</p>
-                        <p>Type: {getBeneficiaryTypeName(beneficiary)}</p>
-                        <button onClick={() => handleBeneficiaryDelete(beneficiary)}>Delete</button>
-                        <button onClick={() => handleBeneficiaryEdit(beneficiary.id)}>Edit</button>
-                    </section>
-                ))}
-                {showAddBeneficiaryButton && (
-                    <button className="addBeneficiary-button" onClick={AddNewBeneficiaryButtonClick}>
-                        Add New Beneficiary
-                    </button>
-                )}
+            <div className="beneficiaries-section">
+                <div className="customer-profile">
+                    <h3>Beneficiaries</h3>
+                    {beneficiaries.map((beneficiary) => (
+                        <section className="beneficiary" key={`beneficiary--${beneficiary.id}`}>
+                            <p>Name: {beneficiary?.beneficiary?.name}</p>
+                            <p>Address: {beneficiary?.beneficiary?.address}</p>
+                            <p>Phone Number: {beneficiary?.beneficiary?.phoneNumber}</p>
+                            <p>Date of Birth: {beneficiary?.beneficiary?.dateOfBirth}</p>
+                            <p>Relationship: {beneficiary?.beneficiary?.relationship}</p>
+                            <p>Type: {getBeneficiaryTypeName(beneficiary)}</p>
+                            <button className="delete-beneficiary" onClick={() => handleBeneficiaryDelete(beneficiary)}>Delete</button>
+                            <button className="edit-beneficiary" onClick={() => handleBeneficiaryEdit(beneficiary.id)}>Edit</button>
+                        </section>
+                    ))}
+                    {showAddBeneficiaryButton && (
+                        <button className="addBeneficiary-button" onClick={AddNewBeneficiaryButtonClick}>
+                            Add New Beneficiary
+                        </button>
+                    )}
+                </div>
             </div>
             {isSecondaryBeneficiaryChanged && <p>Secondary Beneficiary Changed to Primary</p>}
-        </>
+        </div>
     );
-};
+}

@@ -66,6 +66,7 @@ export const AdvisorPolicyList = () => {
                 {currentAdvisorPolicies.length > 0 ? (
                     currentAdvisorPolicies.map((policy) => (
                         <div className="policy-item" key={`customerPolicy--${policy.id}`}>
+                            <button className="upload-policy-button">Upload Signed Policy</button>
                             <AdvisorPolicy
                                 policyNumber={policy.id}
                                 productId={policy?.product?.id}
@@ -75,7 +76,7 @@ export const AdvisorPolicyList = () => {
                                 customerFirstName={customers.find((customer) => customer.id === policy.customerId)?.user?.firstName}
                                 customerLastName={customers.find((customer) => customer.id === policy.customerId)?.user?.lastName}
                             />
-                            <button onClick={() => handlePolicyDelete(policy.id)}>Delete</button>
+                            <button className="delete-policy-button" onClick={() => handlePolicyDelete(policy.id)}>Delete</button>
                         </div>
                     ))
                 ) : (

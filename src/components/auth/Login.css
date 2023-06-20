@@ -1,79 +1,18 @@
-/* .h1, h1 {
-    font-size: 2.5rem;
-}
-
-fieldset {
-    min-width: 0;
-    padding: 1rem 0;
-    margin: 0;
-    border: 0;
-}
-
-.form--login {
-    display: inline-block;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.form--login > fieldset > input[type="email"] {
-    width: 25em;
-}
-
-.label--login {
-    width: 8rem;
-    display: inline-block;
-}
-
-.form-control {
-    display: block;
-    width: 94%;
-    height: calc(1.5em + .75rem + 2px);
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-
-.container--login {
-    text-align: center;
-}
-
-.form--login {
-    background-position-x: right;
-    z-index: 1;
-    min-height: 25rem;
-    min-width: 45rem;
-    background-color: hsla(0,0%,100%,0.40);
-    background-blend-mode: overlay;
-    background-repeat: no-repeat;
-}
-
-.button--close {
-    position: relative;
-    bottom: -2rem;
-}
- */
-
 .container--login {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    border-color: 10px lightgreen;
 }
 
 .form--login {
-    width: 300px;
+    width: 400px;
     padding: 20px;
-    background-color: #f1f1f1;
+    background-color: rgb(234, 234, 234);
     border-radius: 8px;
+    border-color: 1px lightgreen;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -102,7 +41,7 @@ fieldset {
     max-width: 100%;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: .5px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     /* Added box-sizing property */
@@ -126,9 +65,13 @@ fieldset {
 
 .link--register a {
     color: #007bff;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .link--register a:hover {
     text-decoration: underline;
+}
+
+fieldset {
+    border: none;
 }

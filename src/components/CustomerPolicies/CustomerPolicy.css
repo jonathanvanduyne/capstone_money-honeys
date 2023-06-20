@@ -1,6 +1,5 @@
 /* AdvisorDetail.css */
-
-.customer-name {
+/* .customer-name {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -11,6 +10,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  
 }
 
 .customer-policy {
@@ -21,6 +21,7 @@
   border-radius: 4px;
   background-color: rgba(255, 255, 255, .05);
   transition: background-color 0.3s;
+  margin-bottom:400px;
 }
 
 .customer-policy:hover {
@@ -61,4 +62,4 @@
 .customer-advisor__header {
   font-size: 24px;
   font-weight: bold;
-}
+} */

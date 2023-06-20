@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { getCurrentCustomerInfo } from "../../APIManager.js";
+import { getCurrentCustomerInfo } from "../../../APIManager.js";
 import { useNavigate } from "react-router-dom";
+import "./CustomerProfile.css";
 
 export const UpdateCustomerProfile = () => {
     const [profile, updateProfile] = useState({

@@ -1,0 +1,56 @@
+.section--parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .title,
+  .subtitle,
+  .greeting {
+    display: block;
+    margin-bottom: 1rem;
+    white-space: pre-wrap;
+  }
+  
+  .greeting {
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+    font-size: 2rem;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .main-section {
+    padding: 2rem;
+  }
+  
+  .span-1 {
+    text-decoration: underline;
+    text-decoration-color: green;
+    /* Set the color of the underline for "Money" to green */
+  }
+  
+  .span-2 {
+    text-decoration: underline;
+    text-decoration-color: yellow;
+    /* Set the color of the underline for "Honey" to yellow */
+  }
+  
+  h1 {
+    font-size: 4rem;
+    /* Increase the font size of the <h1> to 4rem (adjust as needed) */
+  }
+  
+  h3 {
+    font-size: 6rem;
+    /* Increase the font size of the <h3> to 3rem (adjust as needed) */
+  }
+  
