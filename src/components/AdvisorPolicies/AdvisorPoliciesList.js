@@ -3,6 +3,8 @@ import "./AdvisorPolicy.css";
 import { getAllCustomers, getAllPolicies, getCurrentAdvisorInfo } from "../../APIManager.js";
 import { AdvisorPolicy } from "./AdvisorPolicy.js";
 import { useNavigate } from "react-router-dom";
+import {UploadWidget} from "./UploadPolicy.js";
+
 
 export const AdvisorPolicyList = () => {
     const [allPolicies, setAllPolicies] = useState([]);
@@ -45,7 +47,7 @@ export const AdvisorPolicyList = () => {
         await fetch(`http://localhost:8088/policies/${policyId}`, {
             method: "DELETE",
         });
-        fetchData(); // Re-fetch policies after deletion
+        fetchData();
     };
 
     const handleNewPolicyButtonClick = () => {
@@ -66,7 +68,13 @@ export const AdvisorPolicyList = () => {
                 {currentAdvisorPolicies.length > 0 ? (
                     currentAdvisorPolicies.map((policy) => (
                         <div className="policy-item" key={`customerPolicy--${policy.id}`}>
-                            <button className="upload-policy-button">Upload Signed Policy</button>
+                            <UploadWidget  className="upload-policy-button"
+                            policyNumber={policy.id}
+                            productId={policy?.product?.id}
+                            startDate={policy?.startDate}
+                            term={policy?.duration?.id}
+                            customerId={policy.customerId}
+                            advisorId={currentAdvisor.id}/>
                             <AdvisorPolicy
                                 policyNumber={policy.id}
                                 productId={policy?.product?.id}
