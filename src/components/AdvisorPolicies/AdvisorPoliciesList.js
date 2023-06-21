@@ -3,7 +3,7 @@ import "./AdvisorPolicy.css";
 import { getAllCustomers, getAllPolicies, getCurrentAdvisorInfo } from "../../APIManager.js";
 import { AdvisorPolicy } from "./AdvisorPolicy.js";
 import { useNavigate } from "react-router-dom";
-import {UploadWidget} from "./UploadPolicy.js";
+import { UploadWidget } from "./UploadPolicy.js";
 
 
 export const AdvisorPolicyList = () => {
@@ -17,6 +17,11 @@ export const AdvisorPolicyList = () => {
         const policies = await getAllPolicies();
         setAllPolicies(policies);
     };
+
+    const handleSignedPolicyUpload = () => {
+        fetchData()
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     useEffect(() => {
         const fetchAdvisorInfo = async () => {
@@ -43,6 +48,8 @@ export const AdvisorPolicyList = () => {
         }
     }, [currentAdvisor, allPolicies]);
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     const handlePolicyDelete = async (policyId) => {
         await fetch(`http://localhost:8088/policies/${policyId}`, {
             method: "DELETE",
@@ -53,6 +60,58 @@ export const AdvisorPolicyList = () => {
     const handleNewPolicyButtonClick = () => {
         navigate("/AddNewPolicy");
     };
+
+    //
+
+    const DeleteSignedPolicyURL = async ({ policyNumber, productId, startDate, term, customerId, advisorId }) => {
+        try {
+            await fetch(`http://localhost:8088/policies/${policyNumber}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    customerId: customerId,
+                    advisorId: advisorId,
+                    productId: productId,
+                    startDate: startDate,
+                    durationId: term,
+                    policyURL: null,
+                }),
+            });
+            fetchData();
+        } catch (error) {
+            throw new Error("Failed to delete signed policy URL");
+        }
+    };
+
+    //
+
+    const SignedPolicyLinkAndDeleteButton = ({ url, policyNumber, productId, startDate, term, customerId, advisorId }) => {
+        const handleDeleteClick = () => {
+            DeleteSignedPolicyURL({
+                policyNumber: policyNumber,
+                productId: productId,
+                startDate: startDate,
+                term: term,
+                customerId: customerId,
+                advisorId: advisorId,
+            });
+        };
+
+        return (
+            <>
+                <a href={url} target="_blank" rel="noopener noreferrer">
+                    View Signed Policy
+                </a>
+                <button className="delete-signed-policy-button" onClick={handleDeleteClick}>
+                    Delete Signed Policy
+                </button>
+            </>
+        );
+    };
+
+    //
 
     return (
         <div className="page-container">
@@ -68,13 +127,29 @@ export const AdvisorPolicyList = () => {
                 {currentAdvisorPolicies.length > 0 ? (
                     currentAdvisorPolicies.map((policy) => (
                         <div className="policy-item" key={`customerPolicy--${policy.id}`}>
-                            <UploadWidget  className="upload-policy-button"
-                            policyNumber={policy.id}
-                            productId={policy?.product?.id}
-                            startDate={policy?.startDate}
-                            term={policy?.duration?.id}
-                            customerId={policy.customerId}
-                            advisorId={currentAdvisor.id}/>
+                            {policy.policyURL === null ? (
+                                <UploadWidget
+                                    className="upload-policy-button"
+                                    policyNumber={policy.id}
+                                    productId={policy?.product?.id}
+                                    startDate={policy?.startDate}
+                                    term={policy?.duration?.id}
+                                    customerId={policy.customerId}
+                                    advisorId={currentAdvisor.id}
+                                    onSignedPolicyUpload={handleSignedPolicyUpload}
+                                />
+                            ) : (
+                                <SignedPolicyLinkAndDeleteButton
+                                    url={policy.policyURL}
+                                    policyNumber={policy.id}
+                                    productId={policy?.product?.id}
+                                    startDate={policy?.startDate}
+                                    term={policy?.duration?.id}
+                                    customerId={policy.customerId}
+                                    advisorId={currentAdvisor.id}
+                                />
+                            )}
+
                             <AdvisorPolicy
                                 policyNumber={policy.id}
                                 productId={policy?.product?.id}
@@ -93,4 +168,4 @@ export const AdvisorPolicyList = () => {
             </div>
         </div>
     );
-};
+                }

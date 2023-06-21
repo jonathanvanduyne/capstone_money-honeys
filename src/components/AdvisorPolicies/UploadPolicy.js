@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import "./AdvisorPolicy.css";
 
-export const UploadWidget = ({ policyNumber, productId, startDate, term, customerId, advisorId }) => {
+
+export const UploadWidget = ({ policyNumber, productId, startDate, term, customerId, advisorId, onSignedPolicyUpload }) => {
     const cloudinaryRef = useRef();
     const widgetRef = useRef();
     const [uploadedUrl, setUploadedUrl] = useState(null);
@@ -49,6 +50,8 @@ export const UploadWidget = ({ policyNumber, productId, startDate, term, custome
                 }
             );
 
+            onSignedPolicyUpload()
+            
             if (!response.ok) {
                 throw new Error("Failed to update policy URL");
             }
