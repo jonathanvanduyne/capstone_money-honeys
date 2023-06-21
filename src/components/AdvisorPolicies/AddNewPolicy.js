@@ -51,6 +51,7 @@ export const AddNewPolicy = () => {
             productId: policy.productId,
             startDate: policy.startDate,
             durationId: policy.duration,
+            policyURL: null
         };
 
         return fetch("http://localhost:8088/policies", {

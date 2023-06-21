@@ -21,23 +21,15 @@ export const AdvisorProfile = () => {
                     <p className="advisor-profile__label">
                         Name: {currentUser?.user?.firstName} {currentUser?.user?.lastName}
                     </p>
-                    <p className="advisor-profile__label">
-                        Email: {currentUser?.user?.email}
-                    </p>
-                    <p className="advisor-profile__label">
-                        Office Address: {currentUser?.officeAddress}
-                    </p>
-                    <p className="advisor-profile__label">
-                        Office Phone Number: {currentUser?.officePhone}
-                    </p>
+                    <p className="advisor-profile__label">Email: {currentUser?.user?.email}</p>
+                    <p className="advisor-profile__label">Office Address: {currentUser?.officeAddress}</p>
+                    <p className="advisor-profile__label">Office Phone Number: {currentUser?.officePhone}</p>
                 </div>
-                <button
-                    className="advisor-profile__update-button"
-                    onClick={() => navigate("UpdateAdvisorProfile")}
-                >
+                <button className="button is-primary advisor-profile__update-button" onClick={() => navigate("UpdateAdvisorProfile")}>
                     Update Profile
                 </button>
             </div>
         </>
-    );
-};
+    )
+}
+

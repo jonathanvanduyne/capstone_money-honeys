@@ -37,18 +37,26 @@ export const CustomerPolicyList = () => {
 
     return (
         <section className="page-container">
-            <h2 className="customer-name">{currentCustomer?.user?.firstName} {currentCustomer?.user?.lastName} Policies</h2>
+            <h2 className="customer-name">
+                {currentCustomer?.user?.firstName} {currentCustomer?.user?.lastName} Policies
+            </h2>
 
             <article className="policy-list-container">
                 {currentCustomerPolicies.map((policy) => (
                     <section className="customer-policy" key={`customerPolicy--${policy.id}`}>
+                        {policy.policyURL === null ? (
+                            ""
+                        ) : (
+                            <a href={policy?.policyURL} target="_blank" rel="noopener noreferrer">
+                                View Signed Policy
+                            </a>
+                        )}
                         <header>
                             <p>ID: {policy.id}</p>
                             <p>
                                 Advisor:{" "}
                                 <Link to={`/${policy.advisorId}`}>
-                                    {advisors.find((advisor) => advisor.id === policy.advisorId)?.user?.firstName}
-                                    {" "}
+                                    {advisors.find((advisor) => advisor.id === policy.advisorId)?.user?.firstName}{" "}
                                     {advisors.find((advisor) => advisor.id === policy.advisorId)?.user?.lastName}
                                 </Link>
                             </p>
@@ -62,4 +70,4 @@ export const CustomerPolicyList = () => {
             </article>
         </section>
     )
-                }
+}      

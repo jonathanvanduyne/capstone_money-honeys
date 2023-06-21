@@ -1,13 +1,10 @@
 /* AdvisorPolicy.css */
-.page-container {
-  margin-top: 550px;
-  padding: 20px;
-}
 
 .advisor-name {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
+  padding-top: 20px;
 }
 
 .add-new-policy-button {
@@ -93,15 +90,16 @@
 /* advisor detail */
 .advisor-customer-detail {
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
+  background-color: rgba(255, 255, 255, 0.01);
+  color: #000;
+  border: 1px solid #ccc;
   border-radius: 4px;
   transition: background-color 0.3s, color 0.3s;
   margin-bottom: 600px;
 }
 
 .advisor-customer-detail:hover {
-  background-color: #fff;
+  background-color: lightgrey;
   color: #000;
 }
 

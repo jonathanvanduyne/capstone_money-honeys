@@ -1,20 +1,10 @@
-/* Bulma CSS */
-/* @import url('https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css');
-
-/* Custom CSS */
-/* .advisor-profile {
-  margin: 20px;
+/* Bulma CSS */ 
+ @import url('https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css');
+ .advisor-profile {
+  display: inline-block; 
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: black;
-  transition: background-color 0.3s;
-  margin-bottom: 500px;
-}
-
-.advisor-profile:hover {
-  background-color: black; 
-  color: white; 
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 4px;
 }
 
 .advisor-profile__header {
@@ -28,86 +18,9 @@
 }
 
 .advisor-profile__label {
-  margin-bottom: 5px;
-}
-
-.advisor-profile__update-button {
-  background-color: #23d160; 
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.advisor-profile__update-button:hover {
-  background-color: darkgreen; 
-} */
-
-
-/* edit advisor form */
-
-/* .error {
-  color: red;
-}
-
-.feedback {
-  color: green;
-}
-
-.invisible {
-  display: none;
-}
-
-.visible {
-  display: block;
-}
-
-.profile {
-  margin: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white; 
-  margin-bottom: 500px;
-}
-
-.profile__title {
-  font-size: 24px;
-  font-weight: bold;
   margin-bottom: 10px;
 }
 
-.form-group {
-  margin-bottom: 20px;
+.advisor-profile__update-button {
+  width: 150px;
 }
-
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.form-control {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 500px;
-}
-
-button.btn-primary {
-  background-color: #23d160;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-button.btn-primary:hover {
-  background-color: darkgreen;
-}
-*/
