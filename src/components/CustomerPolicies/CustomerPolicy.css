@@ -1,65 +1,62 @@
-/* AdvisorDetail.css */
-/* .customer-name {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
+.page-container {
+  padding: 20px;
 }
 
-.customer-policies {
-  margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  
+.customer-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.policy-list-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
 }
 
 .customer-policy {
-  width: 20%;
-  margin: 10px;
-  padding: 10px;
+  padding-left: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: rgba(255, 255, 255, .05);
+  background-color: rgba(248, 248, 248, 0.05);
   transition: background-color 0.3s;
-  margin-bottom:400px;
+  width: 100%;
 }
 
 .customer-policy:hover {
-  background-color: #fff;
+  background-color: lightgray;
 }
 
 .customer-policy header {
   margin-bottom: 10px;
 }
 
-.customer-policy p {
-  margin-bottom: 5px;
+.policy-id,
+.policy-advisor {
+  font-weight: bold;
 }
 
-.customer-policy a {
+.policy-advisor a {
   color: #007bff;
-  text-decoration: underline;
-}
-
-.customer-policy a:hover {
   text-decoration: none;
 }
 
-.customer-advisor {
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  border-radius: 4px;
-  transition: background-color 0.3s, color 0.3s;
-  margin-bottom: 600px;
+.policy-advisor a:hover {
+  text-decoration: underline;
 }
 
-.customer-advisor:hover {
-  background-color: #fff;
-  color: #000;
+.policy-product-id,
+.policy-product-name,
+.policy-start-date,
+.policy-term {
+  margin-bottom: 5px;
 }
 
-.customer-advisor__header {
-  font-size: 24px;
-  font-weight: bold;
-} */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

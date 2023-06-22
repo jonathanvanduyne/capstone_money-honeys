@@ -1,3 +1,7 @@
+.policy-list-container {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
 .page-container {
   display: flex;
   flex-direction: column;
@@ -30,16 +34,11 @@
   margin-top: 10px;
 }
 
-.policy-list-container {
-  display: inline-flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
 
 .policy-item {
-  width: 20%;
+  flex-basis: 25%;
   margin: 10px;
-  padding: 10px;
+  padding: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.01);

@@ -5,7 +5,7 @@ export const CustomerPolicy = ({ policyNumber, productId, startDate, term, advis
     return (
         <>
             <article>
-                <section className="policy">
+                <section className="customer-policy">
                     <header>
                         <p>ID: {policyNumber}</p>
                         <p>

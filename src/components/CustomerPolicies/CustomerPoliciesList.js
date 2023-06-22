@@ -43,7 +43,7 @@ export const CustomerPolicyList = () => {
 
             <article className="policy-list-container">
                 {currentCustomerPolicies.map((policy) => (
-                    <section className="customer-policy" key={`customerPolicy--${policy.id}`}>
+                    <div className="customer-policy" key={`customerPolicy--${policy.id}`}>
                         {policy.policyURL === null ? (
                             ""
                         ) : (
@@ -52,8 +52,8 @@ export const CustomerPolicyList = () => {
                             </a>
                         )}
                         <header>
-                            <p>ID: {policy.id}</p>
-                            <p>
+                            <p className="policy-id">ID: {policy.id}</p>
+                            <p className="policy-advisor">
                                 Advisor:{" "}
                                 <Link to={`/${policy.advisorId}`}>
                                     {advisors.find((advisor) => advisor.id === policy.advisorId)?.user?.firstName}{" "}
@@ -61,13 +61,15 @@ export const CustomerPolicyList = () => {
                                 </Link>
                             </p>
                         </header>
-                        <p>Product ID: {policy.productId}</p>
-                        <p>Product Name: {products.find((product) => product.id === policy.productId)?.productType.category}</p>
-                        <p>Start Date: {policy.startDate}</p>
-                        <p>Term: {policy.duration?.span}</p>
-                    </section>
+                        <p className="policy-product-id">Product ID: {policy.productId}</p>
+                        <p className="policy-product-name">
+                            Product Name: {products.find((product) => product.id === policy.productId)?.productType.category}
+                        </p>
+                        <p className="policy-start-date">Start Date: {policy.startDate}</p>
+                        <p className="policy-term">Term: {policy.duration?.span}</p>
+                    </div>
                 ))}
             </article>
         </section>
-    )
+    );
 }      

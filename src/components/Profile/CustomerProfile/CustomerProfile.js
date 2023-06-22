@@ -113,37 +113,58 @@ export const CustomerProfile = () => {
             <div className="customer-profile">
                 <h3>Profile</h3>
                 <section className="profile">
-                    <p>Name: {currentUser?.user?.firstName} {currentUser?.user?.lastName}</p>
-                    <p>Email: {currentUser?.user?.email}</p>
-                    <p>Address: {currentUser?.address}</p>
-                    <p>Phone Number: {currentUser?.phoneNumber}</p>
-                    <p>Date of Birth: {currentUser?.dateOfBirth}</p>
-                    <button className="update-profile" onClick={() => navigate("UpdateCustomerProfile")}>Update Profile</button>
+                    <p className="profile-label">
+                        Name: {currentUser?.user?.firstName} {currentUser?.user?.lastName}
+                    </p>
+                    <p className="profile-label">Email: {currentUser?.user?.email}</p>
+                    <p className="profile-label">Address: {currentUser?.address}</p>
+                    <p className="profile-label">Phone Number: {currentUser?.phoneNumber}</p>
+                    <p className="profile-label">Date of Birth: {currentUser?.dateOfBirth}</p>
+                    <button
+                        className="update-profile-button"
+                        onClick={() => navigate("UpdateCustomerProfile")}
+                    >
+                        Update Profile
+                    </button>
                 </section>
             </div>
             <div className="beneficiaries-section">
                 <div className="customer-profile">
                     <h3>Beneficiaries</h3>
-                    {beneficiaries.map((beneficiary) => (
-                        <section className="beneficiary" key={`beneficiary--${beneficiary.id}`}>
-                            <p>Name: {beneficiary?.beneficiary?.name}</p>
-                            <p>Address: {beneficiary?.beneficiary?.address}</p>
-                            <p>Phone Number: {beneficiary?.beneficiary?.phoneNumber}</p>
-                            <p>Date of Birth: {beneficiary?.beneficiary?.dateOfBirth}</p>
-                            <p>Relationship: {beneficiary?.beneficiary?.relationship}</p>
-                            <p>Type: {getBeneficiaryTypeName(beneficiary)}</p>
-                            <button className="delete-beneficiary" onClick={() => handleBeneficiaryDelete(beneficiary)}>Delete</button>
-                            <button className="edit-beneficiary" onClick={() => handleBeneficiaryEdit(beneficiary.id)}>Edit</button>
-                        </section>
-                    ))}
+                    <div className="beneficiaries-container">
+                        {beneficiaries.map((beneficiary) => (
+                            <section className="beneficiary" key={`beneficiary--${beneficiary.id}`}>
+                                <p className="profile-label">Name: {beneficiary?.beneficiary?.name}</p>
+                                <p className="profile-label">Address: {beneficiary?.beneficiary?.address}</p>
+                                <p className="profile-label">Phone Number: {beneficiary?.beneficiary?.phoneNumber}</p>
+                                <p className="profile-label">Date of Birth: {beneficiary?.beneficiary?.dateOfBirth}</p>
+                                <p className="profile-label">Relationship: {beneficiary?.beneficiary?.relationship}</p>
+                                <p className="profile-label">Type: {getBeneficiaryTypeName(beneficiary)}</p>
+                                <button
+                                    className="delete-beneficiary-button"
+                                    onClick={() => handleBeneficiaryDelete(beneficiary)}
+                                >
+                                    Delete
+                                </button>
+                                <button
+                                    className="edit-beneficiary-button"
+                                    onClick={() => handleBeneficiaryEdit(beneficiary.id)}
+                                >
+                                    Edit
+                                </button>
+                            </section>
+                        ))}
+                    </div>
                     {showAddBeneficiaryButton && (
-                        <button className="addBeneficiary-button" onClick={AddNewBeneficiaryButtonClick}>
+                        <button className="add-beneficiary-button" onClick={AddNewBeneficiaryButtonClick}>
                             Add New Beneficiary
                         </button>
                     )}
                 </div>
             </div>
-            {isSecondaryBeneficiaryChanged && <p>Secondary Beneficiary Changed to Primary</p>}
+            {isSecondaryBeneficiaryChanged && (
+                <p className="secondaryBeneficiary-changed">Secondary Beneficiary Changed to Primary</p>
+            )}
         </div>
     );
 }

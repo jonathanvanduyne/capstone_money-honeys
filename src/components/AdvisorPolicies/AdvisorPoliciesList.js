@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import "./AdvisorPolicy.css";
 import { getAllCustomers, getAllPolicies, getCurrentAdvisorInfo } from "../../APIManager.js";
 import { AdvisorPolicy } from "./AdvisorPolicy.js";
 import { useNavigate } from "react-router-dom";
 import { UploadWidget } from "./UploadPolicy.js";
+import "./AdvisorPolicy.css";
 
 
 export const AdvisorPolicyList = () => {

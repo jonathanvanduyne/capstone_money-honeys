@@ -1,95 +1,109 @@
 .container {
-    display: flex;
-    flex-direction: row;
-    
-  }
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.customer-profile h3 {
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile .profile-label {
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.update-profile-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: rgb(58, 158, 58); /* Set the background color to green */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.update-profile-button:hover {
+  background-color: #3c9449;
+  opacity: 0.8;
+}
+
+.beneficiaries-section .beneficiaries-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.beneficiary {
+  flex: 0 0 35%;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: background-color 0.3s;
   
-  .customer-profile {
-    background-color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    justify-self: flex-start;
-  }
-  .advisor-profile {
-    background-color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    justify-self: flex-start;
-  }
-  
-  .beneficiaries-section {
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping to create multiple rows */
-    
-    justify-content: space-between; /* Adjust the alignment based on your preference */
-    width: 250px;
-  }
-  
-  .beneficiary {
-    background-color: white;
-    /* padding: 10px; */
-    flex: 0 0 calc(25% - 20px); /* Adjust the width based on the number of beneficiaries you want per row */
-    margin-bottom: 20px; /* Add margin between beneficiaries */
-  }
-  
-  .profile {
-    background-color: white;
-    padding: 20px;
-    transition: background-color 0.3s;
-  }
-  
-  .profile p {
-    margin-bottom: 10px;
-  }
-  
-  .addBeneficiary-button,
-  .updateProfile-button {
-    background-color: green;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .addBeneficiary-button:hover,
-  .update-profile-button:hover {
-    background-color: darkgreen;
-  }
-  
-  .delete-beneficiary {
-    background-color: red;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .delete-beneficiary:hover {
-    background-color: darkred;
-  }
-  .update-profile,
-  .edit-beneficiary {
-    background-color: green;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .edit-beneficiary:hover {
-    background-color: darkgreen;
-  }
-  
-  body {
-    background-color: #f2f2f2;
-    font-family: Arial, sans-serif;
-    margin: 0;
-  }
-  
-  h3 {
-    margin-bottom: 10px;
-  }
-  
+}
+
+.beneficiary:hover {
+  background-color: #fff;
+}
+
+.beneficiary .profile-label {
+  margin-bottom: 5px;
+}
+
+.delete-beneficiary-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #dc3545; /* Set the background color to red */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.delete-beneficiary-button:hover {
+  background-color: maroon;
+  opacity: 0.8;
+}
+
+.edit-beneficiary-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: rgb(58, 158, 58); /* Set the background color to green */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-beneficiary-button:hover {
+  background-color: #3c9449;
+  opacity: 0.8;
+}
+
+.add-beneficiary-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #007bff; /* Set the background color to blue */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-beneficiary-button:hover {
+  background-color: #0056b3;
+  opacity: 0.8;
+}
+
+.secondaryBeneficiary-changed {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #dc3545;
+}
