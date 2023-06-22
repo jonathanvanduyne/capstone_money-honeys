@@ -115,14 +115,14 @@ export const AdvisorPolicyList = () => {
 
     return (
         <div className="page-container">
-            <h2 className="advisor-name">
+            <div className="nameAndButton"> <h2 className="advisor-name">
                 {currentAdvisor?.user?.firstName} {currentAdvisor?.user?.lastName}'s Policies
             </h2>
 
-            <button className="add-new-policy-button" onClick={handleNewPolicyButtonClick}>
-                Add Client Policy
-            </button>
-
+                <button className="add-new-policy-button" onClick={handleNewPolicyButtonClick}>
+                    Add Client Policy
+                </button>
+            </div>
             <div className="policy-list-container">
                 {currentAdvisorPolicies.length > 0 ? (
                     currentAdvisorPolicies.map((policy) => (
@@ -168,4 +168,4 @@ export const AdvisorPolicyList = () => {
             </div>
         </div>
     );
-                }
+}

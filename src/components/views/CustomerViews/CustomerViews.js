@@ -9,7 +9,7 @@ import { CustomerEditBeneficiary } from "../../Profile/CustomerProfile/CustomerE
 
 export const CustomerViews = () => {
 	return (
-		<div className="advisor-view">
+		<div className="customer-view">
 		<Routes>
 			<Route
 				path="/"

@@ -34,23 +34,25 @@ export const Login = () => {
         <main className="container--login">
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Money Honey</h1>
-                    <h2>Connecting With a Financial Advisor Has Never Been So Sweet</h2>
-                    <h2>Please Sign In</h2>
-                    <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
-                        <input type="email"
-                            value={email}
-                            onChange={evt => set(evt.target.value)}
-                            className="form-control"
-                            placeholder="Email address"
-                            required autoFocus />
-                    </fieldset>
-                    <fieldset>
-                        <button type="submit">
-                            Sign in
-                        </button>
-                    </fieldset>
+                        <h1 className="title"><span className="span-3">Money</span> <span className="span-4">Honey</span></h1>
+                        <h2 className="subtitle">
+                            Connecting With a Financial Advisor Has Never Been So Sweet
+                        </h2>
+                        <h2>Please Sign In</h2>
+                        <fieldset>
+                            <label htmlFor="inputEmail"> Email address </label>
+                            <input type="email"
+                                value={email}
+                                onChange={evt => set(evt.target.value)}
+                                className="form-control"
+                                placeholder="Email address"
+                                required autoFocus />
+                        </fieldset>
+                        <fieldset>
+                            <button type="submit">
+                                Sign in
+                            </button>
+                        </fieldset>
                 </form>
             </section>
             <section className="link--register">

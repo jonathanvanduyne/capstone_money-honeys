@@ -35,22 +35,19 @@
   .span-1 {
     text-decoration: underline;
     text-decoration-color: green;
-    /* Set the color of the underline for "Money" to green */
   }
   
   .span-2 {
     text-decoration: underline;
     text-decoration-color: yellow;
-    /* Set the color of the underline for "Honey" to yellow */
+
   }
   
   h1 {
     font-size: 4rem;
-    /* Increase the font size of the <h1> to 4rem (adjust as needed) */
   }
   
   h3 {
     font-size: 6rem;
-    /* Increase the font size of the <h3> to 3rem (adjust as needed) */
   }
   

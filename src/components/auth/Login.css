@@ -8,17 +8,18 @@
 }
 
 .form--login {
-    width: 400px;
+    width: 600px;
     padding: 20px;
     background-color: rgb(234, 234, 234);
     border-radius: 8px;
     border-color: 1px lightgreen;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
 }
 
 .form--login h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .form--login h2 {
@@ -75,3 +76,21 @@
 fieldset {
     border: none;
 }
+
+.span-3 {
+    text-decoration: underline;
+    text-decoration-color: green;
+    font-size: 4rem;
+    /* Set the color of the underline for "Money" to green */
+  }
+  
+  .span-4 {
+    text-decoration: underline;
+    text-decoration-color: yellow;
+    font-size: 4rem;
+    /* Set the color of the underline for "Honey" to yellow */
+  }
+
+  .subtitle {
+    font-size: large;
+  }

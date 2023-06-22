@@ -2,7 +2,7 @@
   animation-delay: 6s; /* Set the delay before the animation starts */
   animation: fade-in 2s ease-in-out;
   color: black;
-  font-size: 48px;
+  font-size: 4rem;
   filter: grayscale(100%);
   transition: filter 6s ease-in-out;
 }
