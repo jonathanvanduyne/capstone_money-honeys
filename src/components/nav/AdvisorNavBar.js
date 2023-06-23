@@ -30,7 +30,7 @@ export const AdvisorNavBar = () => {
     const handleMouseLeave = () => {
         expandTimeoutRef.current = setTimeout(() => {
             setIsExpanded(false);
-        }, 300);
+        }, 50);
     };
 
     const handleLinkClick = () => {

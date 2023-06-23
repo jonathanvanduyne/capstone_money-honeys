@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { UploadWidget } from "./UploadPolicy.js";
 import "./AdvisorPolicy.css";
 
-
 export const AdvisorPolicyList = () => {
     const [allPolicies, setAllPolicies] = useState([]);
     const [currentAdvisor, setCurrentAdvisor] = useState(null);
@@ -17,12 +16,11 @@ export const AdvisorPolicyList = () => {
         const policies = await getAllPolicies();
         setAllPolicies(policies);
     };
-
+    
     const handleSignedPolicyUpload = () => {
-        fetchData()
-    }
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+        fetchData();
+    };
+    
     useEffect(() => {
         const fetchAdvisorInfo = async () => {
             const advisor = await getCurrentAdvisorInfo();
@@ -48,8 +46,6 @@ export const AdvisorPolicyList = () => {
         }
     }, [currentAdvisor, allPolicies]);
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     const handlePolicyDelete = async (policyId) => {
         await fetch(`http://localhost:8088/policies/${policyId}`, {
             method: "DELETE",
@@ -61,9 +57,19 @@ export const AdvisorPolicyList = () => {
         navigate("/AddNewPolicy");
     };
 
-    //
+    const isLastNameEndsWithS = () => {
+        const advisorLastName = currentAdvisor?.user?.lastName || "";
+        return advisorLastName.charAt(advisorLastName.length - 1) === "s";
+    };
 
-    const DeleteSignedPolicyURL = async ({ policyNumber, productId, startDate, term, customerId, advisorId }) => {
+    const DeleteSignedPolicyURL = async ({
+        policyNumber,
+        productId,
+        startDate,
+        term,
+        customerId,
+        advisorId,
+    }) => {
         try {
             await fetch(`http://localhost:8088/policies/${policyNumber}`, {
                 method: "PUT",
@@ -85,9 +91,7 @@ export const AdvisorPolicyList = () => {
         }
     };
 
-    //
-
-    const SignedPolicyLinkAndDeleteButton = ({ url, policyNumber, productId, startDate, term, customerId, advisorId }) => {
+    const SignedPolicyLinkAndDeleteButton = ({url, policyNumber, productId, startDate, term, customerId, advisorId,}) => {
         const handleDeleteClick = () => {
             DeleteSignedPolicyURL({
                 policyNumber: policyNumber,
@@ -111,13 +115,13 @@ export const AdvisorPolicyList = () => {
         );
     };
 
-    //
-
     return (
         <div className="page-container">
-            <div className="nameAndButton"> <h2 className="advisor-name">
-                {currentAdvisor?.user?.firstName} {currentAdvisor?.user?.lastName}'s Policies
-            </h2>
+            <div className="nameAndButton">
+                <h2 className="advisor-name">
+                    {currentAdvisor?.user?.firstName}{" "}
+                    {isLastNameEndsWithS() ? `${currentAdvisor?.user?.lastName}'` : `${currentAdvisor?.user?.lastName}'s`} Policies
+                </h2>
 
                 <button className="add-new-policy-button" onClick={handleNewPolicyButtonClick}>
                     Add Client Policy
@@ -159,7 +163,9 @@ export const AdvisorPolicyList = () => {
                                 customerFirstName={customers.find((customer) => customer.id === policy.customerId)?.user?.firstName}
                                 customerLastName={customers.find((customer) => customer.id === policy.customerId)?.user?.lastName}
                             />
-                            <button className="delete-policy-button" onClick={() => handlePolicyDelete(policy.id)}>Delete</button>
+                            <button className="delete-policy-button" onClick={() => handlePolicyDelete(policy.id)}>
+                                Delete
+                            </button>
                         </div>
                     ))
                 ) : (
@@ -168,4 +174,4 @@ export const AdvisorPolicyList = () => {
             </div>
         </div>
     );
-}
+};

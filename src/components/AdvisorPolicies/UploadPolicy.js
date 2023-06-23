@@ -16,6 +16,7 @@ export const UploadWidget = ({ policyNumber, productId, startDate, term, custome
             },
             function (error, result) {
                 if (!error && result && result.event === "success") {
+                    debugger
                     const UrlAddress = result.info.secure_url;
                     setUploadedUrl(UrlAddress);
                 }

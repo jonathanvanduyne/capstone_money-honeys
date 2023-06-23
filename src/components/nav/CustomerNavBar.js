@@ -1,12 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import { getCurrentCustomerInfo } from "../../APIManager.js";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const CustomerNavBar = () => {
     const navigate = useNavigate();
     const [currentCustomer, setCurrentCustomer] = useState([]);
     const [isExpanded, setIsExpanded] = useState(false);
+    const expandTimeoutRef = useRef(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -21,6 +22,17 @@ export const CustomerNavBar = () => {
         setIsExpanded(!isExpanded);
     };
 
+    const handleMouseEnter = () => {
+        clearTimeout(expandTimeoutRef.current);
+        setIsExpanded(true);
+    };
+
+    const handleMouseLeave = () => {
+        expandTimeoutRef.current = setTimeout(() => {
+            setIsExpanded(false);
+        }, 50);
+    };
+
     const handleLinkClick = () => {
         setIsExpanded(false);
     };
@@ -28,8 +40,8 @@ export const CustomerNavBar = () => {
     return (
         <div
             className={`navbar__container ${isExpanded ? "expanded" : ""}`}
-            onMouseEnter={() => setIsExpanded(true)}
-            onMouseLeave={() => setIsExpanded(false)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
         >
             <div
                 className={`navbar__icon ${isExpanded ? "active" : ""}`}

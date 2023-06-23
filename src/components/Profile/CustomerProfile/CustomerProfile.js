@@ -108,10 +108,15 @@ export const CustomerProfile = () => {
         navigate("/addNewBeneficiary");
     };
 
+    const isFirstNamesEndsWithS = () => {
+        const firstName = currentUser?.user?.firstName || "";
+        return firstName.charAt(firstName.length - 1) === "s";
+    };
+
     return (
         <div className="container">
             <div className="customer-profile">
-                <h3>Profile</h3>
+                <h3>{currentUser?.user?.firstName}{isFirstNamesEndsWithS() ? "'" : "'s"} Profile</h3>
                 <section className="profile">
                     <p className="profile-label">
                         Name: {currentUser?.user?.firstName} {currentUser?.user?.lastName}

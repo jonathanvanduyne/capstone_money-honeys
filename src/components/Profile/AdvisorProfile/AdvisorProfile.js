@@ -12,10 +12,17 @@ export const AdvisorProfile = () => {
         });
     }, []);
 
+    const isLastNameEndsWithS = () => {
+        const advisorFirstName = currentUser?.user?.firstName || "";
+        return advisorFirstName.charAt(advisorFirstName.length - 1) === "s";
+    };
+
     return (
         <div className="page-container">
             <div className="advisor-profile-container">
-                <section className="advisor-profile__header">Advisor Profile</section>
+                <section className="advisor-profile__header">
+                    {currentUser?.user?.firstName}{isLastNameEndsWithS() ? "'" : "'s"} Profile
+                </section>
                 <section className="advisor-profile__info">
                     <p className="advisor-profile__label">
                         Name: {currentUser?.user?.firstName} {currentUser?.user?.lastName}
@@ -31,3 +38,4 @@ export const AdvisorProfile = () => {
         </div>
     );
 };
+

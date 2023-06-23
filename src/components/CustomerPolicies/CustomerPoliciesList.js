@@ -8,7 +8,7 @@ export const CustomerPolicyList = () => {
     const [advisors, setAllAdvisors] = useState([]);
     const [currentCustomerPolicies, setCurrentCustomerPolicies] = useState([]);
     const [currentCustomer, setCurrentCustomer] = useState([]);
-    const [products, setCurrentProducts] = useState([])
+    const [products, setCurrentProducts] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -21,8 +21,8 @@ export const CustomerPolicyList = () => {
             const currentCustomer = await getCurrentCustomerInfo();
             setCurrentCustomer(currentCustomer);
 
-            const products = await getAllProducts()
-            setCurrentProducts(products)
+            const products = await getAllProducts();
+            setCurrentProducts(products);
         };
 
         fetchData();
@@ -30,15 +30,20 @@ export const CustomerPolicyList = () => {
 
     useEffect(() => {
         if (currentCustomer) {
-            const currentPolicies = allPolicies.filter(policy => policy?.customer?.userId === currentCustomer?.userId);
+            const currentPolicies = allPolicies.filter((policy) => policy?.customer?.userId === currentCustomer?.userId);
             setCurrentCustomerPolicies(currentPolicies);
         }
     }, [allPolicies, currentCustomer]);
 
+    const isLastNameEndsWithS = () => {
+        const lastName = currentCustomer?.user?.lastName || "";
+        return lastName.charAt(lastName.length - 1) === "s";
+    };
+
     return (
         <section className="page-container">
             <h2 className="customer-name">
-                {currentCustomer?.user?.firstName} {currentCustomer?.user?.lastName} Policies
+                {currentCustomer?.user?.firstName}{isLastNameEndsWithS() ? "'" : "'s"} Policies
             </h2>
 
             <article className="policy-list-container">
@@ -63,7 +68,8 @@ export const CustomerPolicyList = () => {
                         </header>
                         <p className="policy-product-id">Product ID: {policy.productId}</p>
                         <p className="policy-product-name">
-                            Product Name: {products.find((product) => product.id === policy.productId)?.productType.category}
+                            Product Name:{" "}
+                            {products.find((product) => product.id === policy.productId)?.productType.category}
                         </p>
                         <p className="policy-start-date">Start Date: {policy.startDate}</p>
                         <p className="policy-term">Term: {policy.duration?.span}</p>
@@ -72,4 +78,4 @@ export const CustomerPolicyList = () => {
             </article>
         </section>
     );
-}      
+};
