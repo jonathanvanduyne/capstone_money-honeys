@@ -151,3 +151,11 @@ export const getAllDurations = async () => {
 
     return durationsArray
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Get Investments
+export const getAllInvestments = async () => {
+    const durationsResponse = await fetch("http://localhost:8088/investmentPolicies?_expand=duration&_expand=investmentDescription&_expand=stockSymbol&_expand=customer&_expand=advisor");
+    const durationsArray = await durationsResponse.json();
+
+    return durationsArray
+}

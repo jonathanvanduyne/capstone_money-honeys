@@ -8,6 +8,7 @@ import { AddNewProduct } from "../../Products/AddNewProduct.js";
 import { UpdateAdvisorProfile } from "../../Profile/AdvisorProfile/AdvisorEditProfile.js";
 import { Profile } from "../../Profile/Profile.js";
 import "./AdvisorViews.css"
+import { AdvisorInvestmentsList } from "../../Investments/AdvisorInvestments/AdvisorInvestmentsList.js";
 
 export const AdvisorViews = () => {
 	return (
@@ -56,6 +57,9 @@ export const AdvisorViews = () => {
 				<Route path="/products" element={<ProductList />} />
 
 				<Route path="/AddNewProduct" element={<AddNewProduct />} />
+				
+				<Route path="/investments" element={<AdvisorInvestmentsList />} />
+
 			</Routes>
 		</div>
 	);

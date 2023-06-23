@@ -8,12 +8,12 @@ export const ProductList = () => {
     const [products, updateProducts] = useState([]);
     const navigate = useNavigate()
 
-    useEffect(() => {
+    const fetchData = async () => {
+        const products = await getAllProducts();
+        updateProducts(products);
+    };
 
-        const fetchData = async () => {
-            const products = await getAllProducts();
-            updateProducts(products);
-        };
+    useEffect(() => {
 
         fetchData();
     }, []);
@@ -22,6 +22,12 @@ export const ProductList = () => {
         navigate("/AddNewProduct")
     }
 
+    const handleDelete = async (product) => {
+            await fetch(`http://localhost:8088/products/${product.id}`, {
+                method: "DELETE",
+            });
+            fetchData();
+        };
     return (
         <>
             <div className="product-container">
@@ -40,7 +46,7 @@ export const ProductList = () => {
                                 <p>Price: {product?.price}</p>
                                 <p>Billing Frequency: {product?.billingFrequency?.frequency}</p>
                             </div>
-                            <button>Delete</button>
+                            <button onClick={() => handleDelete(product)}>Delete</button>
                         </div>
                     ))}
                 </div>

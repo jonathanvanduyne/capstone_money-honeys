@@ -74,6 +74,15 @@ export const CustomerNavBar = () => {
                     <li className="navbar__locations">
                         <Link
                             className="navbar__link"
+                            to="/investments"
+                            onClick={handleLinkClick}
+                        >
+                            Investments
+                        </Link>
+                    </li>
+                    <li className="navbar__locations">
+                        <Link
+                            className="navbar__link"
                             to=""
                             onClick={() => {
                                 localStorage.removeItem("moneyHoneys_user");

@@ -6,6 +6,7 @@ import { Profile } from "../../Profile/Profile.js";
 import { UpdateCustomerProfile } from "../../Profile/CustomerProfile/CustomerEditProfile.js";
 import { AddNewBeneficiary } from "../../Profile/CustomerProfile/CustomerAddBeneficiary.js";
 import { CustomerEditBeneficiary } from "../../Profile/CustomerProfile/CustomerEditBeneficiary.js";
+import { CustomerInvestmentsList } from "../../Investments/CustomerInvestments/CustomerInvestmentsList.js";
 
 export const CustomerViews = () => {
 	return (
@@ -49,7 +50,10 @@ export const CustomerViews = () => {
 
 				<Route path="addNewBeneficiary" element={<AddNewBeneficiary />} />
 
-				<Route path="profile/editBeneficiary/:beneficiaryId" element={<CustomerEditBeneficiary />}
+				<Route path="profile/editBeneficiary/:beneficiaryId" element={<CustomerEditBeneficiary />} />
+				
+				<Route path="investments" element={<CustomerInvestmentsList />}
+				
 				/>
 			</Routes>
 		</div>
