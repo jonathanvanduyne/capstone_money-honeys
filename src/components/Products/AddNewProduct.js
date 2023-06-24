@@ -46,7 +46,7 @@ export const AddNewProduct = () => {
             body: JSON.stringify(productToSendToAPI),
         })
             .then((response) => response.json())
-            .then(() => navigate("/productList"));
+            .then(() => navigate("/products"));
     };
 
     return (
