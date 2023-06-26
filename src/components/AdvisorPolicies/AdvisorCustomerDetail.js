@@ -18,13 +18,17 @@ export const AdvisorCustomerDetail = () => {
     )
 
     return (
-        <section className="customer">
-            <header className="customer__header">
-                <h3>{customer?.user?.firstName} {customer?.user?.lastName}</h3>
+        <section className="advisor-customer-detail">
+            <header className="advisor-customer-detail-header">
+                <h3 className="advisor-customer-detail-header-text">
+                    {customer?.user?.firstName} {customer?.user?.lastName}
+                </h3>
             </header>
-            <div>Email: {customer?.user?.email}</div>
-            <div>Phone Number: {customer?.phoneNumber}</div>
-            <div>Address: {customer?.address}</div>
+            <div className="advisor-customer-detail-info">
+                <div>Email: {customer?.user?.email}</div>
+                <div>Phone Number: {customer?.phoneNumber}</div>
+                <div>Address: {customer?.address}</div>
+            </div>
         </section>
-    )
-}      
+    );
+};

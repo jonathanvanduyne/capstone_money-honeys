@@ -1,0 +1,109 @@
+.container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.customer-profile h3 {
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile .profile-label {
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.update-profile-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: rgb(58, 158, 58); /* Set the background color to green */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.update-profile-button:hover {
+  background-color: #3c9449;
+  opacity: 0.8;
+}
+
+.beneficiaries-section .beneficiaries-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.beneficiary {
+  flex: 0 0 35%;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: background-color 0.3s;
+  
+}
+
+.beneficiary:hover {
+  background-color: #fff;
+}
+
+.beneficiary .profile-label {
+  margin-bottom: 5px;
+}
+
+.delete-beneficiary-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #dc3545; /* Set the background color to red */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.delete-beneficiary-button:hover {
+  background-color: maroon;
+  opacity: 0.8;
+}
+
+.edit-beneficiary-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: rgb(58, 158, 58); /* Set the background color to green */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-beneficiary-button:hover {
+  background-color: #3c9449;
+  opacity: 0.8;
+}
+
+.add-beneficiary-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #007bff; /* Set the background color to blue */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-beneficiary-button:hover {
+  background-color: #0056b3;
+  opacity: 0.8;
+}
+
+.secondaryBeneficiary-changed {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #dc3545;
+}

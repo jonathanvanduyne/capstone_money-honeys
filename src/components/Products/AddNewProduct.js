@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getAllBillingFrequencies, getAllProductsTypes } from "../../APIManager.js";
 import "./Products.css"
 
+
 export const AddNewProduct = () => {
     const [product, update] = useState({
         productTypeId: "",
@@ -45,7 +46,7 @@ export const AddNewProduct = () => {
             body: JSON.stringify(productToSendToAPI),
         })
             .then((response) => response.json())
-            .then(() => navigate("/productList"));
+            .then(() => navigate("/products"));
     };
 
     return (

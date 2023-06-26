@@ -1,6 +1,7 @@
 import { getCurrentUser } from "../../APIManager.js"
-import { AdvisorProfile } from "./AdvisorProfile.js"
-import { CustomerProfile } from "./CustomerProfile.js"
+import { AdvisorProfile } from "./AdvisorProfile/AdvisorProfile.js"
+import { CustomerProfile } from "./CustomerProfile/CustomerProfile.js"
+
 
 export const Profile = () => {
     

@@ -1,6 +1,7 @@
 import { getCurrentUser } from "../../APIManager.js"
-import { AdvisorViews } from "./AdvisorViews.js"
-import { CustomerViews } from "./CustomerViews.js"
+import { AdvisorViews } from "./AdvisorViews/AdvisorViews.js"
+import { CustomerViews } from "./CustomerViews/CustomerViews.js"
+
 
 
 export const ApplicationViews = () => {

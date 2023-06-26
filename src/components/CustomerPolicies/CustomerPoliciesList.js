@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { getAllPolicies, getAllAdvisors, getCurrentCustomerInfo, getAllProducts } from "../../APIManager.js";
 import "./CustomerPolicy.css";
-import { CustomerPolicy } from "./CustomerPolicy.js";
+import { Link } from "react-router-dom";
 
 export const CustomerPolicyList = () => {
     const [allPolicies, setAllPolicies] = useState([]);
     const [advisors, setAllAdvisors] = useState([]);
     const [currentCustomerPolicies, setCurrentCustomerPolicies] = useState([]);
     const [currentCustomer, setCurrentCustomer] = useState([]);
-    const [products, setCurrentProducts] = useState([])
+    const [products, setCurrentProducts] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -21,8 +21,8 @@ export const CustomerPolicyList = () => {
             const currentCustomer = await getCurrentCustomerInfo();
             setCurrentCustomer(currentCustomer);
 
-            const products = await getAllProducts()
-            setCurrentProducts(products)
+            const products = await getAllProducts();
+            setCurrentProducts(products);
         };
 
         fetchData();
@@ -30,29 +30,52 @@ export const CustomerPolicyList = () => {
 
     useEffect(() => {
         if (currentCustomer) {
-            const currentPolicies = allPolicies.filter(policy => policy?.customer?.userId === currentCustomer?.userId);
+            const currentPolicies = allPolicies.filter((policy) => policy?.customer?.userId === currentCustomer?.userId);
             setCurrentCustomerPolicies(currentPolicies);
         }
     }, [allPolicies, currentCustomer]);
 
-    return (
-        <>
-            <h2>{currentCustomer?.user?.firstName} {currentCustomer?.user?.lastName} Policies</h2>
+    const isLastNameEndsWithS = () => {
+        const lastName = currentCustomer?.user?.lastName || "";
+        return lastName.charAt(lastName.length - 1) === "s";
+    };
 
-            <article className="policies">
+    return (
+        <section className="page-container">
+            <h2 className="customer-name">
+                {currentCustomer?.user?.firstName}{isLastNameEndsWithS() ? "'" : "'s"} Policies
+            </h2>
+
+            <article className="policy-list-container">
                 {currentCustomerPolicies.map((policy) => (
-                    <CustomerPolicy key={`customerPolicy--${policy.id}`}
-                        policyNumber={policy.id}
-                        productId={policy?.product?.id}
-                        startDate={policy?.startDate}
-                        term={policy?.term}
-                        advisorId={policy?.advisorId}
-                        advisorFirstName={advisors.find((advisor) => advisor.id === policy.advisorId)?.user?.firstName}
-                        advisorLastName={advisors.find((advisor) => advisor.id === policy.advisorId)?.user?.lastName}
-                        productName={products.find((product) => product.id === policy.productId)?.productType.category}
-                    />
+                    <div className="customer-policy" key={`customerPolicy--${policy.id}`}>
+                        {policy.policyURL === null ? (
+                            ""
+                        ) : (
+                            <a href={policy?.policyURL} target="_blank" rel="noopener noreferrer">
+                                View Signed Policy
+                            </a>
+                        )}
+                        <header>
+                            <p className="policy-id">ID: {policy.id}</p>
+                            <p className="policy-advisor">
+                                Advisor:{" "}
+                                <Link to={`/${policy.advisorId}`}>
+                                    {advisors.find((advisor) => advisor.id === policy.advisorId)?.user?.firstName}{" "}
+                                    {advisors.find((advisor) => advisor.id === policy.advisorId)?.user?.lastName}
+                                </Link>
+                            </p>
+                        </header>
+                        <p className="policy-product-id">Product ID: {policy.productId}</p>
+                        <p className="policy-product-name">
+                            Product Name:{" "}
+                            {products.find((product) => product.id === policy.productId)?.productType.category}
+                        </p>
+                        <p className="policy-start-date">Start Date: {policy.startDate}</p>
+                        <p className="policy-term">Term: {policy.duration?.span}</p>
+                    </div>
                 ))}
             </article>
-        </>
+        </section>
     );
 };

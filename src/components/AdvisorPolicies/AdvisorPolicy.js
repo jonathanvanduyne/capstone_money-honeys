@@ -1,23 +1,29 @@
 import { Link } from "react-router-dom";
 import "./AdvisorPolicy.css";
-import { AdvisorDeleteButton } from "../../APIManager.js";
 
 export const AdvisorPolicy = ({ policyNumber, productId, startDate, term, customerId, customerFirstName, customerLastName }) => {
     return (
         <section className="policy" key={`Policy Id--${policyNumber}`}>
-            <header>
+            <header className="policy-header">
                 <p>ID: {policyNumber}</p>
                 <p>
                     Customer:{" "}
-                    <Link to={`/${customerId}`}>
-                        {`${customerFirstName}
-                        ${customerLastName}`}
+                    <Link to={`/${customerId}`} className="policy-header-text">
+                        {`${customerFirstName} ${customerLastName}`}
                     </Link>
                 </p>
             </header>
-            <p>Product ID: {productId}</p>
-            <p>Start Date: {startDate}</p>
-            <p>Term: {term}</p>
+            <div className="policy-info">
+                <p>
+                    Product ID: <span className="policy-header-text">{productId}</span>
+                </p>
+                <p>
+                    Start Date: <span className="policy-header-text">{startDate}</span>
+                </p>
+                <p>
+                    Term: <span className="policy-header-text">{term}</span>
+                </p>
+            </div>
         </section>
     );
 };

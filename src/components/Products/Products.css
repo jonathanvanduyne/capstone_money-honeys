@@ -1,92 +1,75 @@
-.products {
+/* Products.css */
+  
+  .product-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-top: 20px;
+  }
+  
+  .add-new-product-button {
+    margin-bottom: 20px;
+    background-color: rgb(58, 158, 58);
+  }
+  
+  .product-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-}
-
-.product {
-    background-color: #f8f8f8;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid #e0e0e0;
-}
-
-.product:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.product header {
-    margin-bottom: 10px;
-}
-
-.product p {
-    margin-bottom: 5px;
-}
-
-.products button {
-    margin-top: 10px;
-    background-color: #007bff;
-    color: #fff;
-    padding: 8px 16px;
-    border: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  .product-item {
+    width: 20%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    cursor: pointer;
-}
-
-.products button:hover {
-    background-color: #0056b3;
-}
-
-.productForm {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.productForm__title {
-    margin-top: 0;
-    font-size: 1.5rem;
-    text-align: center;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    font-weight: bold;
+    background-color: rgba(255, 255, 255, .05);
+    transition: background-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .product-item .product-section {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .product-item:hover {
+    background-color:lightgrey;
+  }
+  
+  .product-item header {
+    margin-bottom: 10px;
+  }
+  
+  .product-item p {
     margin-bottom: 5px;
-}
-
-select,
-input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    /* Add this line */
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    background-color: #007bff;
+  }
+  
+  .product-item button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #dc3545;
     color: #fff;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
+    transition: background-color 0.3s;
+  }
+  
+  .product-item button:hover {
+    background-color: maroon;
+    opacity: 0.8;
+  }
+  
+  .product-item a {
+    color: #007bff;
+    text-decoration: underline;
+  }
+  
+  .product-item a:hover {
+    text-decoration: none;
+  }

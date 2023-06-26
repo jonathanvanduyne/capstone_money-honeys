@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { getAllBeneficiaryTypes, getBeneficiaryForEdit } from "../../APIManager.js";
+import { getAllBeneficiaryTypes, getBeneficiaryForEdit } from "../../../APIManager.js";
 import { useNavigate, useParams } from "react-router-dom";
+import "./CustomerProfile.css";
 
 export const CustomerEditBeneficiary = () => {
     const [beneficiaryProfile, updateBeneficiaryProfile] = useState({

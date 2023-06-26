@@ -1,48 +1,142 @@
-.policies {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .policy {
-    background-color: #f8f8f8;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid #e0e0e0;
-  }
-  
-  .policy:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .policy header {
-    margin-bottom: 10px;
-  }
-  
-  .policy p {
-    margin-bottom: 5px;
-  }
-  .customer {
-    background-color: #f8f8f8;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid #e0e0e0;
-  }
-  
-  .customer__header {
-    margin-bottom: 10px;
-  }
-  
-  .customer div {
-    margin-bottom: 5px;
-  }
-  
-  .customer:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
+.policy-list-container {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+.page-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.nameAndButton {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.advisor-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  display: block;
+}
+
+.add-new-policy-button {
+  display: block;
+  width: auto;
+  background-color: rgb(58, 158, 58);
+  padding: 5px 10px;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+
+.policy-item {
+  flex-basis: 25%;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.01);
+  transition: background-color 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.policy-item .policy-section {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.policy-item:hover {
+  background-color: lightgrey;
+}
+
+.policy-item header {
+  margin-bottom: 10px;
+}
+
+.policy-item p {
+  margin-bottom: 5px;
+}
+
+.policy-item .upload-policy-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: lightgoldenrodyellow;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.policy-item .upload-policy-button:hover {
+  background-color: goldenrod;
+  opacity: 0.8;
+}
+
+.policy-item .delete-policy-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #dc3545;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.policy-item .delete-policy-button:hover {
+  background-color: maroon;
+  opacity: 0.8;
+}
+
+.policy-item a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.policy-item a:hover {
+  text-decoration: none;
+}
+
+.delete-signed-policy-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #dc3545;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.delete-signed-policy-button:hover {
+  background-color: maroon;
+  opacity: 0.8;
+}
+
+/* advisor detail */
+.advisor-customer-detail {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.01);
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+  margin-bottom: 600px;
+}
+
+.advisor-customer-detail:hover {
+  background-color: lightgrey;
+  color: #000;
+}
+
+.advisor-customer-detail__header {
+  font-size: 24px;
+  font-weight: bold;
+}
