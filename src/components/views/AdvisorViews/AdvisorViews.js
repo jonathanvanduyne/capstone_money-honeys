@@ -9,6 +9,7 @@ import { UpdateAdvisorProfile } from "../../Profile/AdvisorProfile/AdvisorEditPr
 import { Profile } from "../../Profile/Profile.js";
 import "./AdvisorViews.css"
 import { AdvisorInvestmentsList } from "../../Investments/AdvisorInvestments/AdvisorInvestmentsList.js";
+import { AddNewInvestment } from "../../Investments/AdvisorInvestments/AddNewInvestment.js";
 
 export const AdvisorViews = () => {
 	return (
@@ -19,19 +20,19 @@ export const AdvisorViews = () => {
 					element={
 						<>
 							<div className="section--parent">
-									<section className="section">
-								<h1 className="title"><span className="span-1">Money</span> <span className="span-2">Honey</span></h1>
-									</section>
-									<section className="section">
-										<h2 className="subtitle">
-											Connecting With a Financial Advisor Has Never Been So Sweet
-										</h2>
-									</section>
-									<section className="section">
-										<h3 className="greeting">
-											<LandingPageGreeting />
-										</h3>
-									</section>
+								<section className="section">
+									<h1 className="title"><span className="span-1">Money</span> <span className="span-2">Honey</span></h1>
+								</section>
+								<section className="section">
+									<h2 className="subtitle">
+										Connecting With a Financial Advisor Has Never Been So Sweet
+									</h2>
+								</section>
+								<section className="section">
+									<h3 className="greeting">
+										<LandingPageGreeting />
+									</h3>
+								</section>
 							</div>
 
 							<section className="outlet-section">
@@ -57,8 +58,10 @@ export const AdvisorViews = () => {
 				<Route path="/products" element={<ProductList />} />
 
 				<Route path="/AddNewProduct" element={<AddNewProduct />} />
-				
+
 				<Route path="/investments" element={<AdvisorInvestmentsList />} />
+
+				<Route path="/addNewInvestment" element={<AddNewInvestment />} />
 
 			</Routes>
 		</div>

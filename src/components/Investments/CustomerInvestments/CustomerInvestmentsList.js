@@ -49,11 +49,36 @@ export const CustomerInvestmentsList = () => {
                 Investments
             </h2>
 
+            <p className="total-investment">
+                Total Investment Buy-In Amount:{" "}
+                <span className="investment-data">
+                    ${customerInvestments.reduce(
+                        (total, investment) => total + investment.price,
+                        0
+                    )}
+                </span>
+            </p>
+
             {customerInvestments.map((investment) => (
                 <div className="investment-card" key={investment.id}>
+                     {investment.documentationURL === null ? (
+                            ""
+                        ) : (
+                            <a href={investment?.documentationURL} target="_blank" rel="noopener noreferrer">
+                                View Signed Policy
+                            </a>
+                        )}
                     <p>
                         <span className="investment-header">Investment ID:</span>{" "}
                         <span className="investment-data">{investment.id}</span>
+                    </p>
+                    <p>
+                        <span className="investment-header">Customer Name:</span>{" "}
+                        <span className="investment-data">
+                            {advisors
+                                .filter((advisor) => advisor.id === investment.advisorId)
+                                .map((advisor) => advisor.user.firstName + " " + advisor.user.lastName)}
+                        </span>
                     </p>
                     <p>
                         <span className="investment-header">Start Date:</span>{" "}
@@ -73,4 +98,4 @@ export const CustomerInvestmentsList = () => {
             ))}
         </div>
     );
-            }
+}

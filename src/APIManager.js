@@ -186,3 +186,16 @@ export const getCustomerInvestments = async () => {
     return filteredInvestments
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Get Investment Types
+export const getAllInvestmentTypes = async () => {
+const typeResponse = await fetch("http://localhost:8088/investmentDescriptions?_expand=investmentType&_expand=billingFrequency");
+const investmentTypes = await typeResponse.json();
+return investmentTypes
+};
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Get Stock Symbols
+export const getAllStockSymbols = async () => {
+const symbolsResponse = await fetch("http://localhost:8088/stockSymbols");
+const stockSymbols = await symbolsResponse.json();
+return stockSymbols
+};
