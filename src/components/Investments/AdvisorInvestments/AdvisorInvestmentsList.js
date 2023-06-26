@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAdvisorInvestments, getAllCustomers, getCurrentAdvisorInfo } from "../../../APIManager.js";
+import { getAdvisorInvestments, getAllCustomers, getCurrentAdvisorInfo, getCurrentStockPrice } from "../../../APIManager.js";
 import "./AdvisorInvestments.css"
 import { UploadInvestmentWidget } from "./UploadInvestmentDocumentation.js";
 
@@ -13,7 +13,20 @@ export const AdvisorInvestmentsList = () => {
 
     const fetchData = async () => {
         const investments = await getAdvisorInvestments();
-        setAdvisorInvestments(investments);
+
+        // Fetch current stock prices for each investment
+        const updatedInvestments = await Promise.all(
+            investments.map(async (investment) => {
+                const stockPrice = await getCurrentStockPrice(investment.stockSymbol.stockMarketSymbol);
+                const currentPrice = stockPrice[0].price;
+                return {
+                    ...investment,
+                    currentPrice: currentPrice,
+                };
+            })
+        );
+
+        setAdvisorInvestments(updatedInvestments);
 
         const advisor = await getCurrentAdvisorInfo();
         setCurrentAdvisor(advisor);
@@ -21,6 +34,7 @@ export const AdvisorInvestmentsList = () => {
         const customerList = await getAllCustomers();
         setCustomers(customerList);
     }
+
 
     const onDocumentationUpload = () => {
         fetchData();
@@ -178,8 +192,12 @@ export const AdvisorInvestmentsList = () => {
                         <span className="investment-data">{investment.startDate}</span>
                     </p>
                     <p>
-                        <span className="investment-header">Buy-In Amount:</span>{" "}
+                        <span className="investment-header">Initial Buy-In Amount:</span>{" "}
                         <span className="investment-data">{investment.price}</span>
+                    </p>
+                    <p>
+                        <span className="investment-header">Current Investment Value:</span>{" "}
+                        <span className="investment-data">{investment.currentPrice}</span>
                     </p>
                     <p>
                         <span className="investment-header">Company Name:</span>{" "}

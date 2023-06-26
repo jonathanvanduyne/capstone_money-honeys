@@ -199,3 +199,10 @@ const symbolsResponse = await fetch("http://localhost:8088/stockSymbols");
 const stockSymbols = await symbolsResponse.json();
 return stockSymbols
 };
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Get Current Stock Price
+export const getCurrentStockPrice = async (symbol) => {
+    const APIResponse = await fetch(`https://financialmodelingprep.com/api/v3/quote-short/${symbol}?apikey=bfc5979521c1083c6db0aa25133c84df`);
+    const stockPrice = await APIResponse.json();
+    return stockPrice
+    };

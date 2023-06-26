@@ -61,13 +61,13 @@ export const CustomerInvestmentsList = () => {
 
             {customerInvestments.map((investment) => (
                 <div className="investment-card" key={investment.id}>
-                     {investment.documentationURL === null ? (
-                            ""
-                        ) : (
-                            <a href={investment?.documentationURL} target="_blank" rel="noopener noreferrer">
-                                View Signed Policy
-                            </a>
-                        )}
+                    {investment.documentationURL === null ? (
+                        ""
+                    ) : (
+                        <a href={investment?.documentationURL} target="_blank" rel="noopener noreferrer">
+                            View Signed Policy
+                        </a>
+                    )}
                     <p>
                         <span className="investment-header">Investment ID:</span>{" "}
                         <span className="investment-data">{investment.id}</span>
