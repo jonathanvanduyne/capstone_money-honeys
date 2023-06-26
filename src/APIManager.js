@@ -154,8 +154,35 @@ export const getAllDurations = async () => {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Get Investments
 export const getAllInvestments = async () => {
-    const durationsResponse = await fetch("http://localhost:8088/investmentPolicies?_expand=duration&_expand=investmentDescription&_expand=stockSymbol&_expand=customer&_expand=advisor");
-    const durationsArray = await durationsResponse.json();
+    const investmentsResponse = await fetch("http://localhost:8088/investmentPolicies?_expand=duration&_expand=investmentDescription&_expand=stockSymbol&_expand=customer&_expand=advisor");
+    const investmentsArray = await investmentsResponse.json();
 
-    return durationsArray
+    return investmentsArray
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Get Current Advisor Investments
+export const getAdvisorInvestments = async () => {
+    const investmentsResponse = await fetch("http://localhost:8088/investmentPolicies?_expand=duration&_expand=investmentDescription&_expand=stockSymbol&_expand=customer&_expand=advisor");
+    const investmentsArray = await investmentsResponse.json();
+
+    const localmoneyHoneyUser = localStorage.getItem("moneyHoneys_user");
+    const moneyHoneyUserObject = JSON.parse(localmoneyHoneyUser);
+
+    const filteredInvestments = investmentsArray.filter((investment) => investment?.advisor.userId === moneyHoneyUserObject.id)
+
+    return filteredInvestments
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Get Current Customer Investments
+export const getCustomerInvestments = async () => {
+    const investmentsResponse = await fetch("http://localhost:8088/investmentPolicies?_expand=duration&_expand=investmentDescription&_expand=stockSymbol&_expand=customer&_expand=advisor");
+    const investmentsArray = await investmentsResponse.json();
+
+    const localmoneyHoneyUser = localStorage.getItem("moneyHoneys_user");
+    const moneyHoneyUserObject = JSON.parse(localmoneyHoneyUser);
+
+    const filteredInvestments = investmentsArray.filter((investment) => investment?.customer?.userId === moneyHoneyUserObject.id)
+
+    return filteredInvestments
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

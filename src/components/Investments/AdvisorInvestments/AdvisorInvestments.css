@@ -1,0 +1,17 @@
+/* Styles for Investment Cards */
+.investment-card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #f8f8f8;
+}
+
+.investment-header {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.investment-data {
+    color: #333;
+}
