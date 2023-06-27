@@ -146,6 +146,16 @@ export const AdvisorInvestmentsList = () => {
                 </span>
             </p>
 
+            <p className="total-investment">
+                Total Current Investment Amount:{" "}
+                <span className="investment-data">
+                    ${advisorInvestments.reduce(
+                        (total, investment) => total + investment.currentInvestmentAmount,
+                        0
+                    )}
+                </span>
+            </p>
+
             <button onClick={handleNewInvestmentPolicyButtonClick}>Add New Investment</button>
 
             {advisorInvestments.map((investment) => (
@@ -176,10 +186,10 @@ export const AdvisorInvestmentsList = () => {
                             url={investment.documentationURL}
                         />
                     )}
-                    <IndividualInvestments 
-                    investment={investment}
-                    customers={customers}
-                    fetchData={fetchData}/>
+                    <IndividualInvestments
+                        investment={investment}
+                        customers={customers}
+                        fetchData={fetchData} />
 
                     <button className="delete-policy-button" onClick={() => handleInvestmentPolicyDelete(investment.id)}>
                         Delete

@@ -218,7 +218,6 @@ export const getHistoricalStockSplits = async (symbol) => {
 export const getHistoricalDayClosingPrice = async (symbol) => {
     const APIResponse = await fetch(`https://financialmodelingprep.com/api/v3/historical-price-full/${symbol}?serietype=line&apikey=bfc5979521c1083c6db0aa25133c84df`);
     const historicalDayPrice = await APIResponse.json();
-    debugger
     return historicalDayPrice.historical
     };
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
