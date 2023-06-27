@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getAdvisorInvestments, getAllCustomers, getCurrentAdvisorInfo, getCurrentStockPrice } from "../../../APIManager.js";
 import "./AdvisorInvestments.css"
 import { UploadInvestmentWidget } from "./UploadInvestmentDocumentation.js";
-import { IndividualInvestments } from "./IndividualInvestments.js";
+import { AdvisorIndividualInvestments } from "./IndividualInvestments.js";
 
 export const AdvisorInvestmentsList = () => {
 
@@ -117,10 +117,10 @@ export const AdvisorInvestmentsList = () => {
         return (
             <>
                 <a href={url} target="_blank" rel="noopener noreferrer">
-                    View Signed Policy
+                    View Investment Documentation
                 </a>
                 <button className="delete-signed-policy-button" onClick={handleDeleteClick}>
-                    Delete Signed Policy
+                    Delete Investment Documentation
                 </button>
             </>
         );
@@ -139,63 +139,58 @@ export const AdvisorInvestmentsList = () => {
             <p className="total-investment">
                 Total Investment Buy-In Amount:{" "}
                 <span className="investment-data">
-                    ${advisorInvestments.reduce(
-                        (total, investment) => total + investment.price,
-                        0
-                    )}
+                    ${advisorInvestments.reduce((total, investment) => total + investment.price, 0)}
                 </span>
             </p>
 
-            <p className="total-investment">
-                Total Current Investment Amount:{" "}
-                <span className="investment-data">
-                    ${advisorInvestments.reduce(
-                        (total, investment) => total + investment.currentInvestmentAmount,
-                        0
-                    )}
-                </span>
-            </p>
+            <button className="add-new-investment-button" onClick={handleNewInvestmentPolicyButtonClick}>Add New Investment</button>
 
-            <button onClick={handleNewInvestmentPolicyButtonClick}>Add New Investment</button>
+            <div className="investment-cards-container">
+                {advisorInvestments.map((investment) => (
+                    <div className="investment-card" key={investment.id}>
+                        {investment.documentationURL === null ? (
+                            <UploadInvestmentWidget
+                                investmentId={investment.id}
+                                customer={investment.customerId}
+                                advisor={investment.advisorId}
+                                investmentDescription={investment.investmentDescriptionId}
+                                duration={investment.durationId}
+                                startDate={investment.startDate}
+                                price={investment.price}
+                                stockSymbol={investment.stockSymbolId}
+                                fetchData={onDocumentationUpload}
+                            />
+                        ) : (
+                            <DocumentedInvestmentLinkAndDeleteButton
+                                investmentId={investment.id}
+                                customer={investment.customerId}
+                                advisor={investment.advisorId}
+                                investmentDescription={investment.investmentDescriptionId}
+                                duration={investment.durationId}
+                                startDate={investment.startDate}
+                                price={investment.price}
+                                stockSymbol={investment.stockSymbolId}
+                                fetchData={onDocumentationUpload}
+                                url={investment.documentationURL}
+                            />
+                        )}
+                        <div className="investment-details">
+                            <AdvisorIndividualInvestments
+                                investment={investment}
+                                customers={customers}
+                                fetchData={fetchData}
+                            />
 
-            {advisorInvestments.map((investment) => (
-                <div className="investment-card" key={investment.id}>
-                    {investment.documentationURL === null ? (
-                        <UploadInvestmentWidget
-                            investmentId={investment.id}
-                            customer={investment.customerId}
-                            advisor={investment.advisorId}
-                            investmentDescription={investment.investmentDescriptionId}
-                            duration={investment.durationId}
-                            startDate={investment.startDate}
-                            price={investment.price}
-                            stockSymbol={investment.stockSymbolId}
-                            fetchData={onDocumentationUpload}
-                        />
-                    ) : (
-                        <DocumentedInvestmentLinkAndDeleteButton
-                            investmentId={investment.id}
-                            customer={investment.customerId}
-                            advisor={investment.advisorId}
-                            investmentDescription={investment.investmentDescriptionId}
-                            duration={investment.durationId}
-                            startDate={investment.startDate}
-                            price={investment.price}
-                            stockSymbol={investment.stockSymbolId}
-                            fetchData={onDocumentationUpload}
-                            url={investment.documentationURL}
-                        />
-                    )}
-                    <IndividualInvestments
-                        investment={investment}
-                        customers={customers}
-                        fetchData={fetchData} />
-
-                    <button className="delete-policy-button" onClick={() => handleInvestmentPolicyDelete(investment.id)}>
-                        Delete
-                    </button>
-                </div>
-            ))}
+                            <button
+                                className="delete-investment-button"
+                                onClick={() => handleInvestmentPolicyDelete(investment.id)}
+                            >
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
-}
+                        }

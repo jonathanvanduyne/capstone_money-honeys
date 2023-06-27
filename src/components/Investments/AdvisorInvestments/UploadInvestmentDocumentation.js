@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import "./AdvisorInvestments.css"
 
 export const UploadInvestmentWidget = ({ investmentId, customer, advisor, investmentDescription, duration, startDate, price, stockSymbol, fetchData }) => {
     const cloudinaryRef = useRef();
@@ -62,7 +63,7 @@ export const UploadInvestmentWidget = ({ investmentId, customer, advisor, invest
 
     return (
         <button
-            className="upload-policy-button"
+            className="upload-documentation-button"
             onClick={() => widgetRef.current.open()}
         >
             Upload Investment Documentation

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAllBillingFrequencies, getAllCustomers, getAllDurations, getAllInvestmentTypes, getAllStockSymbols, getCurrentAdvisorInfo } from "../../../APIManager.js";
+import "./AdvisorInvestments.css"
 
 export const AddNewInvestment = () => {
     const [investmentPolicy, update] = useState({
@@ -15,7 +16,7 @@ export const AddNewInvestment = () => {
     const [customers, setCustomers] = useState([])
     const [currentAdvisor, setCurrentAdvisor] = useState([])
     const [stockSymbols, setStockSymbols] = useState([])
-    
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -30,7 +31,7 @@ export const AddNewInvestment = () => {
 
             const terms = await getAllDurations()
             setDurations(terms)
-            
+
             const types = await getAllInvestmentTypes()
             setInvestmentTypes(types)
 
@@ -70,14 +71,14 @@ export const AddNewInvestment = () => {
     };
 
     return (
-        <form className="add-new-policy-form">
-            <h2 className="add-new-policy-form-title">Add New Investment</h2>
+        <form className="add-new-investment-form">
+            <h2 className="add-new-investment-form-title">Add New Investment</h2>
 
             <fieldset>
-                <div className="add-new-policy-form-group">
+                <div className="add-new-investment-form-group">
                     <label htmlFor="customer">Customer:</label>
                     <select
-                        className="add-new-policy-form-select"
+                        className="add-new-investment-form-select"
                         value={investmentPolicy.customerId}
                         onChange={(evt) => {
                             const copy = { ...investmentPolicy };
@@ -96,13 +97,13 @@ export const AddNewInvestment = () => {
             </fieldset>
 
             <fieldset>
-                <div className="add-new-policy-form-group">
+                <div className="add-new-investment-form-group">
                     <label htmlFor="startDate">Start Date:</label>
                     <input
                         required
                         type="date"
                         placeholder="Policy Start Date"
-                        className="add-new-policy-form-input"
+                        className="add-new-investment-form-input"
                         value={investmentPolicy.startDate}
                         onChange={(evt) => {
                             const copy = { ...investmentPolicy };
@@ -114,10 +115,10 @@ export const AddNewInvestment = () => {
             </fieldset>
 
             <fieldset>
-                <div className="add-new-policy-form-group">
+                <div className="add-new-investment-form-group">
                     <label htmlFor="Duration">Stock:</label>
                     <select
-                        className="add-new-policy-form-select"
+                        className="add-new-investment-form-select"
                         value={investmentPolicy.stockSymbolId}
                         onChange={(evt) => {
                             const copy = { ...investmentPolicy };
@@ -136,13 +137,13 @@ export const AddNewInvestment = () => {
             </fieldset>
 
             <fieldset>
-                <div className="form-group">
+                <div className="add-new-investment-form-group">
                     <label htmlFor="Price">Price:</label>
                     <input
                         required
                         autoFocus
                         type="number"
-                        className="form-control"
+                        className="add-new-investment-form-input"
                         placeholder="Initial Investment Price Here"
                         value={investmentPolicy.price}
                         onChange={(evt) => {
@@ -156,10 +157,10 @@ export const AddNewInvestment = () => {
 
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                className="add-new-policy-form-button"
+                className="add-new-investment-form-button"
             >
                 Submit New Investment Policy
             </button>
         </form>
     );
-};
+}      

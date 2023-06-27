@@ -1,23 +1,33 @@
-/* Styles for Customer Investments */
-.customer-name {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 16px;
-}
+/* customer-investments.css */
 
-.investment-card {
-    border: 1px solid #ddd;
+.investment-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .investment-card {
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 16px;
-    margin-bottom: 16px;
-    background-color: #f8f8f8;
-}
-
-.investment-header {
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: background-color 0.3s;
+    width: fit-content;
+  }
+  
+  .investment-card:hover {
+    background-color: rgba(211, 211, 211, 0.9);
+  }
+  
+  .investment-details {
+    margin-top: 20px;
+  }
+  
+  .investment-header {
     font-weight: bold;
-    margin-right: 8px;
-}
-
-.investment-data {
-    color: #333;
-}
+  }
+  
+  .investment-data {
+    margin-left: 5px;
+  }
+  

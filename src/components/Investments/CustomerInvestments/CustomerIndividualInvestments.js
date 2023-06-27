@@ -1,14 +1,9 @@
 import { useEffect, useState } from "react";
-import {
-    getCurrentStockPrice,
-    getHistoricalDayClosingPrice,
-    getHistoricalStockSplits,
-} from "../../../APIManager.js";
-import "./AdvisorInvestments.css";
+import { getCurrentStockPrice, getHistoricalDayClosingPrice, getHistoricalStockSplits } from "../../../APIManager.js";
 
-export const AdvisorIndividualInvestments = ({ investment, symbol, customers }) => {
+export const CustomerIndividualInvestments = ({investment, advisors, fetchData}) => {
     const [currentInvestments, setCurrentInvestments] = useState([]);
-
+    
     useEffect(() => {
         const calculateInvestmentValue = async () => {
             // Get the initial amount invested
@@ -60,6 +55,7 @@ export const AdvisorIndividualInvestments = ({ investment, symbol, customers }) 
         calculateInvestmentValue();
     }, [investment]);
 
+
     return (
         <>
             <p>
@@ -69,9 +65,9 @@ export const AdvisorIndividualInvestments = ({ investment, symbol, customers }) 
             <p>
                 <span className="investment-header">Customer Name:</span>{" "}
                 <span className="investment-data">
-                    {customers
-                        .filter((customer) => customer.id === investment.customerId)
-                        .map((customer) => customer.user.firstName + " " + customer.user.lastName)}
+                    {advisors
+                        .filter((advisor) => advisor.id === investment.advisorId)
+                        .map((advisor) => advisor.user.firstName + " " + advisor.user.lastName)}
                 </span>
             </p>
             <p>
@@ -79,7 +75,7 @@ export const AdvisorIndividualInvestments = ({ investment, symbol, customers }) 
                 <span className="investment-data">{investment.startDate}</span>
             </p>
             <p>
-                <span className="investment-header">Initial Buy-In Amount:</span>{" "}
+                <span className="investment-header">Buy-In Amount:</span>{" "}
                 <span className="investment-data">{investment.price}</span>
             </p>
             {currentInvestments.length > 0 && (
@@ -95,8 +91,9 @@ export const AdvisorIndividualInvestments = ({ investment, symbol, customers }) 
             )}
             <p>
                 <span className="investment-header">Company Name:</span>{" "}
-                <span className="investment-data">{investment.stockSymbol.companyName}</span>
+                <span className="investment-data">
+                    {investment.stockSymbol.companyName}
+                </span>
             </p>
         </>
-    );
-}
+)}
