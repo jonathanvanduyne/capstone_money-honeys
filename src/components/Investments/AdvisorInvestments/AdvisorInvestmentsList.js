@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getAdvisorInvestments, getAllCustomers, getCurrentAdvisorInfo, getCurrentStockPrice } from "../../../APIManager.js";
 import "./AdvisorInvestments.css"
 import { UploadInvestmentWidget } from "./UploadInvestmentDocumentation.js";
+import { IndividualInvestments } from "./IndividualInvestments.js";
 
 export const AdvisorInvestmentsList = () => {
 
@@ -175,36 +176,11 @@ export const AdvisorInvestmentsList = () => {
                             url={investment.documentationURL}
                         />
                     )}
-                    <p>
-                        <span className="investment-header">Investment ID:</span>{" "}
-                        <span className="investment-data">{investment.id}</span>
-                    </p>
-                    <p>
-                        <span className="investment-header">Customer Name:</span>{" "}
-                        <span className="investment-data">
-                            {customers
-                                .filter((customer) => customer.id === investment.customerId)
-                                .map((customer) => customer.user.firstName + " " + customer.user.lastName)}
-                        </span>
-                    </p>
-                    <p>
-                        <span className="investment-header">Start Date:</span>{" "}
-                        <span className="investment-data">{investment.startDate}</span>
-                    </p>
-                    <p>
-                        <span className="investment-header">Initial Buy-In Amount:</span>{" "}
-                        <span className="investment-data">{investment.price}</span>
-                    </p>
-                    <p>
-                        <span className="investment-header">Current Investment Value:</span>{" "}
-                        <span className="investment-data">{investment.currentPrice}</span>
-                    </p>
-                    <p>
-                        <span className="investment-header">Company Name:</span>{" "}
-                        <span className="investment-data">
-                            {investment.stockSymbol.companyName}
-                        </span>
-                    </p>
+                    <IndividualInvestments 
+                    investment={investment}
+                    customers={customers}
+                    fetchData={fetchData}/>
+
                     <button className="delete-policy-button" onClick={() => handleInvestmentPolicyDelete(investment.id)}>
                         Delete
                     </button>

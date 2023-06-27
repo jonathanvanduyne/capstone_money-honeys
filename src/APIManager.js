@@ -206,3 +206,19 @@ export const getCurrentStockPrice = async (symbol) => {
     const stockPrice = await APIResponse.json();
     return stockPrice
     };
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Get Historical Stock Splits
+export const getHistoricalStockSplits = async (symbol) => {
+    const APIResponse = await fetch(`https://financialmodelingprep.com/api/v3/historical-price-full/stock_split/${symbol}?apikey=bfc5979521c1083c6db0aa25133c84df`);
+    const historicalPrice = await APIResponse.json();
+    return historicalPrice
+    };
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Get Historical Stock Splits
+export const getHistoricalDayClosingPrice = async (symbol) => {
+    const APIResponse = await fetch(`https://financialmodelingprep.com/api/v3/historical-price-full/${symbol}?serietype=line&apikey=bfc5979521c1083c6db0aa25133c84df`);
+    const historicalDayPrice = await APIResponse.json();
+    debugger
+    return historicalDayPrice.historical
+    };
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
