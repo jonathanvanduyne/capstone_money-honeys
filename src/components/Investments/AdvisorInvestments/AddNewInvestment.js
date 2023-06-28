@@ -46,7 +46,7 @@ export const AddNewInvestment = () => {
     }, []);
 
 
-    const handleSaveButtonClick = (event) => {
+    const handleSaveButtonClick = async (event) => {
         event.preventDefault();
 
         const investmentPolicyToSendToAPI = {
@@ -59,15 +59,15 @@ export const AddNewInvestment = () => {
             stockSymbolId: investmentPolicy.stockSymbolId,
         };
 
-        return fetch("http://localhost:8088/investmentPolicies", {
+        const response = await fetch("http://localhost:8088/investmentPolicies", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(investmentPolicyToSendToAPI),
-        })
-            .then((response) => response.json())
-            .then(() => navigate("/investments"));
+        });
+        await response.json();
+        return navigate("/investments");
     };
 
     return (
