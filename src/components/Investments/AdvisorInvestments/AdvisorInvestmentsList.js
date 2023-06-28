@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAdvisorInvestments, getAllCustomers, getCurrentAdvisorInfo, getCurrentStockPrice } from "../../../APIManager.js";
-import "./AdvisorInvestments.css"
+import "./AdvisorInvestments.css";
+import "./AdvisorModal.css";
 import { UploadInvestmentWidget } from "./UploadInvestmentDocumentation.js";
 import { AdvisorIndividualInvestments } from "./IndividualInvestments.js";
+import { AdvisorModal } from "./AdvisorModal.js";
 
 export const AdvisorInvestmentsList = () => {
-
     const [advisorInvestments, setAdvisorInvestments] = useState([]);
     const [currentAdvisor, setCurrentAdvisor] = useState(null);
     const [customers, setCustomers] = useState([]);
+    const [modal, setModal] = useState(null);
     const navigate = useNavigate();
 
     const fetchData = async () => {
@@ -18,7 +20,9 @@ export const AdvisorInvestmentsList = () => {
         // Fetch current stock prices for each investment
         const updatedInvestments = await Promise.all(
             investments.map(async (investment) => {
-                const stockPrice = await getCurrentStockPrice(investment.stockSymbol.stockMarketSymbol);
+                const stockPrice = await getCurrentStockPrice(
+                    investment.stockSymbol.stockMarketSymbol
+                );
                 const currentPrice = stockPrice[0].price;
                 return {
                     ...investment,
@@ -34,18 +38,15 @@ export const AdvisorInvestmentsList = () => {
 
         const customerList = await getAllCustomers();
         setCustomers(customerList);
-    }
+    };
 
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     const onDocumentationUpload = () => {
         fetchData();
-    }
-
-    useEffect(
-        () => {
-            fetchData();
-        }, []
-    )
+    };
 
     const isLastNameEndsWithS = () => {
         const advisorLastName = currentAdvisor?.user?.lastName || "";
@@ -54,7 +55,7 @@ export const AdvisorInvestmentsList = () => {
 
     const handleNewInvestmentPolicyButtonClick = () => {
         navigate("/addNewInvestment");
-    }
+    };
 
     const handleInvestmentPolicyDelete = async (policyId) => {
         await fetch(`http://localhost:8088/investmentPolicies/${policyId}`, {
@@ -62,7 +63,6 @@ export const AdvisorInvestmentsList = () => {
         });
         fetchData();
     };
-
 
     const deleteDocumentedInvestmentURL = async ({
         investmentId,
@@ -94,12 +94,21 @@ export const AdvisorInvestmentsList = () => {
             });
             fetchData();
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     };
 
-    const DocumentedInvestmentLinkAndDeleteButton = ({ investmentId, customer, advisor, investmentDescription, duration, startDate, price, stockSymbol, url, }) => {
-
+    const DocumentedInvestmentLinkAndDeleteButton = ({
+        investmentId,
+        customer,
+        advisor,
+        investmentDescription,
+        duration,
+        startDate,
+        price,
+        stockSymbol,
+        url,
+    }) => {
         const handleDeleteClick = () => {
             deleteDocumentedInvestmentURL({
                 investmentId: investmentId,
@@ -143,7 +152,9 @@ export const AdvisorInvestmentsList = () => {
                 </span>
             </p>
 
-            <button className="add-new-investment-button" onClick={handleNewInvestmentPolicyButtonClick}>Add New Investment</button>
+            <button className="add-new-investment-button" onClick={handleNewInvestmentPolicyButtonClick}>
+                Add New Investment
+            </button>
 
             <div className="investment-cards-container">
                 {advisorInvestments.map((investment) => (
@@ -175,22 +186,23 @@ export const AdvisorInvestmentsList = () => {
                             />
                         )}
                         <div className="investment-details">
-                            <AdvisorIndividualInvestments
-                                investment={investment}
-                                customers={customers}
-                                fetchData={fetchData}
-                            />
+                            <AdvisorIndividualInvestments investment={investment} customers={customers} fetchData={fetchData} />
 
-                            <button
-                                className="delete-investment-button"
-                                onClick={() => handleInvestmentPolicyDelete(investment.id)}
-                            >
+                            <button className="delete-investment-button" onClick={() => setModal(investment.id)}>
                                 Sell Investment
                             </button>
+
+                            {modal && (
+                                <AdvisorModal
+                                    investmentId={modal}
+                                    handleInvestmentPolicyDelete={handleInvestmentPolicyDelete}
+                                    setModal={setModal}
+                                />
+                            )}
                         </div>
                     </div>
                 ))}
             </div>
         </div>
     );
-}
+};
