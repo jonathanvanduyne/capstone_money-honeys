@@ -154,8 +154,70 @@ export const getAllDurations = async () => {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Get Investments
 export const getAllInvestments = async () => {
-    const durationsResponse = await fetch("http://localhost:8088/investmentPolicies?_expand=duration&_expand=investmentDescription&_expand=stockSymbol&_expand=customer&_expand=advisor");
-    const durationsArray = await durationsResponse.json();
+    const investmentsResponse = await fetch("http://localhost:8088/investmentPolicies?_expand=duration&_expand=investmentDescription&_expand=stockSymbol&_expand=customer&_expand=advisor");
+    const investmentsArray = await investmentsResponse.json();
 
-    return durationsArray
+    return investmentsArray
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Get Current Advisor Investments
+export const getAdvisorInvestments = async () => {
+    const investmentsResponse = await fetch("http://localhost:8088/investmentPolicies?_expand=duration&_expand=investmentDescription&_expand=stockSymbol&_expand=customer&_expand=advisor");
+    const investmentsArray = await investmentsResponse.json();
+
+    const localmoneyHoneyUser = localStorage.getItem("moneyHoneys_user");
+    const moneyHoneyUserObject = JSON.parse(localmoneyHoneyUser);
+
+    const filteredInvestments = investmentsArray.filter((investment) => investment?.advisor.userId === moneyHoneyUserObject.id)
+
+    return filteredInvestments
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Get Current Customer Investments
+export const getCustomerInvestments = async () => {
+    const investmentsResponse = await fetch("http://localhost:8088/investmentPolicies?_expand=duration&_expand=investmentDescription&_expand=stockSymbol&_expand=customer&_expand=advisor");
+    const investmentsArray = await investmentsResponse.json();
+
+    const localmoneyHoneyUser = localStorage.getItem("moneyHoneys_user");
+    const moneyHoneyUserObject = JSON.parse(localmoneyHoneyUser);
+
+    const filteredInvestments = investmentsArray.filter((investment) => investment?.customer?.userId === moneyHoneyUserObject.id)
+
+    return filteredInvestments
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Get Investment Types
+export const getAllInvestmentTypes = async () => {
+const typeResponse = await fetch("http://localhost:8088/investmentDescriptions?_expand=investmentType&_expand=billingFrequency");
+const investmentTypes = await typeResponse.json();
+return investmentTypes
+};
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Get Stock Symbols
+export const getAllStockSymbols = async () => {
+const symbolsResponse = await fetch("http://localhost:8088/stockSymbols");
+const stockSymbols = await symbolsResponse.json();
+return stockSymbols
+};
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Get Current Stock Price
+export const getCurrentStockPrice = async (symbol) => {
+    const APIResponse = await fetch(`https://financialmodelingprep.com/api/v3/quote-short/${symbol}?apikey=bfc5979521c1083c6db0aa25133c84df`);
+    const stockPrice = await APIResponse.json();
+    return stockPrice
+    };
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Get Historical Stock Splits
+export const getHistoricalStockSplits = async (symbol) => {
+    const APIResponse = await fetch(`https://financialmodelingprep.com/api/v3/historical-price-full/stock_split/${symbol}?apikey=bfc5979521c1083c6db0aa25133c84df`);
+    const historicalPrice = await APIResponse.json();
+    return historicalPrice
+    };
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Get Historical Stock Splits
+export const getHistoricalDayClosingPrice = async (symbol) => {
+    const APIResponse = await fetch(`https://financialmodelingprep.com/api/v3/historical-price-full/${symbol}?serietype=line&apikey=bfc5979521c1083c6db0aa25133c84df`);
+    const historicalDayPrice = await APIResponse.json();
+    return historicalDayPrice.historical
+    };
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

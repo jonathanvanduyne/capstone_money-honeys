@@ -1,0 +1,95 @@
+.investment-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.investment-card {
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: fit-content;
+}
+
+.investment-card:hover {
+    background-color: lightgrey;
+}
+
+.investment-details {
+    margin-top: 20px;
+}
+
+.investment-header {
+    font-weight: bold;
+}
+
+.investment-data {
+    margin-left: 5px;
+}
+
+.delete-investment-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #dc3545;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-investment-button:hover {
+    background-color: darkred;
+}
+
+.add-new-investment-button {
+    display: block;
+    width: auto;
+    background-color: rgb(58, 158, 58);
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.add-new-investment-button:hover {
+    background-color: darkgreen;
+}
+
+.upload-documentation-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: lightgoldenrodyellow;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upload-documentation-button:hover {
+    background-color: #d9b832;
+    opacity: 0.8;
+}
+
+.delete-policy-button,
+.delete-documentation-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #dc3545;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-policy-button:hover,
+.delete-documentation-button:hover {
+    background-color: #bd2130;
+    opacity: 0.8;
+}

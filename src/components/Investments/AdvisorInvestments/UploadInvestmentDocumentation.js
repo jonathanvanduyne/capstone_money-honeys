@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import "./AdvisorPolicy.css";
+import "./AdvisorInvestments.css"
 
-
-export const UploadPolicyWidget = ({ policyNumber, productId, startDate, term, customerId, advisorId, onSignedPolicyUpload }) => {
+export const UploadInvestmentWidget = ({ investmentId, customer, advisor, investmentDescription, duration, startDate, price, stockSymbol, fetchData }) => {
     const cloudinaryRef = useRef();
     const widgetRef = useRef();
     const [uploadedUrl, setUploadedUrl] = useState(null);
@@ -32,7 +31,7 @@ export const UploadPolicyWidget = ({ policyNumber, productId, startDate, term, c
     const updatePolicyUrl = async (urlAddress) => {
         try {
             const response = await fetch(
-                `http://localhost:8088/policies/${policyNumber}`,
+                `http://localhost:8088/investmentPolicies/${investmentId}`,
                 {
                     method: "PUT",
                     headers: {
@@ -40,18 +39,20 @@ export const UploadPolicyWidget = ({ policyNumber, productId, startDate, term, c
                     },
                     body: JSON.stringify(
                         {
-                            customerId: customerId,
-                            advisorId: advisorId,
-                            productId: productId,
+                            customerId: customer,
+                            advisorId: advisor,
+                            investmentDescriptionId: investmentDescription,
+                            durationId: duration,
                             startDate: startDate,
-                            durationId: term,
-                            policyURL: urlAddress
+                            price: price,
+                            stockSymbolId: stockSymbol,
+                            documentationURL: urlAddress
                         }),
                 }
             );
 
-            onSignedPolicyUpload()
-            
+            fetchData()
+
             if (!response.ok) {
                 throw new Error("Failed to update policy URL");
             }
@@ -62,10 +63,10 @@ export const UploadPolicyWidget = ({ policyNumber, productId, startDate, term, c
 
     return (
         <button
-            className="upload-policy-button"
+            className="upload-documentation-button"
             onClick={() => widgetRef.current.open()}
         >
-            Upload Signed Policy
+            Upload Investment Documentation
         </button>
     );
 };

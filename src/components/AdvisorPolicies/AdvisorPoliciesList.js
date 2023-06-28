@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllCustomers, getAllPolicies, getCurrentAdvisorInfo } from "../../APIManager.js";
 import { AdvisorPolicy } from "./AdvisorPolicy.js";
 import { useNavigate } from "react-router-dom";
-import { UploadWidget } from "./UploadPolicy.js";
+import { UploadPolicyWidget } from "./UploadPolicy.js";
 import "./AdvisorPolicy.css";
 
 export const AdvisorPolicyList = () => {
@@ -15,26 +15,20 @@ export const AdvisorPolicyList = () => {
     const fetchData = async () => {
         const policies = await getAllPolicies();
         setAllPolicies(policies);
+
+        const advisor = await getCurrentAdvisorInfo();
+        setCurrentAdvisor(advisor);
+
+        const customerList = await getAllCustomers();
+        setCustomers(customerList);
     };
-    
+
     const handleSignedPolicyUpload = () => {
         fetchData();
     };
-    
+
     useEffect(() => {
-        const fetchAdvisorInfo = async () => {
-            const advisor = await getCurrentAdvisorInfo();
-            setCurrentAdvisor(advisor);
-        };
-
-        const fetchCustomerInfo = async () => {
-            const customerList = await getAllCustomers();
-            setCustomers(customerList);
-        };
-
         fetchData();
-        fetchAdvisorInfo();
-        fetchCustomerInfo();
     }, []);
 
     useEffect(() => {
@@ -70,28 +64,26 @@ export const AdvisorPolicyList = () => {
         customerId,
         advisorId,
     }) => {
-        try {
-            await fetch(`http://localhost:8088/policies/${policyNumber}`, {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    customerId: customerId,
-                    advisorId: advisorId,
-                    productId: productId,
-                    startDate: startDate,
-                    durationId: term,
-                    policyURL: null,
-                }),
-            });
-            fetchData();
-        } catch (error) {
-            throw new Error("Failed to delete signed policy URL");
-        }
+        await fetch(`http://localhost:8088/policies/${policyNumber}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                customerId: customerId,
+                advisorId: advisorId,
+                productId: productId,
+                startDate: startDate,
+                durationId: term,
+                policyURL: null,
+            }),
+        });
+        fetchData();
     };
 
-    const SignedPolicyLinkAndDeleteButton = ({url, policyNumber, productId, startDate, term, customerId, advisorId,}) => {
+
+
+    const SignedPolicyLinkAndDeleteButton = ({ url, policyNumber, productId, startDate, term, customerId, advisorId, }) => {
         const handleDeleteClick = () => {
             DeleteSignedPolicyURL({
                 policyNumber: policyNumber,
@@ -132,7 +124,7 @@ export const AdvisorPolicyList = () => {
                     currentAdvisorPolicies.map((policy) => (
                         <div className="policy-item" key={`customerPolicy--${policy.id}`}>
                             {policy.policyURL === null ? (
-                                <UploadWidget
+                                <UploadPolicyWidget
                                     className="upload-policy-button"
                                     policyNumber={policy.id}
                                     productId={policy?.product?.id}
