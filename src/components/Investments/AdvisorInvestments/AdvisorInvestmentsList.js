@@ -185,7 +185,7 @@ export const AdvisorInvestmentsList = () => {
                                 className="delete-investment-button"
                                 onClick={() => handleInvestmentPolicyDelete(investment.id)}
                             >
-                                Delete
+                                Sell Investment
                             </button>
                         </div>
                     </div>
@@ -193,4 +193,4 @@ export const AdvisorInvestmentsList = () => {
             </div>
         </div>
     );
-                        }
+}
