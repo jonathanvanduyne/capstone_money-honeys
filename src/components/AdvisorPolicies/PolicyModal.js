@@ -1,8 +1,8 @@
 import React from "react";
 
-export const AdvisorModal = ({ investmentId, handleInvestmentPolicyDelete, setModal }) => {
-    const handleLiquidateInvestment = () => {
-        handleInvestmentPolicyDelete(investmentId);
+export const PolicyModal = ({ policyId, handlePolicyDelete, setModal }) => {
+    const handleLDeletePolicyClick = () => {
+        handlePolicyDelete(policyId);
         setModal(null);
     };
 
@@ -21,19 +21,14 @@ export const AdvisorModal = ({ investmentId, handleInvestmentPolicyDelete, setMo
     return (
         <div className="modal-container">
             <div className="modal-content">
-                <h3>Sell Investment</h3>
-                <p>Are you sure you want to liquidate this investment?
-
-                    <p>This action cannot be undone.</p>
-                </p>
+                <h3>Cancel Policy</h3>
+                <p>Are you sure you want to cancel this investment?</p>
                 <div className="modal-buttons">
-                    <button onClick={handleLiquidateInvestment} className="modal-liquidate-button">
-                        Yes I'm sure.
-                        Show Me the Money!
-                        Liquidate Investment.
+                    <button onClick={handleLDeletePolicyClick} className="modal-liquidate-button">
+                        Yes, Cancel Policy
                     </button>
                     <button onClick={handleCloseModal} className="modal-cancel-button">
-                        Oops, not right now. Cancel
+                        No, Close Window
                     </button>
                 </div>
             </div>

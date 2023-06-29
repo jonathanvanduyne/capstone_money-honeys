@@ -192,6 +192,8 @@ export const AdvisorInvestmentsList = () => {
                                 Sell Investment
                             </button>
 
+                            <button className="open-investment-graph-button">View Progress</button>
+
                             {modal && (
                                 <AdvisorModal
                                     investmentId={modal}

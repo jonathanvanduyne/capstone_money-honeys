@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./AdvisorPolicy.css";
 
-export const AdvisorPolicy = ({ policyNumber, productId, startDate, term, customerId, customerFirstName, customerLastName }) => {
+export const AdvisorPolicy = ({ policyNumber, productId, startDate, term, customerId, customerFirstName, customerLastName, products }) => {
     return (
         <section className="policy" key={`Policy Id--${policyNumber}`}>
             <header className="policy-header">
@@ -17,6 +17,10 @@ export const AdvisorPolicy = ({ policyNumber, productId, startDate, term, custom
                 <p>
                     Product ID: <span className="policy-header-text">{productId}</span>
                 </p>
+                <p className="policy-product-name">
+                            Product Name:{" "}
+                            {products.find((product) => product.id === productId)?.productType.category}
+                        </p>
                 <p>
                     Start Date: <span className="policy-header-text">{startDate}</span>
                 </p>
