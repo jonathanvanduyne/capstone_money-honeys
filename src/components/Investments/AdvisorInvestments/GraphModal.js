@@ -1,58 +1,73 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
+import { getHistoricalDayClosingPrice } from "../../../APIManager.js";
 import { Line } from "react-chartjs-2";
 
-const InvestmentGraphModal = ({ investment }) => {
-  const [modalOpen, setModalOpen] = useState(true);
+export const InvestmentGraphModal = ({ investment }) => {
+    const [stockData, setStockData] = useState([]);
 
-  const handleCloseModal = () => {
-    setModalOpen(false);
-  };
+    useEffect(() => {
+        const fetchStockData = async () => {
+            try {
+                const historicalData = await getHistoricalDayClosingPrice(investment.stockSymbol.stockMarketSymbol);
+                setStockData(historicalData);
+            } catch (error) {
+                console.error("Error fetching stock data:", error);
+            }
+        };
 
-  const investmentData = {
-    // Generate the data for the line graph
-    labels: investment.years,
-    datasets: [
-      {
-        label: "Investment Value Over Time",
-        data: investment.values,
-        fill: false,
-        borderColor: "rgba(75,192,192,1)",
-        tension: 0.1,
-      },
-    ],
-  };
+        fetchStockData();
+    }, [investment]);
 
-  return (
-    <div className={`modal ${modalOpen ? "open" : ""}`}>
-      <div className="modal-content">
-        <span className="close" onClick={handleCloseModal}>
-          &times;
-        </span>
-        <h3>Investment Value Over Time</h3>
-        <div className="chart-container">
-          <Line data={investmentData} />
-        </div>
-      </div>
-    </div>
-  );
-};
+    const formatData = (data) => {
+        const investmentAnniversaries = stockData.reduce((anniversaries, entry) => {
+            const entryYear = new Date(entry.date).getFullYear();
+            if (!anniversaries.includes(entryYear)) {
+                anniversaries.push(entryYear);
+            }
+            return anniversaries;
+        }, []);
 
-export const AdvisorIndividualInvestments = ({ investment, customers, fetchData }) => {
-  // ...
+        return data
+            .filter((entry) => {
+                const entryYear = new Date(entry.date).getFullYear();
+                return investmentAnniversaries.includes(entryYear);
+            })
+            .map((entry) => ({
+                x: new Date(entry.date),
+                y: entry.close,
+            }));
+    };
 
-  const handleGraphButtonClick = () => {
-    setModal(investment.id);
-  };
+    const chartData = {
+        datasets: [
+            {
+                label: "Closing Price",
+                data: formatData(stockData),
+                borderColor: "#8884d8",
+                fill: false,
+            },
+        ],
+    };
 
-  // ...
+    const chartOptions = {
+        scales: {
+            y: {
+                title: {
+                    text: "Price",
+                },
+                type: "linear", // Add this line to specify the scale type as linear
+            },
+        },
+    };
 
-  return (
-    <>
-      {/* ... */}
-      <button className="graph-button" onClick={handleGraphButtonClick}>
-        View Graph
-      </button>
-      {/* ... */}
-    </>
-  );
+    return (
+        <>
+            <h3>Investment Performance</h3>
+            {stockData.length > 0 ? (
+                <Line data={chartData} options={chartOptions} />
+            ) : (
+                <p>Loading investment data...</p>
+            )}
+        </>
+    );
 };
