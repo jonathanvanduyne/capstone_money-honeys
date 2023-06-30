@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { getHistoricalDayClosingPrice } from "../../../APIManager.js";
 import { format, differenceInDays, addDays } from "date-fns";
 import { CanvasJSChart } from "canvasjs-react-charts";
-import "./GraphModal.css"
+import "./CustomerGraphModal.css"
 
-export const InvestmentGraphModal = ({ investment }) => {
+export const CustomerGraphModal = ({ investment }) => {
     const [stockData, setStockData] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
 
