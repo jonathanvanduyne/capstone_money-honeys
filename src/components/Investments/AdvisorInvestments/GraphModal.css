@@ -1,5 +1,5 @@
 /* Modal Container */
-.modal-container {
+.investor-graph-modal-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -15,13 +15,13 @@
 }
 
 /* Modal Content */
-.modal-content {
+.investor-graph-modal-content {
     background-color: #fff;
     padding: 20px;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     max-width: 800px;
-    max-height: 600px;
+    max-height: 500px;
     width: 90%;
     height: 80%;
     position: relative;
@@ -29,32 +29,32 @@
     flex-direction: column;
 }
 
-/* Close Button */
-.modal-close-button {
+.investor-graph-modal-close-button {
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: #ccc;
+    background-color: red;
     color: #fff;
     border: none;
     padding: 8px 12px;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s; /* Added transition property */
 }
 
-/* Close Button Hover */
-.modal-close-button:hover {
-    background-color: #999;
+.investor-graph-modal-close-button:hover {
+    background-color: darkred;
 }
+
 
 /* Chart Title */
-.modal-content h3 {
+.investor-graph-modal-content h3 {
     text-align: center;
     margin-bottom: 20px;
 }
 
 /* Loading Message */
-.modal-content p {
+.investor-graph-modal-content p {
     text-align: center;
     margin-top: 100px;
     font-style: italic;
@@ -66,16 +66,20 @@
 }
 
 /* Disable Scrolling */
-body.modal-open {
+body.investor-graph-modal-open {
     overflow: hidden;
 }
 
-.modal-graph-button {
+.investor-graph-modal-graph-button {
     background-color: green;
     color: #fff;
-    border: none;
-    padding: 10px 15px;
+    border: 2px solid black;
+    padding: 5px 10px; /* Adjusted padding */
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+
+.investor-graph-modal-graph-button:hover {
+    background-color:darkgreen;
 }

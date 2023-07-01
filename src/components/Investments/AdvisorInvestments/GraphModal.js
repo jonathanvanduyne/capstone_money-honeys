@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getHistoricalDayClosingPrice } from "../../../APIManager.js";
 import { format, differenceInDays, addDays } from "date-fns";
 import { CanvasJSChart } from "canvasjs-react-charts";
-import "./GraphModal.css"
+import "./GraphModal.css";
 
 export const InvestmentGraphModal = ({ investment }) => {
     const [stockData, setStockData] = useState([]);
@@ -119,11 +119,11 @@ export const InvestmentGraphModal = ({ investment }) => {
 
     return (
         <>
-            <button className="modal-graph-button" onClick={handleShowGraph}>Show Graph</button>
+            <button className="investor-graph-modal-graph-button" onClick={handleShowGraph}>Show Graph</button>
             {modalOpen && (
-                <div className="modal-container">
-                    <div className="modal-content">
-                        <button onClick={handleCloseModal} className="modal-close-button">
+                <div className="investor-graph-modal-container">
+                    <div className="investor-graph-modal-content">
+                        <button onClick={handleCloseModal} className="investor-graph-modal-close-button">
                             Close
                         </button>
                         <h3>Investment Performance</h3>

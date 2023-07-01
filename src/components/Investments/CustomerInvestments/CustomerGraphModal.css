@@ -20,7 +20,7 @@
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     max-width: 800px;
-    max-height: 600px;
+    max-height: 500px;
     width: 90%;
     height: 80%;
     position: relative;
@@ -33,7 +33,7 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: #ccc;
+    background-color: red;
     color: #fff;
     border: none;
     padding: 8px 12px;
@@ -43,7 +43,7 @@
   
   /* Close Button Hover */
   .modal-close-button:hover {
-    background-color: #999;
+    background-color: darkred;
   }
   
   /* Chart Title */

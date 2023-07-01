@@ -11,28 +11,24 @@ export const AdvisorModal = ({ investmentId, handleInvestmentPolicyDelete, setMo
     };
 
     const handleModalOpen = () => {
-        document.body.classList.add("modal-open");
+        document.body.classList.add("advisor-sell-modal-open");
     };
 
     const handleModalClose = () => {
-        document.body.classList.remove("modal-open");
+        document.body.classList.remove("advisor-sell-modal-open");
     };
 
     return (
-        <div className="modal-container">
-            <div className="modal-content">
-                <h3>Sell Investment</h3>
-                <p>Are you sure you want to liquidate this investment?
-
-                    <p>This action cannot be undone.</p>
-                </p>
-                <div className="modal-buttons">
-                    <button onClick={handleLiquidateInvestment} className="modal-liquidate-button">
-                        Yes I'm sure.
-                        Show Me the Money!
-                        Liquidate Investment.
+        <div className="advisor-sell-modal-container">
+            <div className="advisor-sell-modal-content">
+                <h3 className="advisor-sell-modal-heading">Sell Investment</h3>
+                <p className="advisor-sell-modal-text">Are you sure you want to liquidate this investment?</p>
+                <p className="advisor-sell-modal-text">This action cannot be undone.</p>
+                <div className="advisor-sell-modal-buttons">
+                    <button onClick={handleLiquidateInvestment} className="advisor-sell-modal-liquidate-button">
+                        Yes I'm sure. Show Me the Money! Liquidate Investment.
                     </button>
-                    <button onClick={handleCloseModal} className="modal-cancel-button">
+                    <button onClick={handleCloseModal} className="advisor-sell-modal-cancel-button">
                         Oops, not right now. Cancel
                     </button>
                 </div>
