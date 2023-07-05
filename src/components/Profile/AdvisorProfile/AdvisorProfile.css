@@ -1,11 +1,11 @@
 /* Profile.css */
 
-.page-container {
+.primary-page-container {
   display: flex;
   height: 100%;
 }
 
-.advisor-profile-container {
+.primary-advisor-profile-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,26 +18,26 @@
   width: fit-content;
 }
 
-.advisor-profile:hover {
+.primary-advisor-profile-container:hover {
   background-color: lightgrey;
   color: #000;
 }
 
-.advisor-profile__header {
+.primary-advisor-profile__header {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.advisor-profile__info {
+.primary-advisor-profile__info {
   margin-bottom: 10px;
 }
 
-.advisor-profile__label {
+.primary-advisor-profile__label {
   margin-bottom: 10px;
 }
 
-.advisor-profile__update-button {
+.primary-advisor-profile__update-button {
   margin-top: 10px;
   padding: 5px 10px;
   border-radius: 4px;
@@ -47,8 +47,8 @@
   transition: background-color 0.3s;
 }
 
-.advisor-profile__update-button:hover {
-  background-color: #3a9e3a; 
+.primary-advisor-profile__update-button:hover {
+  background-color: #3a9e3a;
   opacity: 0.8;
 }
 
@@ -61,7 +61,7 @@
 }
 
 .error {
-  color: #dc3545; 
+  color: #dc3545;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -70,7 +70,7 @@
 /* Update Form */
 /* Profile.css */
 
-.profile {
+.primary-profile {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -83,23 +83,23 @@
   width: fit-content;
 }
 
-.profile__title {
+.primary-profile__title {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.form-group {
+.primary-form-group {
   margin-bottom: 10px;
-  width: 300px
+  width: 300px;
 }
 
-.form-group label {
+.primary-form-group label {
   display: block;
   margin-bottom: 5px;
 }
 
-.form-control {
+.primary-form-control {
   width: 100%;
   padding: 5px;
   border-radius: 4px;
@@ -108,22 +108,22 @@
   width: 300px;
 }
 
-.form-control:focus {
-  border-color: #3a9e3a; /* Green */
+.primary-form-control:focus {
+  border-color: #3a9e3a;
 }
 
-.btn {
+.primary-btn {
   margin-top: 10px;
   padding: 5px 10px;
   border-radius: 4px;
-  background-color: rgb(58, 158, 58); /* Green */
+  background-color: rgb(58, 158, 58);
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.btn:hover {
-  background-color: #3a9e3a; /* Darker shade of green */
+.primary-btn:hover {
+  background-color: #3a9e3a;
   opacity: 0.8;
 }
 
@@ -136,7 +136,7 @@
 }
 
 .error {
-  color: #dc3545; /* Same as delete-policy-button background color */
+  color: #dc3545;
   font-weight: bold;
   margin-bottom: 10px;
 }

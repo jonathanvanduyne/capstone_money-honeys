@@ -4,7 +4,7 @@ import { format, differenceInDays, addDays } from "date-fns";
 import { CanvasJSChart } from "canvasjs-react-charts";
 import "./GraphModal.css";
 
-export const InvestmentGraphModal = ({ investment }) => {
+export const InvestmentGraphModal = ({ investment, currentInvestments }) => {
     const [stockData, setStockData] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
 
@@ -35,6 +35,12 @@ export const InvestmentGraphModal = ({ investment }) => {
             theme: "light2",
             title: {
                 text: "Investment Performance",
+            },
+            axisX: {
+                title: "Date", // X-axis label
+            },
+            axisY: {
+                title: "Investment Value", // Y-axis label
             },
             rangeSelector: {
                 inputFields: {
@@ -119,7 +125,9 @@ export const InvestmentGraphModal = ({ investment }) => {
 
     return (
         <>
-            <button className="investor-graph-modal-graph-button" onClick={handleShowGraph}>Show Graph</button>
+            <button className="investor-graph-modal-graph-button" onClick={handleShowGraph}>
+                Show Graph
+            </button>
             {modalOpen && (
                 <div className="investor-graph-modal-container">
                     <div className="investor-graph-modal-content">
@@ -134,6 +142,12 @@ export const InvestmentGraphModal = ({ investment }) => {
                                     title: {
                                         text: `${investment.stockSymbol.companyName}'s performance since you invested on ${investment.startDate}`,
                                     },
+                                    axisX: {
+                                        title: "Date", // X-axis label
+                                    },
+                                    axisY: {
+                                        title: "Investment Value", // Y-axis label
+                                    },
                                     data: [
                                         {
                                             type: "line",
@@ -141,7 +155,7 @@ export const InvestmentGraphModal = ({ investment }) => {
                                             yValueFormatString: "$#,##0.00",
                                             dataPoints: filteredChartData.map((entry) => ({
                                                 x: entry.date,
-                                                y: entry.close,
+                                                y: entry.close * currentInvestments[0].unitsOwned,
                                             })),
                                         },
                                     ],

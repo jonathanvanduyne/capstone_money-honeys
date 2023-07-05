@@ -54,7 +54,8 @@ export const AdvisorIndividualInvestments = ({ investment, symbol, customers }) 
             const updatedInvestment = {
                 ...investment,
                 currentPrice: currentPrice,
-                currentInvestmentValue: (currentPrice * unitsOwned)
+                currentInvestmentValue: (currentPrice * unitsOwned),
+                unitsOwned: unitsOwned
             };
 
             setCurrentInvestments([updatedInvestment]);
@@ -102,7 +103,8 @@ export const AdvisorIndividualInvestments = ({ investment, symbol, customers }) 
             </p>
 
             <InvestmentGraphModal
-            investment={investment} />
+            investment={investment} 
+            currentInvestments={currentInvestments}/>
         </>
     );
 }

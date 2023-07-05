@@ -157,7 +157,7 @@ export const AddNewPolicy = () => {
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
                 className="add-new-policy-form-button"
             >
-                Submit product
+                Submit Policy
             </button>
         </form>
     );
