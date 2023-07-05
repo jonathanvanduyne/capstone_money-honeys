@@ -1,53 +1,17 @@
-.investment-cards-container {
-    display: flex;
-    flex-wrap: wrap;
+.investment-container {
+    text-align: center;
 }
 
-.investment-card {
-    margin: 10px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color:transparent;
-    transition: background-color 10s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: fit-content;
-}
-
-.investment-card:hover {
-    background-color: lightgrey;
-}
-
-.investment-details {
-    margin-top: 20px;
-}
-
-.investment-header {
+.advisor-name {
+    font-size: 24px;
     font-weight: bold;
-}
-
-.investment-data {
-    margin-left: 5px;
-}
-
-.delete-investment-button {
-    margin-top: 10px;
-    padding: 5px 10px;
-    border-radius: 4px;
-    background-color: #dc3545;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.delete-investment-button:hover {
-    background-color: darkred;
+    margin-bottom: 10px;
 }
 
 .add-new-investment-button {
     display: block;
+    margin: 0 auto;
+    /* Add this line to center the button */
     width: auto;
     background-color: green;
     padding: 5px 10px;
@@ -62,19 +26,47 @@
     background-color: darkgreen;
 }
 
-.upload-documentation-button {
+.investment-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.investment-card {
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: transparent;
+    transition: background-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: fit-content;
+}
+
+
+.investment-card:hover {
+    background-color: lightgrey;
+}
+
+.investment-details {
+    margin-top: 20px;
+}
+
+.delete-investment-button {
     margin-top: 10px;
     padding: 5px 10px;
     border-radius: 4px;
-    background-color: lightgoldenrodyellow;
-    color: #000;
+    background-color: #dc3545;
+    color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.upload-documentation-button:hover {
-    background-color: #d9b832;
-    opacity: 0.8;
+.delete-investment-button:hover {
+    background-color: darkred;
 }
 
 .delete-policy-button,
@@ -94,27 +86,44 @@
     opacity: 0.8;
 }
 
+.upload-documentation-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: lightgoldenrodyellow;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upload-documentation-button:hover {
+    background-color: #d9b832;
+    opacity: 0.8;
+}
+
 @keyframes highlight-animation {
     0% {
-      background-color: transparent;
-      color: inherit;
+        background-color: transparent;
+        color: inherit;
     }
+
     25% {
-      background-color: lightgreen;
-      color: inherit;
+        background-color: lightgreen;
+        color: inherit;
     }
+
     50% {
-      background-color: lightgreen;
-      color: inherit;
+        background-color: lightgreen;
+        color: inherit;
     }
+
     100% {
-      background-color: transparent;
-      color: inherit;
+        background-color: transparent;
+        color: inherit;
     }
-  }
-  
-  .investment-data.highlight-animation {
+}
+
+.investment-data.highlight-animation {
     animation: highlight-animation 2s;
     animation-fill-mode: forwards;
-  }
-  
+}

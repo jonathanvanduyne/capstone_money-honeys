@@ -1,27 +1,27 @@
 /* Products.css */
 
+/* Products.css */
+
 .product-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.1);
-  transition: background-color 0.3s, color 0.3s;
-  width: fit-content;
 }
 
 .product-title {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   margin-bottom: 10px;
-  padding-top: 20px;
 }
 
 .add-new-product-button {
-  margin-bottom: 20px;
+  font-size: 15px;
+  padding: 6px 12px;
+  border-radius: 4px;
   background-color: green;
   color: #fff;
   transition: background-color 0.3s;
+  margin-bottom: 10px
 }
 
 .add-new-product-button:hover {
@@ -89,8 +89,8 @@
 .product-item a:hover {
   text-decoration: none;
 }
-
 /* Product Form */
+
 .productForm {
   max-width: 400px;
   margin: 0 auto;
@@ -99,6 +99,7 @@
   border-radius: 8px;
   border: 2px solid #ccc;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  text-align: center; /* Center align the form content */
 }
 
 .productForm__title {
@@ -107,17 +108,17 @@
   margin-bottom: 20px;
 }
 
-.productForm__fieldset {
+.productForm__input-group {
   margin-bottom: 20px;
 }
 
-.productForm__fieldset label {
+.productForm__input-group label {
   display: block;
   font-weight: bold;
 }
 
-.productForm__form-control {
-  width: 100%;
+.productForm__input {
+  width: fit-content;
   padding: 8px 12px;
   font-size: 16px;
   border-radius: 4px;
@@ -126,23 +127,31 @@
 
 .productForm__btn {
   display: inline-block;
+  margin-top: 10px;
   padding: 8px 16px;
   font-size: 16px;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
   border-radius: 4px;
-  cursor: pointer;
-}
-
-.productForm__btn-primary {
   background-color: green;
   color: #fff;
-  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.productForm__btn-primary:hover {
+.productForm__btn:hover {
   background-color: darkgreen;
+  opacity: 0.8;
+}
+
+.productForm__btn:focus {
+  outline: none;
+}
+
+.productForm__btn:active {
+  background-color: darkgreen;
+  opacity: 1;
 }
 
 

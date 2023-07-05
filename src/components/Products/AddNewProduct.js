@@ -54,10 +54,10 @@ export const AddNewProduct = () => {
             <h2 className="productForm__title">Add New Product</h2>
 
             <fieldset>
-                <div className="form-group">
+                <div className="productForm__input-group">
                     <label htmlFor="productType">Product Type:</label>
                     <select
-                        className="form-group"
+                        className="productForm__input"
                         value={product.typeId}
                         onChange={(evt) => {
                             const copy = { ...product };
@@ -76,13 +76,13 @@ export const AddNewProduct = () => {
             </fieldset>
 
             <fieldset>
-                <div className="form-group">
+                <div className="productForm__input-group">
                     <label htmlFor="Price">Price:</label>
                     <input
                         required
                         autoFocus
                         type="number"
-                        className="form-control"
+                        className="productForm__input"
                         placeholder="Product Price Here"
                         value={product.price}
                         onChange={(evt) => {
@@ -95,11 +95,11 @@ export const AddNewProduct = () => {
             </fieldset>
 
             <fieldset>
-                <div className="form-group">
+                <div className="productForm__input-group">
                     <label htmlFor="billingFrequency">Billing Frequency:</label>
                     <select
-                        className="form-group"
-                        value={product.billingFrequencyId}
+                        className="productForm__input"
+                        value={product.billingFrequency}
                         onChange={(evt) => {
                             const copy = { ...product };
                             copy.billingFrequencyId = parseFloat(evt.target.value);
@@ -118,10 +118,10 @@ export const AddNewProduct = () => {
 
             <button
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                className="btn btn-primary"
+                className="productForm__btn"
             >
-                Submit product
+                Submit Product
             </button>
         </form>
     );
-};
+}

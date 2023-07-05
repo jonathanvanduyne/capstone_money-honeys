@@ -140,7 +140,7 @@ export const AdvisorInvestmentsList = () => {
     };
 
     return (
-        <div>
+        <div className="investment-container">
             <h2 className="advisor-name">
                 {currentAdvisor?.user?.firstName}{" "}
                 {isLastNameEndsWithS()
@@ -148,11 +148,11 @@ export const AdvisorInvestmentsList = () => {
                     : `${currentAdvisor?.user?.lastName}'s`}{" "}
                 Investments
             </h2>
-
+    
             <button className="add-new-investment-button" onClick={handleNewInvestmentPolicyButtonClick}>
                 Add New Investment
             </button>
-
+    
             <div className="investment-cards-container">
                 {advisorInvestments.map((investment) => (
                     <div className="investment-card" key={investment.id}>
@@ -184,11 +184,11 @@ export const AdvisorInvestmentsList = () => {
                         )}
                         <div className="investment-details">
                             <AdvisorIndividualInvestments investment={investment} customers={customers} fetchData={fetchData} />
-
+    
                             <button className="delete-investment-button" onClick={() => setModal(investment.id)}>
                                 Sell Investment
                             </button>
-
+    
                             {modal && (
                                 <AdvisorModal
                                     investmentId={modal}
@@ -202,4 +202,4 @@ export const AdvisorInvestmentsList = () => {
             </div>
         </div>
     );
-};
+                            }    

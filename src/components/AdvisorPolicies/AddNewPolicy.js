@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAllCustomers, getAllDurations, getAllProducts, getAllProductsTypes, getCurrentAdvisorInfo, } from "../../APIManager.js";
+import "./AddNewPolicy.css";
 
 export const AddNewPolicy = () => {
     const [durations, setDurations] = useState([])
