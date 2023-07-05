@@ -19,15 +19,17 @@ export const PolicyModal = ({ policyId, handlePolicyDelete, setModal }) => {
     };
 
     return (
-        <div className="modal-container">
-            <div className="modal-content">
+        <div className="policy-modal-container">
+            <div className="policy-modal-content">
                 <h3>Cancel Policy</h3>
                 <p>Are you sure you want to cancel this investment?</p>
-                <div className="modal-buttons">
-                    <button onClick={handleLDeletePolicyClick} className="modal-liquidate-button">
+                <p></p>
+                <div className="policy-modal-buttons">
+                    <button onClick={handleLDeletePolicyClick} className="policy-modal-liquidate-button">
                         Yes, Cancel Policy
                     </button>
-                    <button onClick={handleCloseModal} className="modal-cancel-button">
+                    
+                    <button onClick={handleCloseModal} className="policy-modal-cancel-button">
                         No, Close Window
                     </button>
                 </div>

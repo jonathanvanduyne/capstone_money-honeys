@@ -99,7 +99,7 @@ export const AddNewProduct = () => {
                     <label htmlFor="billingFrequency">Billing Frequency:</label>
                     <select
                         className="form-group"
-                        value={product.billingFrequency}
+                        value={product.billingFrequencyId}
                         onChange={(evt) => {
                             const copy = { ...product };
                             copy.billingFrequencyId = parseFloat(evt.target.value);

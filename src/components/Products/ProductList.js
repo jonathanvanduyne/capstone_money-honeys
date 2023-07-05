@@ -28,7 +28,8 @@ export const ProductList = () => {
             });
             fetchData();
         };
-    return (
+  
+        return (
         <>
             <div className="product-container">
                 <h2 className="product-title">List of Products</h2>

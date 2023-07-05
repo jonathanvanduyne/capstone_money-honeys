@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     getCurrentStockPrice,
     getHistoricalDayClosingPrice,
@@ -9,41 +9,42 @@ import { InvestmentGraphModal } from "./GraphModal.js";
 
 export const AdvisorIndividualInvestments = ({ investment, symbol, customers }) => {
     const [currentInvestments, setCurrentInvestments] = useState([]);
+    const [highlight, setHighlight] = useState(false);
 
     useEffect(() => {
         const calculateInvestmentValue = async () => {
             // Get the initial amount invested
             const initialInvestment = investment.price;
             // Fetch the stock closing amount on the day of investment
-            const historicalStockPrice = await getHistoricalDayClosingPrice(investment.stockSymbol.stockMarketSymbol);
-            
+            const historicalStockPrice = await getHistoricalDayClosingPrice(
+                investment.stockSymbol.stockMarketSymbol
+            );
+
             const historicalClosingDate = historicalStockPrice.find((day) => day.date === investment.startDate);
-            
+
             if (!historicalClosingDate) {
-                console.error(
-                    "Historical closing price not found for the investment start date."
-                    );
-                    return;
-                }
-                
-                const closingPriceOnDate = historicalClosingDate.close;
-                
-                // Calculate the number of units that could have been purchased with the initial amount
-                let unitsOwned = initialInvestment / closingPriceOnDate;
-                
-                /*
-                // Fetch the historical stock splits
-                const stockSplitsResponse = await getHistoricalStockSplits(
-                    investment.stockSymbol.stockMarketSymbol
-                    );
-                    const stockSplits = stockSplitsResponse.historical;
-                    
-                    
+                console.error("Historical closing price not found for the investment start date.");
+                return;
+            }
+
+            const closingPriceOnDate = historicalClosingDate.close;
+
+            // Calculate the number of units that could have been purchased with the initial amount
+            let unitsOwned = initialInvestment / closingPriceOnDate;
+
+            /*
+            // Fetch the historical stock splits
+            const stockSplitsResponse = await getHistoricalStockSplits(
+              investment.stockSymbol.stockMarketSymbol
+            );
+            const stockSplits = stockSplitsResponse.historical;
+      
+      
             // Apply each stock split that occurred after the investment start date
             stockSplits.forEach((split) => {
-                if (split.date > investment.startDate) {
-                    unitsOwned *= (split.numerator / split.denominator);
-                }
+              if (split.date > investment.startDate) {
+                unitsOwned *= split.numerator / split.denominator;
+              }
             });
             */
 
@@ -54,14 +55,22 @@ export const AdvisorIndividualInvestments = ({ investment, symbol, customers }) 
             const updatedInvestment = {
                 ...investment,
                 currentPrice: currentPrice,
-                currentInvestmentValue: (currentPrice * unitsOwned),
-                unitsOwned: unitsOwned
+                currentInvestmentValue: currentPrice * unitsOwned,
+                unitsOwned: unitsOwned,
             };
 
             setCurrentInvestments([updatedInvestment]);
+            setHighlight(true);
+
+            setTimeout(() => {
+                setHighlight(false);
+            }, 1000); // Reset highlight after 1 second
         };
 
         calculateInvestmentValue();
+        const timer = setInterval(calculateInvestmentValue, 5000); // Refresh every 5 seconds
+
+        return () => clearInterval(timer); // Clean up the timer on unmount
     }, [investment]);
 
     return (
@@ -89,7 +98,7 @@ export const AdvisorIndividualInvestments = ({ investment, symbol, customers }) 
             {currentInvestments.length > 0 && (
                 <p>
                     <span className="investment-header">Current Investment Value:</span>{" "}
-                    <span className="investment-data">
+                    <span className={`investment-data ${highlight ? "highlight-animation" : ""}`}>
                         {currentInvestments[0].currentInvestmentValue.toLocaleString(undefined, {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2,
@@ -102,9 +111,7 @@ export const AdvisorIndividualInvestments = ({ investment, symbol, customers }) 
                 <span className="investment-data">{investment.stockSymbol.companyName}</span>
             </p>
 
-            <InvestmentGraphModal
-            investment={investment} 
-            currentInvestments={currentInvestments}/>
+            <InvestmentGraphModal investment={investment} currentInvestments={currentInvestments} />
         </>
     );
-}
+};

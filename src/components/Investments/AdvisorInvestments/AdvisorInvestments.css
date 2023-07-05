@@ -8,8 +8,8 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.1);
-    transition: background-color 0.3s;
+    background-color:transparent;
+    transition: background-color 10s;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -93,3 +93,28 @@
     background-color: #bd2130;
     opacity: 0.8;
 }
+
+@keyframes highlight-animation {
+    0% {
+      background-color: transparent;
+      color: inherit;
+    }
+    25% {
+      background-color: lightgreen;
+      color: inherit;
+    }
+    50% {
+      background-color: lightgreen;
+      color: inherit;
+    }
+    100% {
+      background-color: transparent;
+      color: inherit;
+    }
+  }
+  
+  .investment-data.highlight-animation {
+    animation: highlight-animation 2s;
+    animation-fill-mode: forwards;
+  }
+  
