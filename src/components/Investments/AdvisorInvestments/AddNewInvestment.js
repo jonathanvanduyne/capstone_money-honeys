@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAllBillingFrequencies, getAllCustomers, getAllDurations, getAllInvestmentTypes, getAllStockSymbols, getCurrentAdvisorInfo } from "../../../APIManager.js";
-import "./AdvisorInvestments.css"
+import "./AddNewInvestment.css";
 
 export const AddNewInvestment = () => {
     const [investmentPolicy, update] = useState({

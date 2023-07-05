@@ -2,9 +2,11 @@
   display: inline-flex;
   flex-wrap: wrap;
 }
+
 .page-container {
   display: flex;
   flex-direction: column;
+  align-items: center
 }
 
 .nameAndButton {
@@ -25,13 +27,14 @@
 .add-new-policy-button {
   display: block;
   width: auto;
+  align-items: center;
   background-color: rgb(58, 158, 58);
   padding: 5px 10px;
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-top: 10px;
+  margin-left: 50px;
 }
 
 

@@ -23,17 +23,18 @@ export const ProductList = () => {
     }
 
     const handleDelete = async (product) => {
-            await fetch(`http://localhost:8088/products/${product.id}`, {
-                method: "DELETE",
-            });
-            fetchData();
-        };
+        await fetch(`http://localhost:8088/products/${product.id}`, {
+            method: "DELETE",
+        });
+        fetchData();
+    };
+
     return (
         <>
             <div className="product-container">
-                <h2 className="product-title">List of Products</h2>
+                <h2 className="product-title product-title-large">List of Products</h2>
 
-                <button className="add-new-product-button" onClick={handleButtonClick}>
+                <button className="add-new-product-button add-new-product-button-large" onClick={handleButtonClick}>
                     Add New Product
                 </button>
 
@@ -53,4 +54,4 @@ export const ProductList = () => {
             </div>
         </>
     );
-}
+                    }

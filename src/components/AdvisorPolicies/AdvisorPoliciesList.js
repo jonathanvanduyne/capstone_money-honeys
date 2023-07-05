@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
-import { getAllCustomers, getAllPolicies, getCurrentAdvisorInfo } from "../../APIManager.js";
+import { getAllCustomers, getAllPolicies, getAllProducts, getCurrentAdvisorInfo } from "../../APIManager.js";
 import { AdvisorPolicy } from "./AdvisorPolicy.js";
 import { useNavigate } from "react-router-dom";
 import { UploadPolicyWidget } from "./UploadPolicy.js";
 import "./AdvisorPolicy.css";
+import "./PolicyModal.css"
+import { PolicyModal } from "./PolicyModal.js";
 
 export const AdvisorPolicyList = () => {
     const [allPolicies, setAllPolicies] = useState([]);
     const [currentAdvisor, setCurrentAdvisor] = useState(null);
     const [customers, setCustomers] = useState([]);
     const [currentAdvisorPolicies, setCurrentAdvisorPolicies] = useState([]);
+    const [products, setProducts] = useState([]);
+    const [modal, setModal] = useState(null);
     const navigate = useNavigate();
 
     const fetchData = async () => {
@@ -21,6 +25,9 @@ export const AdvisorPolicyList = () => {
 
         const customerList = await getAllCustomers();
         setCustomers(customerList);
+
+        const productList = await getAllProducts();
+            setProducts(productList);
     };
 
     const handleSignedPolicyUpload = () => {
@@ -154,10 +161,19 @@ export const AdvisorPolicyList = () => {
                                 customerId={policy.customerId}
                                 customerFirstName={customers.find((customer) => customer.id === policy.customerId)?.user?.firstName}
                                 customerLastName={customers.find((customer) => customer.id === policy.customerId)?.user?.lastName}
+                                products={products}
                             />
-                            <button className="delete-policy-button" onClick={() => handlePolicyDelete(policy.id)}>
+                            <button className="delete-policy-button" onClick={() => setModal(policy.id)}>
                                 Delete
                             </button>
+
+                            {modal && (
+                                <PolicyModal
+                                    policyId={modal}
+                                    handlePolicyDelete={handlePolicyDelete}
+                                    setModal={setModal}
+                                />
+                            )}
                         </div>
                     ))
                 ) : (

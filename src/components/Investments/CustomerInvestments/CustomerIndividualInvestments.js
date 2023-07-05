@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCurrentStockPrice, getHistoricalDayClosingPrice, getHistoricalStockSplits } from "../../../APIManager.js";
+import { CustomerGraphModal } from "./CustomerGraphModal.js";
 
 export const CustomerIndividualInvestments = ({investment, advisors, fetchData}) => {
     const [currentInvestments, setCurrentInvestments] = useState([]);
@@ -95,5 +96,8 @@ export const CustomerIndividualInvestments = ({investment, advisors, fetchData})
                     {investment.stockSymbol.companyName}
                 </span>
             </p>
+
+            <CustomerGraphModal
+            investment={investment} />
         </>
 )}

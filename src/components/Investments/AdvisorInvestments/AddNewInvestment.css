@@ -1,0 +1,77 @@
+/* AddNewInvestmentForm.css */
+
+.add-new-investment-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .add-new-investment-form-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .add-new-investment-form-group {
+    margin-bottom: 20px;
+    text-align: center; /* Center the input boxes */
+  }
+  
+  .add-new-investment-form-group label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .add-new-investment-form-select,
+  .add-new-investment-form-input {
+    width: 100%;
+    box-sizing: border-box; /* Include padding in the width */
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .add-new-investment-form-button {
+    display: block;
+    width: auto;
+    margin: 0 auto;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 4px;
+    background-color: green;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .add-new-investment-form-button:hover {
+    background-color: darkgreen;
+  }
+  
+  .add-new-investment-form-feedback {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 4px;
+  }
+  
+  .add-new-investment-form-error {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  .add-new-investment-form-invisible {
+    display: none;
+  }
+  
+  .add-new-investment-form-visible {
+    display: block;
+  }
+  

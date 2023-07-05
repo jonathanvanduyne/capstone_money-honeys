@@ -1,75 +1,170 @@
 /* Products.css */
-  
-  .product-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    padding-top: 20px;
-  }
-  
-  .add-new-product-button {
-    margin-bottom: 20px;
-    background-color: rgb(58, 158, 58);
-  }
-  
-  .product-list {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
-  
-  .product-item {
-    width: 20%;
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: rgba(255, 255, 255, .05);
-    transition: background-color 0.3s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .product-item .product-section {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 10px;
-    border-radius: 4px;
-  }
-  
-  .product-item:hover {
-    background-color:lightgrey;
-  }
-  
-  .product-item header {
-    margin-bottom: 10px;
-  }
-  
-  .product-item p {
-    margin-bottom: 5px;
-  }
-  
-  .product-item button {
-    margin-top: 10px;
-    padding: 5px 10px;
-    border-radius: 4px;
-    background-color: #dc3545;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .product-item button:hover {
-    background-color: maroon;
-    opacity: 0.8;
-  }
-  
-  .product-item a {
-    color: #007bff;
-    text-decoration: underline;
-  }
-  
-  .product-item a:hover {
-    text-decoration: none;
-  }
+
+/* Products.css */
+
+.product-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.add-new-product-button {
+  font-size: 15px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background-color: green;
+  color: #fff;
+  transition: background-color 0.3s;
+  margin-bottom: 10px
+}
+
+.add-new-product-button:hover {
+  background-color: darkgreen;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.product-item {
+  width: 20%;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: background-color 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-item .product-section {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.product-item:hover {
+  background-color: lightgrey;
+}
+
+.product-item header {
+  margin-bottom: 10px;
+}
+
+.product-item p {
+  margin-bottom: 5px;
+}
+
+.product-item button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #dc3545;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.product-item button:hover {
+  background-color: maroon;
+  opacity: 0.8;
+}
+
+.product-item a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.product-item a:hover {
+  text-decoration: none;
+}
+/* Product Form */
+
+.productForm {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  text-align: center; /* Center align the form content */
+}
+
+.productForm__title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.productForm__input-group {
+  margin-bottom: 20px;
+}
+
+.productForm__input-group label {
+  display: block;
+  font-weight: bold;
+}
+
+.productForm__input {
+  width: fit-content;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.productForm__btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  background-color: green;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.productForm__btn:hover {
+  background-color: darkgreen;
+  opacity: 0.8;
+}
+
+.productForm__btn:focus {
+  outline: none;
+}
+
+.productForm__btn:active {
+  background-color: darkgreen;
+  opacity: 1;
+}
+
+
+.invisible {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+.error {
+  color: #dc3545;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
