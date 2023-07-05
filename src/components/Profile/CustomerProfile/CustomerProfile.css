@@ -1,109 +1,124 @@
-.container {
+.customer-profile-container {
+  max-width: 800px;
+  margin: 0 auto;
   padding: 20px;
   display: flex;
-  justify-content: center;
-}
-
-.customer-profile h3 {
-  font-size: 20px;
-  font-weight: bold;
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
-.profile .profile-label {
-  margin-bottom: 10px;
-  justify-content: center;
+.customer-profile-section {
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  width: fit-content;
+  padding: 8px 16px;
+  text-align: center;
+}
+
+.profile-info {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.profile-label {
+  margin: 5px 0;
 }
 
 .update-profile-button {
   margin-top: 10px;
-  padding: 5px 10px;
+  padding: 8px 16px;
+  background-color: green;
+  color: white;
+  border: none;
   border-radius: 4px;
-  background-color: rgb(58, 158, 58); /* Set the background color to green */
-  color: #fff;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-.update-profile-button:hover {
-  background-color: #3c9449;
-  opacity: 0.8;
-}
-
-.beneficiaries-section .beneficiaries-container {
+.beneficiaries-section {
+  margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.beneficiary {
-  flex: 0 0 35%;
+.customer-beneficiary-section {
+  text-align: center;
+}
+
+.beneficiary-container {
+  flex: 0 0 300px;
   margin: 10px;
+}
+
+.beneficiary {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.05);
-  transition: background-color 0.3s;
-  
+  text-align: left;
+  transition: background-color 0.3s ease;
 }
 
 .beneficiary:hover {
-  background-color: #fff;
-}
-
-.beneficiary .profile-label {
-  margin-bottom: 5px;
+  background-color: lightgrey;
 }
 
 .delete-beneficiary-button {
   margin-top: 10px;
-  padding: 5px 10px;
+  padding: 6px 12px;
+  background-color: red;
+  color: white;
+  border: none;
   border-radius: 4px;
-  background-color: #dc3545; /* Set the background color to red */
-  color: #fff;
   cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.delete-beneficiary-button:hover {
-  background-color: maroon;
-  opacity: 0.8;
 }
 
 .edit-beneficiary-button {
   margin-top: 10px;
-  padding: 5px 10px;
+  padding: 6px 12px;
+  background-color: green;
+  color: white;
+  border: none;
   border-radius: 4px;
-  background-color: rgb(58, 158, 58); /* Set the background color to green */
-  color: #fff;
   cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.edit-beneficiary-button:hover {
-  background-color: #3c9449;
-  opacity: 0.8;
 }
 
 .add-beneficiary-button {
   margin-top: 10px;
-  padding: 5px 10px;
+  padding: 8px 16px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
   border-radius: 4px;
-  background-color: #007bff; /* Set the background color to blue */
-  color: #fff;
   cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.add-beneficiary-button:hover {
-  background-color: #0056b3;
-  opacity: 0.8;
 }
 
 .secondaryBeneficiary-changed {
   margin-top: 10px;
+  color: #f44336;
   font-weight: bold;
-  color: #dc3545;
+}
+
+.profile-container {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 20px;
+  text-align: center;
+}
+
+.profile {
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: left;
+}
+
+.edit-beneficiary-button.delete {
+  background-color: red;
+}
+
+.edit-beneficiary-button.edit {
+  background-color: green;
+}
+
+.add-beneficiary-button {
+  background-color: #2196f3;
 }

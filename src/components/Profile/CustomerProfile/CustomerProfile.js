@@ -114,10 +114,10 @@ export const CustomerProfile = () => {
     };
 
     return (
-        <div className="container">
-            <div className="customer-profile">
+        <div className="customer-profile-container">
+            <div className="customer-profile-section">
                 <h3>{currentUser?.user?.firstName}{isFirstNamesEndsWithS() ? "'" : "'s"} Profile</h3>
-                <section className="profile">
+                <section className="profile-info">
                     <p className="profile-label">
                         Name: {currentUser?.user?.firstName} {currentUser?.user?.lastName}
                     </p>
@@ -134,7 +134,7 @@ export const CustomerProfile = () => {
                 </section>
             </div>
             <div className="beneficiaries-section">
-                <div className="customer-profile">
+                <div className="customer-beneficiary-section">
                     <h3>Beneficiaries</h3>
                     <div className="beneficiaries-container">
                         {beneficiaries.map((beneficiary) => (
@@ -172,4 +172,4 @@ export const CustomerProfile = () => {
             )}
         </div>
     );
-}
+};
