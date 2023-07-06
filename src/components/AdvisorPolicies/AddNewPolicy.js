@@ -94,7 +94,7 @@ export const AddNewPolicy = () => {
 
             <fieldset>
                 <div className="add-new-policy-form-group">
-                    <label htmlFor="product">Product:</label>
+                    <label htmlFor="product">Policy:</label>
                     <select
                         className="add-new-policy-form-select"
                         value={policy.productId}
@@ -104,7 +104,7 @@ export const AddNewPolicy = () => {
                             updatePolicy(copy);
                         }}
                     >
-                        <option value="">Select a Product</option>
+                        <option value="">Select a Policy</option>
                         {productTypes.map((productType) => (
                             <option key={productType.id} value={productType.id}>
                                 {productType?.category}

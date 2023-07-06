@@ -57,6 +57,7 @@ export const AddNewInvestment = () => {
             startDate: investmentPolicy.startDate,
             price: investmentPolicy.price,
             stockSymbolId: investmentPolicy.stockSymbolId,
+            documentationURL: null
         };
 
         const response = await fetch("http://localhost:8088/investmentPolicies", {
