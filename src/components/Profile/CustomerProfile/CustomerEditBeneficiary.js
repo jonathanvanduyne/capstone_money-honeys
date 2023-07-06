@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllBeneficiaryTypes, getBeneficiaryForEdit } from "../../../APIManager.js";
 import { useNavigate, useParams } from "react-router-dom";
-import "./CustomerProfile.css";
+import "./EditProfile&Beneficiary.css";
 
 export const CustomerEditBeneficiary = () => {
     const [beneficiaryProfile, updateBeneficiaryProfile] = useState({
@@ -60,23 +60,20 @@ export const CustomerEditBeneficiary = () => {
 
     return (
         <>
-            <div
-                className={`${feedback.includes("Error") ? "error" : "feedback"
-                    } ${feedback === "" ? "invisible" : "visible"}`}
-            >
+            <div className={`${feedback.includes("Error") ? "edit-beneficiary-error" : "edit-beneficiary-feedback"} ${feedback === "" ? "edit-beneficiary-invisible" : "edit-beneficiary-visible"}`}>
                 {feedback}
             </div>
-            <form className="beneficiary_Form">
-                <h2 className="beneficiary_Form__title">Edit Beneficiary</h2>
+            <form className="edit-beneficiary-form">
+                <h2 className="edit-beneficiary-title">Edit Beneficiary</h2>
 
                 <fieldset>
-                    <div className="form-group">
+                    <div className="edit-beneficiary-form-group">
                         <label htmlFor="name">Name:</label>
                         <input
                             required
                             autoFocus
                             type="text"
-                            className="form-group"
+                            className="edit-beneficiary-input"
                             placeholder="Beneficiary Name"
                             value={beneficiaryProfile.name}
                             onChange={(evt) => {
@@ -87,12 +84,12 @@ export const CustomerEditBeneficiary = () => {
                         />
                     </div>
 
-                    <div className="form-group">
+                    <div className="edit-beneficiary-form-group">
                         <label htmlFor="address">Address:</label>
                         <input
                             required
                             type="text"
-                            className="form-group"
+                            className="edit-beneficiary-input"
                             placeholder="Beneficiary Address"
                             value={beneficiaryProfile.address}
                             onChange={(evt) => {
@@ -103,12 +100,12 @@ export const CustomerEditBeneficiary = () => {
                         />
                     </div>
 
-                    <div className="form-group">
+                    <div className="edit-beneficiary-form-group">
                         <label htmlFor="phoneNumber">Phone Number:</label>
                         <input
                             required
                             type="tel"
-                            className="form-group"
+                            className="edit-beneficiary-input"
                             placeholder="Beneficiary Phone Number"
                             value={beneficiaryProfile.phoneNumber}
                             onChange={(evt) => {
@@ -119,12 +116,12 @@ export const CustomerEditBeneficiary = () => {
                         />
                     </div>
 
-                    <div className="form-group">
+                    <div className="edit-beneficiary-form-group">
                         <label htmlFor="dateOfBirth">Date of Birth:</label>
                         <input
                             required
                             type="date"
-                            className="form-group"
+                            className="edit-beneficiary-input"
                             value={beneficiaryProfile.dateOfBirth}
                             onChange={(evt) => {
                                 const copy = { ...beneficiaryProfile };
@@ -134,12 +131,12 @@ export const CustomerEditBeneficiary = () => {
                         />
                     </div>
 
-                    <div className="form-group">
+                    <div className="edit-beneficiary-form-group">
                         <label htmlFor="relationship">Relationship:</label>
                         <input
                             required
                             type="text"
-                            className="form-group"
+                            className="edit-beneficiary-input"
                             placeholder="Beneficiary Relationship"
                             value={beneficiaryProfile.relationship}
                             onChange={(evt) => {
@@ -150,11 +147,11 @@ export const CustomerEditBeneficiary = () => {
                         />
                     </div>
 
-                    <div className="form-group">
+                    <div className="edit-beneficiary-form-group">
                         <label htmlFor="type">Type:</label>
                         <select
                             required
-                            className="form-group"
+                            className="edit-beneficiary-input"
                             value={beneficiaryProfile.typeId}
                             onChange={(evt) => {
                                 const copy = { ...beneficiaryProfile };
@@ -172,7 +169,7 @@ export const CustomerEditBeneficiary = () => {
                     </div>
                 </fieldset>
 
-                <button onClick={handleSaveButtonClick} className="btn btn-primary">
+                <button onClick={handleSaveButtonClick} className="save-edit-beneficiary-button">
                     Save Beneficiary
                 </button>
             </form>

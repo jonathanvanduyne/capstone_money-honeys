@@ -35,15 +35,15 @@ export const CustomerPolicyList = () => {
         }
     }, [allPolicies, currentCustomer]);
 
-    const isLastNameEndsWithS = () => {
-        const lastName = currentCustomer?.user?.lastName || "";
-        return lastName.charAt(lastName.length - 1) === "s";
+    const isFirstNameEndsWithS = () => {
+        const firstName = currentCustomer?.user?.firstName || "";
+        return firstName.charAt(firstName.length - 1) === "s";
     };
 
     return (
         <section className="page-container">
             <h2 className="customer-name">
-                {currentCustomer?.user?.firstName}{isLastNameEndsWithS() ? "'" : "'s"} Policies
+                {isFirstNameEndsWithS() ? `${currentCustomer?.user.firstName}'` :  `${currentCustomer?.user?.firstName}'s`} Policies
             </h2>
 
             <article className="policy-list-container">

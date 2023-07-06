@@ -1,0 +1,186 @@
+.edit-profile-feedback {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.edit-profile-feedback.visible {
+    display: block;
+}
+
+.edit-profile-feedback.invisible {
+    display: none;
+}
+
+.edit-profile-feedback.error {
+    color: red;
+}
+
+.edit-profile-feedback.feedback {
+    color: green;
+}
+
+.edit-profile-form {
+    margin: 20px auto;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.edit-profile-title {
+    text-align: center;
+}
+
+.edit-profile-form-group {
+    margin-bottom: 10px;
+}
+
+.edit-profile-form-label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.edit-profile-form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.edit-profile-button {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-profile-button:hover {
+    background-color: #45a049;
+}
+
+/* edit beneficiary */
+.edit-beneficiary-error {
+    color: red;
+}
+
+.edit-beneficiary-feedback {
+    color: green;
+}
+
+.edit-beneficiary-invisible {
+    display: none;
+}
+
+.edit-beneficiary-visible {
+    display: block;
+}
+
+.edit-beneficiary-form {
+    margin: 20px;
+}
+
+.edit-beneficiary-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.edit-beneficiary-form-group {
+    margin-bottom: 10px;
+}
+
+.edit-beneficiary-form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.edit-beneficiary-input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 500px;
+}
+
+.save-edit-beneficiary-button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.save-edit-beneficiary-button:hover {
+    background-color: #45a049;
+}
+
+/* add beneficiary */
+.add-beneficiary-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .add-beneficiary-form {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .add-beneficiary-title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .add-beneficiary-form-group {
+    margin-bottom: 20px;
+  }
+  
+  .add-beneficiary-form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .add-beneficiary-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .add-beneficiary-button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .add-beneficiary-button:hover {
+    background-color: darkgreen;
+  }
+  
+  .add-beneficiary-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .add-beneficiary-button:disabled:hover {
+    background-color: #2196f3;
+  }
+  

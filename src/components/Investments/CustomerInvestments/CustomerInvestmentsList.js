@@ -35,21 +35,15 @@ export const CustomerInvestmentsList = () => {
     };
 
     return (
-        <><h2 className="customer-name">
-            {currentCustomer?.user?.firstName}{" "}
-            {isLastNameEndsWithS()
-                ? `${currentCustomer?.user?.lastName}'`
-                : `${currentCustomer?.user?.lastName}'s`}{" "}
-            Investments
-        </h2><p className="total-investment">
-                Total Investment Buy-In Amount:{" "}
-                <span className="investment-data">
-                    ${customerInvestments.reduce(
-                        (total, investment) => total + investment.price,
-                        0
-                    )}
-                </span>
-            </p><div className="investment-cards-container">
+        <>
+            <h2 className="customer-name">
+                {currentCustomer?.user?.firstName}{" "}
+                {isLastNameEndsWithS()
+                    ? `${currentCustomer?.user?.lastName}'`
+                    : `${currentCustomer?.user?.lastName}'s`}{" "}
+                Investments
+            </h2>
+            <div className="investment-cards-container">
                 {customerInvestments.map((investment) => (
                     <div className="investment-card" key={investment.id}>
                         {investment.documentationURL === null ? (
@@ -66,9 +60,11 @@ export const CustomerInvestmentsList = () => {
                         <CustomerIndividualInvestments
                             investment={investment}
                             advisors={advisors}
-                            fetchData={fetchData} />
+                            fetchData={fetchData}
+                        />
                     </div>
                 ))}
-            </div></>
+            </div>
+        </>
     );
-}
+}      

@@ -47,7 +47,8 @@ export const CustomerIndividualInvestments = ({investment, advisors, fetchData})
             const updatedInvestment = {
                 ...investment,
                 currentPrice: currentPrice,
-                currentInvestmentValue: (currentPrice * unitsOwned)
+                currentInvestmentValue: (currentPrice * unitsOwned),
+                unitsOwned: unitsOwned,
             };
 
             setCurrentInvestments([updatedInvestment]);
@@ -64,7 +65,7 @@ export const CustomerIndividualInvestments = ({investment, advisors, fetchData})
                 <span className="investment-data">{investment.id}</span>
             </p>
             <p>
-                <span className="investment-header">Customer Name:</span>{" "}
+                <span className="investment-header">Advisor Name:</span>{" "}
                 <span className="investment-data">
                     {advisors
                         .filter((advisor) => advisor.id === investment.advisorId)
@@ -98,6 +99,7 @@ export const CustomerIndividualInvestments = ({investment, advisors, fetchData})
             </p>
 
             <CustomerGraphModal
-            investment={investment} />
+            investment={investment} 
+            currentInvestments={currentInvestments}/>
         </>
 )}

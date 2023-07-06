@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getCurrentCustomerInfo } from "../../../APIManager.js";
 import { useNavigate } from "react-router-dom";
-import "./CustomerProfile.css";
+import "./EditProfile&Beneficiary.css";
 
 export const UpdateCustomerProfile = () => {
     const [profile, updateProfile] = useState({
@@ -34,7 +34,7 @@ export const UpdateCustomerProfile = () => {
 
     const handleSaveButtonClick = async (event) => {
         event.preventDefault();
-    
+
         await fetch(`http://localhost:8088/customers/${profile.id}`, {
             method: "PUT",
             headers: {
@@ -53,23 +53,23 @@ export const UpdateCustomerProfile = () => {
                 }, 3000);
             });
     };
-    
+
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     return (
         <>
-            <div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
+            <div className={`edit-profile-feedback ${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
                 {feedback}
             </div>
-            <form className="profile">
-                <h2 className="profile__title">Update Profile</h2>
+            <form className="edit-profile-form">
+                <h2 className="edit-profile-title">Update Profile</h2>
                 <fieldset>
-                    <div className="form-group">
+                    <div className="edit-profile-form-group">
                         <label htmlFor="Address">Address:</label>
                         <input
                             type="text"
-                            className="form-control"
+                            className="edit-profile-form-control"
                             value={profile?.address}
                             onChange={(evt) => {
                                 const copy = { ...profile };
@@ -80,11 +80,11 @@ export const UpdateCustomerProfile = () => {
                     </div>
                 </fieldset>
                 <fieldset>
-                    <div className="form-group">
+                    <div className="edit-profile-form-group">
                         <label htmlFor="Phone">Phone Number:</label>
                         <input
                             type="tel"
-                            className="form-control"
+                            className="edit-profile-form-control"
                             value={profile?.phoneNumber}
                             onChange={(evt) => {
                                 const copy = { ...profile };
@@ -94,11 +94,10 @@ export const UpdateCustomerProfile = () => {
                         />
                     </div>
                 </fieldset>
-                
-                <button onClick={handleSaveButtonClick} className="btn btn-primary">
+                <button onClick={handleSaveButtonClick} className="edit-profile-button">
                     Save Profile
                 </button>
             </form>
         </>
     );
-};
+}

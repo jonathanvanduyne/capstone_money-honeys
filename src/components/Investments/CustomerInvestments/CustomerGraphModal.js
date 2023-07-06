@@ -4,7 +4,7 @@ import { format, differenceInDays, addDays } from "date-fns";
 import { CanvasJSChart } from "canvasjs-react-charts";
 import "./CustomerGraphModal.css"
 
-export const CustomerGraphModal = ({ investment }) => {
+export const CustomerGraphModal = ({ investment, currentInvestments }) => {
     const [stockData, setStockData] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
 
@@ -141,7 +141,7 @@ export const CustomerGraphModal = ({ investment }) => {
                                             yValueFormatString: "$#,##0.00",
                                             dataPoints: filteredChartData.map((entry) => ({
                                                 x: entry.date,
-                                                y: entry.close,
+                                                y: entry.close * currentInvestments[0].unitsOwned,
                                             })),
                                         },
                                     ],

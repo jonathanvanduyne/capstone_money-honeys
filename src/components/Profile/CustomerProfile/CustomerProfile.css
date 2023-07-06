@@ -41,10 +41,6 @@
   justify-content: center;
 }
 
-.customer-beneficiary-section {
-  text-align: center;
-}
-
 .beneficiary-container {
   flex: 0 0 300px;
   margin: 10px;
