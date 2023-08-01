@@ -15,7 +15,9 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+//
+
 In the mh_api directory, you'll need to run:
 ### `json-server -p 8088 database.json -w`
 
-The live stockmarket feature will not dynamically update as I did need to pay for a subsription for the API to do as many API fetch calls as I was for the feature and I am no longer paying for that subscription at this time.
+The live stockmarket feature will not dynamically update as I did need to pay for a subscription for the API to do as many API fetch calls as I was for the feature and I am no longer paying for that subscription at this time.
