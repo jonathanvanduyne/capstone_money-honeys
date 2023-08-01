@@ -4,7 +4,7 @@ Financial Advisors can not only view their clients’ policies & investments, bu
 
 Technologies Used: React, Javascript, CSS, HTML, Cloudinary, CanvasJS, JSON Server.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Available Scripts
 
@@ -15,5 +15,7 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+In the mh_api directory, you'll need to run:
+### `json-server -p 8088 database.json -w`
+
+The live stockmarket feature will not dynamically update as I did need to pay for a subsription for the API to do as many API fetch calls as I was for the feature and I am no longer paying for that subscription at this time.
