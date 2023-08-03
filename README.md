@@ -20,4 +20,21 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 In the mh_api directory, you'll need to run:
 ### `json-server -p 8088 database.json -w`
 
-The live stockmarket feature will not dynamically update as I did need to pay for a subscription for the API to do as many API fetch calls as I was for the feature and I am no longer paying for that subscription at this time.
+Or here are photos in case you're too busy to run it on your local machine
+Login --
+![Screenshot 2023-08-03 at 10 15 30 AM](https://github.com/jonathanvanduyne/capstone_money-honeys/assets/126512504/a282ce66-c772-4c25-80af-dd233f9a09fc)
+Landing --
+![Screenshot 2023-08-03 at 10 16 55 AM](https://github.com/jonathanvanduyne/capstone_money-honeys/assets/126512504/13fca13d-a17c-4589-b7a3-b7b0035e2fb1)
+Profile --
+![Screenshot 2023-08-03 at 10 17 35 AM](https://github.com/jonathanvanduyne/capstone_money-honeys/assets/126512504/18df5973-359b-431c-94cf-e0e94716c3bf)
+Update Profile --
+![Screenshot 2023-08-03 at 10 17 47 AM](https://github.com/jonathanvanduyne/capstone_money-honeys/assets/126512504/5a3b290a-8938-4f81-96e4-4e1686b0569c)
+Policy --
+![Screenshot 2023-08-03 at 10 17 24 AM](https://github.com/jonathanvanduyne/capstone_money-honeys/assets/126512504/2145052b-3c07-4cf8-8f67-5ba8e3efb614)
+Add New Policy --
+![Screenshot 2023-08-03 at 10 17 57 AM](https://github.com/jonathanvanduyne/capstone_money-honeys/assets/126512504/8f22a7dc-e27f-4c95-abb7-a9b928fffc23)
+Delete Policy Modal --
+![Screenshot 2023-08-03 at 10 30 19 AM](https://github.com/jonathanvanduyne/capstone_money-honeys/assets/126512504/f6608400-f56b-4725-8572-44b524330533)
+Investments -- 
+![Screenshot 2023-08-03 at 10 18 34 AM](https://github.com/jonathanvanduyne/capstone_money-honeys/assets/126512504/5c7827a7-b35a-4b4a-8de9-c1a0edda96ba)
+Investment Graph Modal --
