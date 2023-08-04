@@ -38,3 +38,6 @@ Delete Policy Modal --
 Investments -- 
 ![Screenshot 2023-08-03 at 10 18 34 AM](https://github.com/jonathanvanduyne/capstone_money-honeys/assets/126512504/5c7827a7-b35a-4b4a-8de9-c1a0edda96ba)
 Investment Graph Modal --
+![Screenshot 2023-08-04 at 12 08 04 PM](https://github.com/jonathanvanduyne/capstone_money-honeys/assets/126512504/82abe8c5-bf78-4f57-92f2-bdc07d3de2cd)
+Investment and Policy Upload Modal Widget --
+![Screenshot 2023-08-04 at 12 06 57 PM](https://github.com/jonathanvanduyne/capstone_money-honeys/assets/126512504/a45bede2-a937-42e3-9265-e9c583cc3208)
