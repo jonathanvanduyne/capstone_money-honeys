@@ -35,7 +35,7 @@ Add New Policy --
 ![Screenshot 2023-08-03 at 10 17 57 AM](https://github.com/jonathanvanduyne/capstone_money-honeys/assets/126512504/8f22a7dc-e27f-4c95-abb7-a9b928fffc23)
 Delete Policy Modal --
 ![Screenshot 2023-08-03 at 10 30 19 AM](https://github.com/jonathanvanduyne/capstone_money-honeys/assets/126512504/f6608400-f56b-4725-8572-44b524330533)
-Investments -- 
+Investments -- Live stock market integration, value automatically updates every 5 seconds and is highlighted in green.
 ![Screenshot 2023-08-03 at 10 18 34 AM](https://github.com/jonathanvanduyne/capstone_money-honeys/assets/126512504/5c7827a7-b35a-4b4a-8de9-c1a0edda96ba)
 Investment Graph Modal --
 ![Screenshot 2023-08-04 at 12 08 04 PM](https://github.com/jonathanvanduyne/capstone_money-honeys/assets/126512504/82abe8c5-bf78-4f57-92f2-bdc07d3de2cd)
