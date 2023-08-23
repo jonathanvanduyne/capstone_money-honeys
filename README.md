@@ -13,15 +13,15 @@ In the project directory, you can run:
 ### `npm install`
 ### `npm start`
 
-Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-//
+###
 
 In the mh_api directory, you'll need to run:
 ### `json-server -p 8088 database.json -w`
 
-Or here are photos in case you're too busy to run it on your local machine
+Or here are screencaps in case you're too busy to run it on your local machine
+
 Login --
 ![Screenshot 2023-08-03 at 10 15 30 AM](https://github.com/jonathanvanduyne/capstone_money-honeys/assets/126512504/a282ce66-c772-4c25-80af-dd233f9a09fc)
 Landing --
