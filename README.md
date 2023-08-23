@@ -2,9 +2,9 @@ MoneyHoney - front-end capstone Single Page web application built with React JS.
 Customers can keep their information up-to-date and follow policy and investment documentation. 
 Financial Advisors can not only view their clients’ policies & investments, but can also view & add new product offerings. Both roles have access to live stock market integration on investment products. The application utilizes heavy API usage and is data-dense.
 
-Technologies Used: React, Javascript, CSS, HTML, Cloudinary, CanvasJS, JSON Server.
+## Technologies Used
 
-
+ ![HTML5](https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/react%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Git](https://img.shields.io/badge/git%20-%23F05033.svg?&style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white) ![JSON Server](https://img.shields.io/badge/JSON_Server%20-%232a2e2a.svg?&style=for-the-badge&logo=JSON&logoColor=white) ![Visual Studio Code](https://img.shields.io/badge/VSCode%20-%23007ACC.svg?&style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
 ## Available Scripts
 
