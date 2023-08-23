@@ -10,6 +10,7 @@ Financial Advisors can not only view their clients’ policies & investments, bu
 
 In the project directory, you can run:
 
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.\
